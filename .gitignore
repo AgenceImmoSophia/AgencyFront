@@ -11,8 +11,8 @@
 /node_modules
 
 # tour of heroes
-/src/app/heroes
-/src/app/hero.ts
+#/src/app/heroes
+#/src/app/hero.ts
 
 # profiling files
 chrome-profiler-events*.json
