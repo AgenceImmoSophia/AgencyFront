@@ -14,7 +14,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     GoodDetailComponent,
     GoodComponent,
     GoodListComponent,
-    SellFormComponent,
+  SellFormComponent,
   ],
   imports: [
     BrowserModule,
