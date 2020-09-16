@@ -16,7 +16,7 @@ export class GoodService {
   constructor(private http: HttpClient) { }
 
   public findAllGoods(): Observable<Good[]> {
-    return this.http.get<Good[]>(this.goodUrl + 'allGoods');
+    return this.http.get<Good[]>(this.goodUrl + 'goods');
   }
 
   public findGoodById(goodId: number): Observable<Good> {
@@ -24,7 +24,7 @@ export class GoodService {
   }
 
   public createGood(good: Good): Observable<Good> {
-    return this.http.post<Good>(this.goodUrl + 'createGood', good, this.httpOptions);
+    return this.http.post<Good>(this.goodUrl + 'good', good, this.httpOptions);
   }
 
   public updateGoodById(good: Good): Observable<Good> {

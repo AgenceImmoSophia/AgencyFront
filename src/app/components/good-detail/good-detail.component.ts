@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import {Good} from '../../models/good';
 
 @Component({
   selector: 'app-good-detail',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./good-detail.component.css']
 })
 export class GoodDetailComponent implements OnInit {
+
+  @Input() good: Good;
 
   constructor() { }
 
