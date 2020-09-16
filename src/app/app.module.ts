@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { GoodDetailComponent } from './components/good-detail/good-detail.component';
 import { GoodComponent } from './components/good/good.component';
 import { GoodListComponent } from './components/good-list/good-list.component';
+import {SellFormComponent} from './form/sell-form/sell-form.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,10 +14,12 @@ import { GoodListComponent } from './components/good-list/good-list.component';
     GoodDetailComponent,
     GoodComponent,
     GoodListComponent,
+    SellFormComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
