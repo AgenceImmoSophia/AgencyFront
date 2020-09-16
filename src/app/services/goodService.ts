@@ -8,7 +8,7 @@ import {Good} from '../models/good';
 )
 
 export class GoodService {
-  private goodUrl = 'http://localhost:8080/apiGood/';
+  private goodUrl = 'http://localhost:4200/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -16,22 +16,22 @@ export class GoodService {
   constructor(private http: HttpClient) { }
 
   public findAllGoods(): Observable<Good[]> {
-    return this.http.get<Good[]>(this.goodUrl + 'allGoods');
+    return this.http.get<Good[]>(this.goodUrl + '/goods');
   }
 
   public findGoodById(goodId: number): Observable<Good> {
-    return this.http.get<Good>(this.goodUrl + 'good/' + goodId);
+    return this.http.get<Good>(this.goodUrl + '/good/' + goodId);
   }
 
   public createGood(good: Good): Observable<Good> {
-    return this.http.post<Good>(this.goodUrl + 'createGood', good, this.httpOptions);
+    return this.http.post<Good>(this.goodUrl + '/good', good, this.httpOptions);
   }
 
   public updateGoodById(good: Good): Observable<Good> {
-    return this.http.put<Good>(this.goodUrl + 'good/' + good.id + '/editGood', good, this.httpOptions);
+    return this.http.put<Good>(this.goodUrl + '/good/' + good.id + '/editGood', good, this.httpOptions);
   }
 
   public deleteGoodById(goodId: number): Observable<Good> {
-    return this.http.delete<Good>(this.goodUrl + 'deleteGood/' + goodId, this.httpOptions);
+    return this.http.delete<Good>(this.goodUrl + '/good/' + goodId, this.httpOptions);
   }
 }
