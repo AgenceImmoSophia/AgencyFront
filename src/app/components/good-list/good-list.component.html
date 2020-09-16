@@ -20,6 +20,9 @@
             <td #price>{{ good.price }}</td>
             <td #address>{{ good.address }}</td>
             <td #area>{{ good.area }}</td>
+            <td>
+              <button class="btn btn-success" (click)="onDelete(good.id)">DELETE</button>
+            </td>
           </tr>
         </tbody>
       </table>

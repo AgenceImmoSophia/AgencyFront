@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Good} from '../../models/good';
 import {GoodService} from '../../services/goodService';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-good-list',
@@ -15,7 +16,7 @@ export class GoodListComponent implements OnInit {
   @Input()
   goods: Good[];
 
-  constructor(private goodService: GoodService) { }
+  constructor(private goodService: GoodService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.displayListOfGoods();
@@ -25,4 +26,6 @@ export class GoodListComponent implements OnInit {
     this.goodService.findAllGoods().subscribe((goods => this.goods = goods),
       error => console.error('There is an error', error));
   }
+
+  public onDelete()
 }
