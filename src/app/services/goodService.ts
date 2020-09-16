@@ -27,11 +27,11 @@ export class GoodService {
     return this.http.post<Good>(this.goodUrl + 'createGood', good, this.httpOptions);
   }
 
-  public updateGoodById(good: Good) {
+  public updateGoodById(good: Good): Observable<Good> {
     return this.http.put<Good>(this.goodUrl + 'good/' + good.id + '/editGood', good, this.httpOptions);
   }
 
-  public deleteGoodById(goodId: number) {
+  public deleteGoodById(goodId: number): Observable<Good> {
     return this.http.delete<Good>(this.goodUrl + 'deleteGood/' + goodId, this.httpOptions);
   }
 }
