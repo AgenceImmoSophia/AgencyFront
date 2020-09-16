@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { GoodDetailComponent } from './components/good-detail/good-detail.component';
 import { GoodComponent } from './components/good/good.component';
 import { GoodListComponent } from './components/good-list/good-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { GoodListComponent } from './components/good-list/good-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

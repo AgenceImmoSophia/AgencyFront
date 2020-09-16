@@ -9,10 +9,10 @@
           <div class="card-body">
             <div class="row">
               <div class="col">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">{{good.nameOfGood}}</h5>
               </div>
               <div class="col text-right">
-                Price
+                {{good.price}}
               </div>
             </div>
             <p class="card-text">Ici on pourra lire la description du bien. </p>
@@ -28,10 +28,10 @@
     <h5 class="card-title">Details</h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Type du bien : </li>
-    <li class="list-group-item">Ville : </li>
-    <li class="list-group-item">Dimensions : </li>
-    <li class="list-group-item">Meublé :  </li>
+    <li class="list-group-item">Type du bien : {{good.typeOfGood}} </li>
+    <li class="list-group-item">Ville : {{good.address.city}} </li>
+    <li class="list-group-item">Dimensions : {{good.area}}</li>
+    <li class="list-group-item">Meublé : </li>
   </ul>
 </div>
 
