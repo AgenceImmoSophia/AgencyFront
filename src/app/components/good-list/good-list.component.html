@@ -1,7 +1,29 @@
-<div class="card my-5">
-  <div class="card-body">
+<body>
+
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <img src="https://img.icons8.com/dusk/64/000000/raspberry.png" class="logoHome"/>
+    <a class="navbar-brand" href="/home">Home<span class="sr-only">(current)</span></a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link">Link</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link">Sign in</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+  <!----------------------------------------------------------------------->
+
+<div class="container-md">
+  <div class="card-body mb-3 mx-auto">
     <h4>LIST OF ALL GOODS</h4><br>
-      <table class="table table-bordered table-striped">
+      <table class="table table-hover">
         <thead class="thead-dark">
           <tr>
             <th scope="col">#ID</th>
@@ -14,6 +36,11 @@
         </thead>
         <tbody>
           <tr *ngFor="let good of goods">
+<!--          <tr>-->
+<!--            <th scope="row">1</th>-->
+<!--            <td>Mark</td>-->
+<!--            <td>Otto</td>-->
+<!--            <td>@mdo</td>-->
             <td #id>{{ good.id }}</td>
             <td #name>{{ good.nameOfGood }}</td>
             <td #type>{{ good.typeOfGood }}</td>
@@ -31,3 +58,7 @@
       </table>
   </div>
 </div>
+
+<footer>&copy;Agency of SA</footer>
+
+</body>

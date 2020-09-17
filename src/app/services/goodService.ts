@@ -20,8 +20,8 @@ export class GoodService {
 
   constructor(private http: HttpClient) { }
 
-  private log(message:String){
-    'GoodService: '+ message;
+  private log(message: string) {
+    'GoodService: ' + message;
   }
 
   public findAllGoods(): Observable<Good[]> {

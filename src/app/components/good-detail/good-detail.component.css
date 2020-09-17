@@ -1,6 +1,7 @@
 body {
-  background-image: url("src/home_image.jpg");
+  background: url("src/home_image.jpg") no-repeat;
   background-size: cover;
+  height: 100%;
 }
 
 footer {
@@ -13,6 +14,22 @@ footer {
 
 .logoHome {
   margin: 10px 25px 10px 20px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.nav-item {
+  margin: 1px 8px;
+  font-size: 1.1em;
+}
+
+.logoHome {
+  margin: 2px 20px;
+  height: 40px;
+  width: 40px;
 }
 
 footer {

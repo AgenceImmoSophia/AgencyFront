@@ -1,6 +1,7 @@
 body {
-  background-image: url("src/home_image.jpg");
+  background: url("src/home_image.jpg") no-repeat;
   background-size: cover;
+  height: 100%;
 }
 
 footer {
@@ -12,13 +13,19 @@ footer {
 }
 
 .logoHome {
-  margin: 10px 25px 10px 20px;
+  margin: 2px 20px;
+  height: 40px;
+  width: 40px;
 }
 
-.searchText {
-  font-style: italic;
-  padding-left: 30px;
-  padding-right: 30px;
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.nav-item {
+  margin: 1px 8px;
+  font-size: 1.1em;
 }
 
 .jumbotron {
@@ -43,4 +50,33 @@ hr {
   color: #c40000;
   background-color: #ba0101;
   border: 0;
+}
+
+.typewriter {
+  text-align: center;
+  font-size: 2rem;
+  overflow: hidden;
+  border-right: .15em solid #007bff00;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3.5s steps(30, end), blink-caret .5s step-end;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+  to {
+    width: 100%
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent
+  }
+  50% {
+    border-color: #04254a;
+    border-width: 0.1em;
+  }
 }
