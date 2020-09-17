@@ -1,1 +1,33 @@
-<p>good-list works!</p>
+<div class="card my-5">
+  <div class="card-body">
+    <h4>LIST OF ALL GOODS</h4><br>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Price</th>
+        <th scope="col">Address</th>
+        <th scope="col">Area</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let good of goods">
+        <td #id>{{ good.id }}</td>
+        <td #name>{{ good.nameOfGood }}</td>
+        <td #type>{{ good.typeOfGood }}</td>
+        <td #price>{{ good.price }}</td>
+        <td #address>{{ good.address.country + ', ' + good.address.city + ', ' + good.address.streetNber + ' ' + good.address.street}}</td>
+        <td #area>{{ good.area }}</td>
+        <td>
+          <button class="btn btn-link" [routerLink]="['edit',good.id]">DETAILS</button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="onDelete(good.id)">DELETE</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
