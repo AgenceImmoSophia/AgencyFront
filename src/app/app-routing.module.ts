@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {GoodDetailComponent} from './components/good-detail/good-detail.component';
 
 const routes: Routes = [
-  {path: 'user_details/:id', component: GoodDetailComponent}
+  {path: 'good_details/:id', component: GoodDetailComponent}
 ];
 
 @NgModule({
