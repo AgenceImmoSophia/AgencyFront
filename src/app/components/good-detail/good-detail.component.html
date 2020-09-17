@@ -21,10 +21,10 @@
   <!----------------------------------------------------------------------->
 
 <div class="container">
-    <div class="card mb-3 mx-auto" style="max-width: 540px;">
+    <div class="card mb-3 mx-auto" style="max-width: 540px">
       <div class="row no-gutters">
         <div class="col-md-4">
-          <img src="maison1.jpg" class="card-img" alt="MyHome">
+          <img src="resources/maison1.jpg" class="card-img">
         </div>
         <div class="col-md-8">
           <div class="card-body">
@@ -33,10 +33,10 @@
                 <h5 class="card-title">{{good.nameOfGood}}</h5>
               </div>
               <div class="col text-right">
-                {{good.price}}
+                <p style="font-weight: bold; font-size: larger">{{good.price}} €</p>
               </div>
             </div>
-            <p class="card-text">Ici on pourra lire la description du bien. </p>
+            <p class="card-text">Ici on pourra lire la description du bien.</p>
             <p class="card-text"><small class="text-muted">En ligne depuis :</small></p>
           </div>
         </div>
@@ -46,12 +46,12 @@
 
 <div class="card mb-3 mx-auto oneGood">
   <div class="card-header">
-    <h5 class="card-title">Details</h5>
+    <h5 class="card-title ">Details</h5>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Type du bien : {{good.typeOfGood}}</li>
     <li class="list-group-item">Ville : {{good.address.city}}</li>
-    <li class="list-group-item">Dimensions : {{good.area}}</li>
+    <li class="list-group-item">Superficie : {{good.area}} m²</li>
     <li class="list-group-item">Meublé : </li>
   </ul>
 </div>

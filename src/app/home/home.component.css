@@ -1,15 +1,7 @@
 body {
-  background: url("src/home_image.jpg") no-repeat;
+  background: url("src/resources/home_image.jpg") no-repeat;
   background-size: cover;
   height: 100%;
-}
-
-footer {
-  text-align: center;
-  color: blue;
-  font-weight: bold;
-  font-size: 1.2em;
-  font-family: "JetBrains Mono";
 }
 
 .logoHome {
@@ -29,9 +21,9 @@ footer {
 }
 
 .jumbotron {
-  background-color: #a896d975;
+  background-color: #2e328669;
   text-align: center;
-  margin: 8em 15em;
+  margin: 8em 20em;
 }
 
 .headJumbotron {
@@ -79,4 +71,12 @@ hr {
     border-color: #04254a;
     border-width: 0.1em;
   }
+}
+
+footer {
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2em;
+  font-family: "JetBrains Mono";
 }

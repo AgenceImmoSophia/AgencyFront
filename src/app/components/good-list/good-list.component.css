@@ -1,5 +1,5 @@
 body {
-  background: url("src/home_image.jpg") no-repeat;
+  background: url("src/resources/home_image.jpg") no-repeat;
   background-size: cover;
   height: 100%;
 }
@@ -20,9 +20,19 @@ body {
   font-size: 1.1em;
 }
 
+.container-md {
+  margin-top: 90px;
+  margin-bottom: 150px;
+}
+
+.thead-dark {
+  font-size: 1.1rem;
+  padding: 8px 15px;
+}
+
 footer {
   text-align: center;
-  color: blue;
+  color: black;
   font-weight: bold;
   font-size: 1.2em;
   font-family: "JetBrains Mono";
