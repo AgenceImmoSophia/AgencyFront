@@ -8,6 +8,8 @@ import { GoodDetailComponent } from './components/good-detail/good-detail.compon
 import { GoodComponent } from './components/good/good.component';
 import { GoodListComponent } from './components/good-list/good-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RentFormComponent } from './components/rent-form/rent-form.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -17,12 +19,15 @@ import { HttpClientModule } from '@angular/common/http';
     GoodDetailComponent,
     GoodComponent,
     GoodListComponent,
+    RentFormComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

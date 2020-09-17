@@ -17,8 +17,8 @@ export class GoodService {
 
   constructor(private http: HttpClient) { }
 
-  private log(message:String){
-    'GoodService: '+ message;
+  private log(message: string): void {
+    'GoodService: ' + message;
   }
 
   public findAllGoods(): Observable<Good[]> {
@@ -43,12 +43,17 @@ export class GoodService {
     return this.http.delete<Good>(this.goodUrl + 'deleteGood/' + goodId, this.httpOptions);
   }
 
+  public generateCode(goodCode: string): Observable<Good> {
+    return this.http.get<Good>(this.goodUrl + 'goods/$' + goodCode, this.httpOptions);
+  }
+
   /**
  * Handle Http operation that failed.
  * Let the app continue.
  * @param operation - name of the operation that failed
  * @param result - optional value to return as the observable result
  */
+
 private handleError<T>(operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {
 

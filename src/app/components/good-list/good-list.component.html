@@ -10,6 +10,7 @@
         <th scope="col">Price</th>
         <th scope="col">Address</th>
         <th scope="col">Area</th>
+        <th scope="col">GoodCode</th>
       </tr>
       </thead>
       <tbody>
@@ -20,13 +21,15 @@
         <td #price>{{ good.price }}</td>
         <td #address>{{ good.address.country + ', ' + good.address.city + ', ' + good.address.streetNber + ' ' + good.address.street}}</td>
         <td #area>{{ good.area }}</td>
+        <td #goodCode>{{ good.code }}</td>
         <td>
-          <button class="btn btn-link" [routerLink]="['edit',good.id]">DETAILS</button>
+          <button class="btn btn-link" [routerLink]="['good_details/:', good.id]">DETAILS</button>
         </td>
         <td>
           <button class="btn btn-danger" (click)="onDelete(good.id)">DELETE</button>
         </td>
       </tr>
+      <button class="btn-outline-primary" (click)="goToHomePage()">Return Home</button>
       </tbody>
     </table>
   </div>
