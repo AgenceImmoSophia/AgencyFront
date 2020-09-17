@@ -35,3 +35,12 @@ footer {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+hr {
+  height: 1px;
+  margin: -0.5em 0;
+  padding: 0;
+  color: #c40000;
+  background-color: #ba0101;
+  border: 0;
+}
