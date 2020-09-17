@@ -1,0 +1,25 @@
+<form [formGroup]="formGood" (ngSubmit)="onSubmit()" >
+  <label >
+    Name of good :
+    <input type="text" formControlName="nameOfGood">
+  </label>
+  <label >
+    Type of good:
+    <input type="text" formControlName="typeOfGood">
+  </label>
+  <label >
+    Price :
+    <input type="number" formControlName="price">
+  </label>
+  <label >
+    Area :
+    <input type="number" formControlName="area">
+  </label>
+  <label >
+    Status :
+    <input type="text" formControlName="status">
+  </label>
+  <button type="submit" [disabled]="!formGood.valid">Submit</button>
+</form>
+
+
