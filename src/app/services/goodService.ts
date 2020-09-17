@@ -9,9 +9,6 @@ import {Good} from '../models/good';
 
 export class GoodService {
   private goodUrl = 'http://localhost:8080/';
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
 
   constructor(private http: HttpClient) { }
 
@@ -28,11 +25,11 @@ export class GoodService {
  // }
 
   public updateGoodById(good: Good): Observable<Good> {
-    return this.http.put<Good>(this.goodUrl + 'good/' + good.id + '/editGood', good, this.httpOptions);
+    return this.http.put<Good>(this.goodUrl + 'good/' + good.id + '/editGood', good);
   }
 
   public deleteGoodById(goodId: number): Observable<Good> {
-    return this.http.delete<Good>(this.goodUrl + 'deleteGood/' + goodId, this.httpOptions);
+    return this.http.delete<Good>(this.goodUrl + 'deleteGood/' + goodId);
   }
 
   public createGood(placeForm: FormData): Observable<Good>{

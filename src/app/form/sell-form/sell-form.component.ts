@@ -30,6 +30,7 @@ selectedType = TypeOfGood;
   ngOnInit(): void {
     this.placeForm = this.fb.group({
       type: ['', Validators.required],
+      name: ['', Validators.required],
       city: ['', Validators.required],
       zipcode: ['', Validators.required],
       streetnumber: ['', Validators.required],
@@ -41,7 +42,8 @@ selectedType = TypeOfGood;
   }
   onSubmit(): any {
     const placeForm = new FormData();
-    placeForm.append('type', this.good.type);
+    placeForm.append('type', this.good.typeOfGood);
+    placeForm.append('name', this.good.nameOfGood);
     placeForm.append('city', this.address.city);
     placeForm.append('zipcode', this.address.zipcode);
     placeForm.append('streetnumber', this.address.streetNber);
