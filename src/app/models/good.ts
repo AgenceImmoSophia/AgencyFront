@@ -4,7 +4,7 @@ import {TypeOfGood} from './typeOfGood';
 export class Good {
   id: number;
   nameOfGood: string;
-  typeOfGood: TypeOfGood;
+  type: string;
   price: number;
   address: Address;
   area: number;
