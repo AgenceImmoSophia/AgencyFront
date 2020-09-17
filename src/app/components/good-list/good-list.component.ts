@@ -27,5 +27,8 @@ export class GoodListComponent implements OnInit {
       error => console.error('There is an error', error));
   }
 
-  public onDelete()
+  public onDelete(goodId: number): void {
+    this.goodService.deleteGoodById(goodId).subscribe((result => this.displayListOfGoods()),
+      error => console.error('There are an error', error));
+  }
 }

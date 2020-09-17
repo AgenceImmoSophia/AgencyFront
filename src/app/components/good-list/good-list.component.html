@@ -18,10 +18,13 @@
             <td #name>{{ good.nameOfGood }}</td>
             <td #type>{{ good.typeOfGood }}</td>
             <td #price>{{ good.price }}</td>
-            <td #address>{{ good.address }}</td>
+            <td #address>{{ good.address.country + ', ' + good.address.city + ', ' + good.address.streetNber + ' ' + good.address.street}}</td>
             <td #area>{{ good.area }}</td>
             <td>
-              <button class="btn btn-success" (click)="onDelete(good.id)">DELETE</button>
+              <button class="btn btn-link" [routerLink]="['edit',good.id]">DETAILS</button>
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="onDelete(good.id)">DELETE</button>
             </td>
           </tr>
         </tbody>
