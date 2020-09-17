@@ -10,6 +10,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 )
 
 export class GoodService {
+
+  public good: Good;
+
   private goodUrl = 'http://localhost:8080/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -40,7 +43,7 @@ export class GoodService {
   }
 
   public deleteGoodById(goodId: number): Observable<Good> {
-    return this.http.delete<Good>(this.goodUrl + 'deleteGood/' + goodId, this.httpOptions);
+    return this.http.delete<Good>(this.goodUrl + 'good/' + goodId, this.httpOptions);
   }
 
   /**
