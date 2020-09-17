@@ -1,3 +1,37 @@
 body {
   background-image: url("src/home_image.jpg");
+  background-size: cover;
+}
+
+footer {
+  text-align: center;
+  color: blue;
+  font-weight: bold;
+  font-size: 1.2em;
+  font-family: "JetBrains Mono";
+}
+
+.logoHome {
+  margin: 10px 25px 10px 20px;
+}
+
+.searchText {
+  font-style: italic;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.jumbotron {
+  background-color: #a896d975;
+  text-align: center;
+  margin: 8em 15em;
+}
+
+.headJumbotron {
+  font-style: italic;
+}
+
+.btnGroup {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
