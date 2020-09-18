@@ -1,0 +1,82 @@
+body {
+  background: url("src/resources/home_image.jpg") no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.logoHome {
+  margin: 2px 20px;
+  height: 40px;
+  width: 40px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.nav-item {
+  margin: 1px 8px;
+  font-size: 1.1em;
+}
+
+.jumbotron {
+  background-color: #2e328669;
+  text-align: center;
+  margin: 8em 20em;
+}
+
+.headJumbotron {
+  font-style: italic;
+}
+
+.btnGroup {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+hr {
+  height: 1px;
+  margin: -0.5em 0;
+  padding: 0;
+  color: #c40000;
+  background-color: #ba0101;
+  border: 0;
+}
+
+.typewriter {
+  text-align: center;
+  font-size: 2rem;
+  overflow: hidden;
+  border-right: .15em solid #007bff00;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3.5s steps(30, end), blink-caret .5s step-end;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+  to {
+    width: 100%
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent
+  }
+  50% {
+    border-color: #04254a;
+    border-width: 0.1em;
+  }
+}
+
+footer {
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2em;
+  font-family: "JetBrains Mono";
+}
