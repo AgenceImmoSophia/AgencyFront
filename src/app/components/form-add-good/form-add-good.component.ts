@@ -53,7 +53,7 @@ onSubmit() {
   this.address.street = this.formGood.value.street;
   this.address.zipcode = this.formGood.value.zipcode;
 
-  this.good.address = null;
+  this.good.address = this.address;
 
 
   this.goodService.createGood(this.good);
