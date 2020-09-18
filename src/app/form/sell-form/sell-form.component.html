@@ -1,10 +1,33 @@
+<body>
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <img src="https://img.icons8.com/dusk/64/000000/raspberry.png" class="logoHome"/>
+    <a class="navbar-brand" href="/home">Home<span class="sr-only">(current)</span></a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <!-- LIEN VERS UN SEUL BIEN : à mettre sur la page de la liste de biens ! -->
+        <a routerLink="/good_details/1" class="nav-link">Dashboard</a>
+      </li>
+      <li class="nav-item active">
+        <a routerLink="/goods" class="nav-link">List of goods</a>
+      </li>
+      <li class="nav-item active">
+        <a routerLink="/sell" class="nav-link"> Sell a good</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link">Sign in</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 <section id="form">
 
   <div>
     <div class="container" >
-      <div class="col text-center">
-      <h1 class="text-area"> Sell a good</h1>
-      </div>
       <div class="row">
 
 <form class="col text-center" method="post" enctype="multipart/form-data" (ngSubmit)="onSubmit();placeForm.reset()"
@@ -47,6 +70,7 @@
      *ngIf="placeForm.get('name').invalid && (placeForm.get('name').dirty || placeForm.get('name').touched)">
   Name is required
 </div>
+
         <label for="city"> City</label>
         <input type="text" class="form-control" name="city" id="city" formControlName="city" [(ngModel)]="address.city">
         <div class="alert alert-danger"
@@ -104,9 +128,11 @@
 
     </div>
 </form>
+
       </div>
     </div>
 
   </div>
-
 </section>
+<footer class="col text-center">&copy;Agency of SA</footer>
+</body>
