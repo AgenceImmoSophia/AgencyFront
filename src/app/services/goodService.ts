@@ -47,9 +47,6 @@ export class GoodService {
     return this.http.delete<Good>(this.goodUrl + 'good/' + goodId, this.httpOptions);
   }
 
-  public generateCode(good: Good): Observable<Good> {
-    return this.http.get<Good>(this.goodUrl + 'goods/$' + good.code, this.httpOptions);
-  }
   /**
  * Handle Http operation that failed.
  * Let the app continue.

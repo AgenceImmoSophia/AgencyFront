@@ -1,6 +1,6 @@
 <div class="card my-5">
   <div class="card-body">
-    <form [formGroup] ="rentForm" novalidate>
+    <form [formGroup] ="rentForm" novalidate (ngSubmit)="onSubmit()">
 
       <div class="form-group">
         <label class="col-md-4">City :</label>
@@ -17,22 +17,22 @@
 
       <div class="form-group">
         <h5>Select your desired type of goods</h5>
-        <select name="choice">
-          <option formControlName="house" id="house" class="form-control-sm">House</option>
-          <option formControlName="apartment" id="apartment" class="form-control-sm">Apartment</option>
-          <option formControlName="studio" id="studio" class="form-control-sm">Studio</option>
-          <option formControlName="storage" id="storage" class="form-control-sm">Storage</option>
-          <option formControlName="office" id="office" class="form-control-sm">Office</option>
-          <option formControlName="shop" id="shop" class="form-control-sm">Shop</option>
+        <select name="typeOfGood" formGroupName="typeOfGood">
+          <option><input formControlName="house" id="house" class="form-control-sm"/>House</option>
+          <option><input formControlName="apartment" id="apartment" class="form-control-sm"/>Apartment</option>
+          <option><input formControlName="studio" id="studio" class="form-control-sm"/>Studio</option>
+          <option><input formControlName="storage" id="storage" class="form-control-sm"/>Storage</option>
+          <option><input formControlName="office" id="office" class="form-control-sm"/>Office</option>
+          <option><input formControlName="shop" id="shop" class="form-control-sm"/>Shop</option>
         </select>
       </div>
 
       <div class="form-group">
         <h5>Select your desired status of goods</h5>
-        <select name="choice">
-          <option formControlName="toSell" id="toSell" class="form-control-sm">To Sell</option>
-          <option formControlName="toRent" id="toRent" class="form-control-sm">To Rent</option>
-          <option formControlName="notAvailable" id="notAvailable" class="form-control-sm">NotAvailable</option>
+        <select name="statusOfGood" formGroupName="statusOfGood">
+          <option><input formControlName="toSell" id="toSell" class="form-control-sm"/>To Sell</option>
+          <option><input formControlName="toRent" id="toRent" class="form-control-sm"/>To Rent</option>
+          <option><input formControlName="notAvailable" id="notAvailable" class="form-control-sm"/>NotAvailable</option>
         </select>
       </div>
 
@@ -70,7 +70,7 @@
       <div *ngIf="rentForm.controls['dateAvailability'].invalid && (rentForm.controls['dateAvailability'].dirty || rentForm.controls['dateAvailability'].touched)" class="alert alert-danger">Availability date is required
         <div *ngIf="rentForm.controls['releaseDate'].errors.required"></div>
       </div>
-      <button type="submit" class="btn btn-info" (click)="goToFilteredGoodsList()">Submit</button>
+      <button type="submit" class="btn btn-info">Submit</button>
     </form>
   </div>
 </div>
