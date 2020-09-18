@@ -21,7 +21,7 @@ export class GoodService {
     return this.http.get<Good>(url);
   }
   public updateGoodById(good: Good): Observable<Good> {
-    return this.http.put<Good>(this.goodUrl + 'good/' + good.id + '/editGood', good, this.httpOptions);
+    return this.http.put<Good>(this.goodUrl + 'good/' + good.id + '/editGood', good);
   }
 
   public deleteGoodById(goodId: number): Observable<Good> {
@@ -31,8 +31,6 @@ export class GoodService {
   public createGood( good: Good){
     console.log('cc petite peruche');
     return this.http.post<Good>(this.goodUrl + 'good', good).subscribe(value => console.log(value));
-
-    return this.http.delete<Good>(this.goodUrl + 'good/' + goodId, this.httpOptions);
   }
 
   /**
@@ -41,7 +39,7 @@ export class GoodService {
  * @param operation - name of the operation that failed
  * @param result - optional value to return as the observable result
  */
-private handleError<T>(operation = 'operation', result?: T) {
+/* private handleError<T>(operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {
 
     // TODO: send the error to remote logging infrastructure
@@ -53,5 +51,5 @@ private handleError<T>(operation = 'operation', result?: T) {
     // Let the app keep running by returning an empty result.
     return of(result as T);
   };
-  }
+*/
 }
