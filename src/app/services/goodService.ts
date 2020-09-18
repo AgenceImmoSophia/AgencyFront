@@ -27,8 +27,12 @@ export class GoodService {
 
   public findGoodById(id: number): Observable<Good> {
     const url = `${this.goodUrl}/good/${id}`;
-    return this.http.get<Good>(url)
-    ;
+    return this.http.get<Good>(url);
+  }
+
+  public findGoodByCode(goodCode: string): Observable<Good> {
+    const url = `${this.goodUrl}/good/${goodCode}`;
+    return this.http.get<Good>(url);
   }
 
   public createGood(good: Good): Observable<Good> {
@@ -40,13 +44,12 @@ export class GoodService {
   }
 
   public deleteGoodById(goodId: number): Observable<Good> {
-    return this.http.delete<Good>(this.goodUrl + 'deleteGood/' + goodId, this.httpOptions);
+    return this.http.delete<Good>(this.goodUrl + 'good/' + goodId, this.httpOptions);
   }
 
-  public generateCode(goodCode: string): Observable<Good> {
-    return this.http.get<Good>(this.goodUrl + 'goods/$' + goodCode, this.httpOptions);
+  public generateCode(good: Good): Observable<Good> {
+    return this.http.get<Good>(this.goodUrl + 'goods/$' + good.code, this.httpOptions);
   }
-
   /**
  * Handle Http operation that failed.
  * Let the app continue.
@@ -54,7 +57,7 @@ export class GoodService {
  * @param result - optional value to return as the observable result
  */
 
-private handleError<T>(operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {
 
     // TODO: send the error to remote logging infrastructure

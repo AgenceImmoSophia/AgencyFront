@@ -21,7 +21,6 @@ export class GoodDetailComponent implements OnInit {
 
   getGood(): void{
     const id = +this.route.snapshot.paramMap.get('id');
-    this.goodService.findGoodById(id).subscribe(good => this.good=good);
+    this.goodService.findGoodById(id).subscribe(good => this.good = good);
   }
-
 }

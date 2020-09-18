@@ -7,6 +7,7 @@
         <th scope="col">#ID</th>
         <th scope="col">Name</th>
         <th scope="col">Type</th>
+        <th scope="col">Status</th>
         <th scope="col">Price</th>
         <th scope="col">Address</th>
         <th scope="col">Area</th>
@@ -18,6 +19,7 @@
         <td #id>{{ good.id }}</td>
         <td #name>{{ good.nameOfGood }}</td>
         <td #type>{{ good.typeOfGood }}</td>
+        <td #type>{{ good.status }}</td>
         <td #price>{{ good.price }}</td>
         <td #address>{{ good.address.country + ', ' + good.address.city + ', ' + good.address.streetNber + ' ' + good.address.street}}</td>
         <td #area>{{ good.area }}</td>

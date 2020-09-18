@@ -15,34 +15,34 @@ export class RentFormComponent implements OnInit {
   address: Address;
   good: Good;
   goods: Good[];
-  goodCode: string;
-  angForm: FormGroup;
+  goodToSearch: Good;
+  rentForm: FormGroup;
 
   constructor(private goodService: GoodService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) {
     this.createForm();
   }
 
   ngOnInit(): void {
-    this.goodCode = this.route.snapshot.paramMap.get('goodCode');
   }
 
   public createForm(): void {
-    this.angForm = this.fb.group({
+    this.rentForm = this.fb.group({
       city: ['', Validators.required],
       typeOfGood: ['', Validators.required],
-      minPrice: ['', Validators.required],
-      maxPrice: ['', Validators.required],
+      status: ['', Validators.required],
+      price: ['', Validators.required],
       area: ['', Validators.required],
       dateAvailability: ['', Validators.required]
     });
   }
 
   public onSubmit(): void {
-    this.goodService.generateCode(this.goodCode).subscribe((result => this.goToFilteredGoodsList()),
+    this.goodService.generateCode(this.goodToSearch).subscribe((result => this.findGoodByCode()),
       error => console.error('There are an error!', error));
   }
 
-  goToFilteredGoodsList(): void {
-    this.router.navigate(['../goods']);
-  }
+  public findGoodByCode(): void {
+    this.goodService.findGoodByCode(this.goodToSearch.code).subscribe(good => this.good = good);
+    this.router.navigate(['../goods/:' + this.goodToSearch.code]);
+}
 }

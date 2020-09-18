@@ -1,8 +1,7 @@
 export enum TypeOfGood {
-  '',
   HOUSE,
   APARTMENT,
-  STUDIOS,
+  STUDIO,
   STORAGE,
   OFFICE,
   SHOP

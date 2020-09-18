@@ -1,6 +1,6 @@
 <div class="card my-5">
   <div class="card-body">
-    <form [formGroup] ="angForm" novalidate>
+    <form [formGroup] ="rentForm" novalidate>
 
       <div class="form-group">
         <label class="col-md-4">City :</label>
@@ -9,105 +9,54 @@
                #city
                placeholder="Enter City here"
                required id="city"
-               class="form-control">
+               class="form-control"/>
       </div>
-      <div *ngIf="angForm.controls['city'].invalid && (angForm.controls['city'].dirty || angForm.controls['city'].touched)" class="alert alert-danger">City is required
-        <div *ngIf="angForm.controls['city'].errors.required"></div>
-      </div>
-
-      <div class="form-group">
-        <h5>Select your desired types of goods</h5>
-        <tr>
-          <th>
-        <label class="form-inline" for="house">House</label><br/>
-          </th>
-          <th>
-            <label class="form-inline" for="apartment">Apartment</label><br/>
-          </th>
-          <th>
-            <label class="form-inline" for="studio">Studio</label><br/>
-          </th>
-          <th>
-            <label class="form-inline" for="storage">Storage</label><br/>
-          </th>
-          <th>
-            <label class="form-inline" for="office">Office</label><br/>
-          </th>
-          <th>
-            <label class="form-inline" for="shop">Shop</label><br/>
-          </th>
-        </tr>
-
-        <tr>
-          <td>
-        <input type="checkbox"
-               formControlName="house"
-               #house
-               required id="house"
-               class="form-control-lg">
-          </td>
-          <td>
-        <input type="checkbox"
-               formControlName="apartment"
-               #apartment
-               required id="apartment"
-               class="form-control-lg">
-          </td>
-          <td>
-            <input type="checkbox"
-                   formControlName="studio"
-                   #studio
-                   required id="studio"
-                   class="form-control-lg">
-          </td>
-          <td>
-            <input type="checkbox"
-                   formControlName="storage"
-                   #storage
-                   required id="storage"
-                   class="form-control-lg">
-          </td>
-          <td>
-            <input type="checkbox"
-                   formControlName="office"
-                   #office
-                   required id="office"
-                   class="form-control-lg">
-          </td>
-          <td>
-            <input type="checkbox"
-                   formControlName="shop"
-                   #shop
-                   required id="shop"
-                   class="form-control-lg">
-          </td>
-        </tr>
+      <div *ngIf="rentForm.controls['city'].invalid && (rentForm.controls['city'].dirty || rentForm.controls['city'].touched)" class="alert alert-danger">City is required
+        <div *ngIf="rentForm.controls['city'].errors.required"></div>
       </div>
 
       <div class="form-group">
-        <label for="priceMin">Price min:</label><br/>
-        <input type="number" min="0" step="0.01"
-               formControlName="priceMin"
-               #priceMin
-               placeholder="Enter a minimum price"
-               required id="priceMin"
-               class="form-control">
-      </div>
-      <div *ngIf="angForm.controls['priceMin'].invalid && (angForm.controls['priceMin'].dirty || angForm.controls['priceMin'].touched)" class="alert alert-danger">Min price is required
-        <div *ngIf="angForm.controls['priceMin'].errors.required"></div>
+        <h5>Select your desired type of goods</h5>
+        <select name="choice">
+          <option formControlName="house" id="house" class="form-control-sm">House</option>
+          <option formControlName="apartment" id="apartment" class="form-control-sm">Apartment</option>
+          <option formControlName="studio" id="studio" class="form-control-sm">Studio</option>
+          <option formControlName="storage" id="storage" class="form-control-sm">Storage</option>
+          <option formControlName="office" id="office" class="form-control-sm">Office</option>
+          <option formControlName="shop" id="shop" class="form-control-sm">Shop</option>
+        </select>
       </div>
 
       <div class="form-group">
-        <label for="priceMax">Price max:</label><br/>
-        <input type="number" min="1" step="0.01"
-               formControlName="priceMax"
-               #priceMax
-               placeholder="Enter a maximum price"
-               required id="priceMax"
+        <h5>Select your desired status of goods</h5>
+        <select name="choice">
+          <option formControlName="toSell" id="toSell" class="form-control-sm">To Sell</option>
+          <option formControlName="toRent" id="toRent" class="form-control-sm">To Rent</option>
+          <option formControlName="notAvailable" id="notAvailable" class="form-control-sm">NotAvailable</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price :</label><br/>
+        <input type="number" min="1" step="1"
+               formControlName="price"
+               #price
+               placeholder="Enter a desired price"
+               required id="price"
                class="form-control">
       </div>
-      <div *ngIf="angForm.controls['priceMax'].invalid && (angForm.controls['priceMax'].dirty || angForm.controls['priceMax'].touched)" class="alert alert-danger">Max price is required
-        <div *ngIf="angForm.controls['priceMax'].errors.required"></div>
+      <div *ngIf="rentForm.controls['price'].invalid && (rentForm.controls['price'].dirty || rentForm.controls['price'].touched)" class="alert alert-danger">Price is required
+        <div *ngIf="rentForm.controls['price'].errors.required"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="area">Desired Area:</label><br/>
+        <input type="number" min="1" step="0.5"
+               formControlName="area"
+               #area
+               placeholder="Enter a desired area"
+               required id="area"
+               class="form-control">
       </div>
 
       <div class="form-group">
@@ -118,6 +67,11 @@
                required id="dateAvailability"
                class="form-control">
       </div>
-      <div *ngIf="angForm.controls['dateAvailability'].invalid && (angForm.controls['dateAvailability'].dirty || angForm.controls['dateAvailability'].touched)" class="alert alert-danger">Availability date is required
-        <div *ngIf="angForm.controls['releaseDate'].errors.required"></div>
+      <div *ngIf="rentForm.controls['dateAvailability'].invalid && (rentForm.controls['dateAvailability'].dirty || rentForm.controls['dateAvailability'].touched)" class="alert alert-danger">Availability date is required
+        <div *ngIf="rentForm.controls['releaseDate'].errors.required"></div>
       </div>
+      <button type="submit" class="btn btn-info" (click)="goToFilteredGoodsList()">Submit</button>
+    </form>
+  </div>
+</div>
+<router-outlet></router-outlet>
