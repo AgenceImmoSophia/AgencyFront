@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 
 import { HomeComponent } from './home/home.component';
 import { GoodDetailComponent } from './components/good-detail/good-detail.component';
-import { GoodComponent } from './components/good/good.component';
 import { GoodListComponent } from './components/good-list/good-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormContractComponent } from './components/form-contract/form-contract.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,14 +16,15 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HomeComponent,
     GoodDetailComponent,
-    GoodComponent,
     GoodListComponent,
+    FormContractComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

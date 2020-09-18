@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GoodComponent } from './good.component';
+import { FormContractComponent } from './form-contract.component';
 
-describe('GoodComponent', () => {
-  let component: GoodComponent;
-  let fixture: ComponentFixture<GoodComponent>;
+describe('FormContractComponent', () => {
+  let component: FormContractComponent;
+  let fixture: ComponentFixture<FormContractComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GoodComponent ]
+      declarations: [ FormContractComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GoodComponent);
+    fixture = TestBed.createComponent(FormContractComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -13,7 +13,7 @@ export class GoodService {
 
   public good: Good;
 
-  private goodUrl = 'http://localhost:8080/AgencyBack/';
+  private goodUrl = 'http://localhost:8080/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -34,8 +34,9 @@ export class GoodService {
     ;
   }
 
-  public createGood(good: Good): Observable<Good> {
-    return this.http.post<Good>(this.goodUrl + 'good', good, this.httpOptions);
+  public createGood(good: Good){
+    return this.http.post<Good>(this.goodUrl + 'good', good, this.httpOptions).subscribe(value => {
+      console.log(value)});
   }
 
   public updateGoodById(good: Good): Observable<Good> {

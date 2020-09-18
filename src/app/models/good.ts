@@ -8,4 +8,6 @@ export class Good {
   price: number;
   address: Address;
   area: number;
+
+  constructor(){}
 }
