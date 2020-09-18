@@ -32,9 +32,9 @@ export class GoodService {
     return this.http.delete<Good>(this.goodUrl + 'deleteGood/' + goodId);
   }
 
-  public createGood(placeForm: FormData): Observable<Good>{
+  public createGood( good: Good){
     console.log('cc petite peruche');
-    return this.http.post<Good>(this.goodUrl + 'good', placeForm);
+    return this.http.post<Good>(this.goodUrl + 'good', good).subscribe(value => console.log(value));
 
   }
 }
