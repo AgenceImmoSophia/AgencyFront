@@ -6,7 +6,7 @@ import { GoodDetailComponent } from './components/good-detail/good-detail.compon
 import { GoodComponent } from './components/good/good.component';
 import { GoodListComponent } from './components/good-list/good-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormAddGoodComponent } from './form-add-good/form-add-good.component';
+import { FormAddGoodComponent } from './components/form-add-good/form-add-good.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({

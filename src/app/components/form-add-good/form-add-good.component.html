@@ -1,0 +1,75 @@
+<form [formGroup]="formGood" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label for="nameOfGood">
+      Nom du bien:
+    </label>
+    <input id="nameOfGood" type="text" formControlName="nameOfGood">
+  </div>
+  <div>
+    <label for="typeOfGood">
+      Type de bien :
+    </label>
+    <input id="typeOfGood" type="text" formControlName="typeOfGood">
+  </div>
+  <div>
+    <label for="price">
+      Prix:
+    </label>
+    <input id="price" type="number" formControlName="price">
+  </div>
+  <div>
+    <label for="area">
+      Superficie
+    </label>
+    <input id="area" type="number" formControlName="area">
+  </div>
+  <div>
+    <label for="status">
+      Status :
+    </label>
+    <input id="status" type="text" formControlName="status">
+  </div>
+  <div>
+    Adresse :
+    <div>
+      <label for="city">
+        Ville :
+      </label>
+      <input id="city" type="text" formControlName="city">
+    </div>
+    <div>
+      <label for="zipcode">
+        Code postal :
+      </label>
+      <input id="zipcode" type="text" formControlName="zipcode">
+    </div>
+    <div>
+      <label for="streetNber">
+        Numéro :
+      </label>
+      <input id="streetNber" type="text" formControlName="streetNber">
+    </div>
+    <div>
+      <label for="street">
+        Rue :
+      </label>
+      <input id="street" type="text" formControlName="street">
+    </div>
+    <div>
+      <label for="country">
+        Pays :
+      </label>
+      <input id="country" type="text" formControlName="country">
+    </div>
+  </div>
+  <div>
+    <label for="owner">
+      Propriétaire :
+    </label>
+    <input id="owner" type="text" formControlName="owner">
+  </div>
+
+  <button class="button" type="submit">Ajouter</button>
+
+</form>
