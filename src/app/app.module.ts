@@ -11,6 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormContractComponent} from './components/form-contract/form-contract.component'
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { ContractDetailsComponent } from './contract-details/contract-details.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
     SellFormComponent,
     NavbarComponent,
     SignInComponent,
+    ContractDetailsComponent,
   ],
   imports: [
     BrowserModule,

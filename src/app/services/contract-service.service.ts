@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Contract } from '../models/contract';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -20,5 +21,9 @@ export class ContractService {
     return this.http.post<Contract>(this.goodUrl + 'createContract', contract, this.httpOptions).subscribe(value => {
       console.log(value)}
       );
+  }
+
+  findContractById(id:number): Observable<Contract> {
+    return this.http.get<Contract>(this.goodUrl + 'contract/' + id);
   }
 }
