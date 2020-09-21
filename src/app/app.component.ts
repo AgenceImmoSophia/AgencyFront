@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Good} from './models/good';
 
 @Component({
   selector: 'app-root',

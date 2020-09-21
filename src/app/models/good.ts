@@ -11,4 +11,7 @@ export class Good {
   address: Address;
   area: number;
   code: string;
+
+  constructor() {
+  }
 }

@@ -59,19 +59,10 @@
                class="form-control">
       </div>
 
-      <div class="form-group">
-        <label for="dateAvailability">Availability Date:</label><br/>
-        <input type="date"
-               formControlName="dateAvailability"
-               #availabilityDate
-               required id="dateAvailability"
-               class="form-control">
+      <div *ngIf="rentForm.controls['area'].invalid && (rentForm.controls['area'].dirty || rentForm.controls['area'].touched)" class="alert alert-danger">Area is required
+        <div *ngIf="rentForm.controls['area'].errors.required"></div>
       </div>
-      <div *ngIf="rentForm.controls['dateAvailability'].invalid && (rentForm.controls['dateAvailability'].dirty || rentForm.controls['dateAvailability'].touched)" class="alert alert-danger">Availability date is required
-        <div *ngIf="rentForm.controls['releaseDate'].errors.required"></div>
-      </div>
-      <button type="submit" class="btn btn-info">Submit</button>
+      <button type="submit" class="btn btn-info" id="searchForRent">Submit</button>
     </form>
   </div>
 </div>
-<router-outlet></router-outlet>

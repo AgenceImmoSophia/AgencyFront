@@ -30,11 +30,6 @@ export class GoodService {
     return this.http.get<Good>(url);
   }
 
-  public findGoodByCode(goodCode: string): Observable<Good> {
-    const url = `${this.goodUrl}/good/${goodCode}`;
-    return this.http.get<Good>(url);
-  }
-
   public createGood(good: Good): Observable<Good> {
     return this.http.post<Good>(this.goodUrl + 'good', good, this.httpOptions);
   }
