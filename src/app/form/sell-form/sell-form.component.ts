@@ -10,6 +10,7 @@ import {TypeOfGood} from '../../models/typeOfGood';
 import {Status} from '../../models/status';
 
 
+
 @Component({
   selector: 'app-sell-form',
   templateUrl: './sell-form.component.html',
@@ -26,7 +27,7 @@ selectedType = TypeOfGood;
 selectedStatus = Status;
 
 
-  constructor( private http: HttpClient, private fb: FormBuilder, private goodService: GoodService) {
+  constructor( private http: HttpClient, private fb: FormBuilder, private goodService: GoodService, private router: Router ) {
     this.typeEnum = Object.keys(this.selectedType).filter(k => typeof TypeOfGood[k as any] === 'string');
     this.typeEnumStatus = Object.keys(this.selectedStatus).filter(k => typeof Status [k as any] === 'string');
   }
@@ -62,6 +63,7 @@ selectedStatus = Status;
     console.warn(this.placeForm.value);
     console.log(this.good);
     console.log(this.address);
+    this.router.navigate(['/goods']);
 
   }
 
