@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'goods', component: GoodListComponent },
   { path: 'contractform', component: FormContractComponent},
   {path: 'sell', component: SellFormComponent},
+
 ];
 
 @NgModule({
