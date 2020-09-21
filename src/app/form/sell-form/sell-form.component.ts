@@ -53,7 +53,6 @@ selectedStatus = Status;
     placeForm.append('type', this.good.typeOfGood);
     placeForm.append('status', this.good.status);
     placeForm.append('name', this.good.nameOfGood);
-    placeForm.append('owner', this.owner.name);
     placeForm.append('city', this.address.city);
     placeForm.append('zipcode', this.address.zipcode);
     placeForm.append('streetnumber', this.address.streetNber);
@@ -62,13 +61,15 @@ selectedStatus = Status;
     placeForm.append('price', JSON.stringify( this.good.price));
     placeForm.append('area', JSON.stringify(this.good.area));
     this.good.address = this.address;
-    this.good.owner = this.owner;
     this.goodService.createGood(this.good);
     console.warn(this.placeForm.value);
     console.log(this.good);
     console.log(this.address);
- //   this.router.navigate(['/good_details/', this.good.id]);
-
+    console.log(this.good.id);
+    this.router.navigate(['goods']);
   }
+//  redirect(): void{
+//    this.router.navigate(['/good_details/', this.good.id]);
+//  }
 
 }
