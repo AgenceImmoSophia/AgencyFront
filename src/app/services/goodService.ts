@@ -8,7 +8,13 @@ import {Good} from '../models/good';
 )
 
 export class GoodService {
+
+  public good: Good;
+
   private goodUrl = 'http://localhost:8080/';
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(private http: HttpClient) { }
 
@@ -17,9 +23,15 @@ export class GoodService {
   }
 
   public findGoodById(id: number): Observable<Good> {
-    const url = `${this.goodUrl}/good/${id}`;
+    const url = `${this.goodUrl}good/${id}`;
     return this.http.get<Good>(url);
   }
+
+  public createGood(good: Good){
+    return this.http.post<Good>(this.goodUrl + 'good', good, this.httpOptions).subscribe(value => {
+      console.log(value)});
+  }
+
   public updateGoodById(good: Good): Observable<Good> {
     return this.http.put<Good>(this.goodUrl + 'good/' + good.id + '/editGood', good);
   }
@@ -28,10 +40,7 @@ export class GoodService {
     return this.http.delete<Good>(this.goodUrl + 'deleteGood/' + goodId);
   }
 
-  public createGood( good: Good){
-    console.log('cc petite peruche');
-    return this.http.post<Good>(this.goodUrl + 'good', good).subscribe(value => console.log(value));
-  }
+
 
   /**
  * Handle Http operation that failed.
