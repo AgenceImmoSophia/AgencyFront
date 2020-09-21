@@ -8,6 +8,7 @@ import {Address} from '../../models/address';
 import {Observable} from 'rxjs';
 import {TypeOfGood} from '../../models/typeOfGood';
 import {Status} from '../../models/status';
+import {Owner} from '../../models/owner';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class SellFormComponent implements OnInit {
 good = new Good ();
 placeForm: FormGroup;
 address = new Address();
+owner = new Owner();
 public typeEnum = [];
 public typeEnumStatus = [];
 selectedType = TypeOfGood;
@@ -36,6 +38,7 @@ selectedStatus = Status;
       type: ['', Validators.required],
       status: ['', Validators.required],
       name: ['', Validators.required],
+      owner: ['', Validators.required],
       city: ['', Validators.required],
       zipcode: ['', Validators.required],
       streetnumber: ['', Validators.required],
@@ -50,6 +53,7 @@ selectedStatus = Status;
     placeForm.append('type', this.good.typeOfGood);
     placeForm.append('status', this.good.status);
     placeForm.append('name', this.good.nameOfGood);
+    placeForm.append('owner', this.owner.name);
     placeForm.append('city', this.address.city);
     placeForm.append('zipcode', this.address.zipcode);
     placeForm.append('streetnumber', this.address.streetNber);
@@ -62,6 +66,7 @@ selectedStatus = Status;
     console.warn(this.placeForm.value);
     console.log(this.good);
     console.log(this.address);
+
 
   }
 

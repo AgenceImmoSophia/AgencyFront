@@ -1,5 +1,6 @@
 import {Address} from './address';
 import {TypeOfGood} from './typeOfGood';
+import {Owner} from './owner';
 
 export class Good {
   id: number;
@@ -9,4 +10,5 @@ export class Good {
   price: number;
   address: Address;
   area: number;
+  owner: Owner;
 }
