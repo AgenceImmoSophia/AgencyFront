@@ -1,5 +1,5 @@
 import {Address} from './address';
-import {TypeOfGood} from './typeOfGood';
+
 
 export class Good {
   id: number;

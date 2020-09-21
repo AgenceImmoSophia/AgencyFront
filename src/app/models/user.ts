@@ -5,7 +5,8 @@ export class User {
   name: string;
   phoneNumberPers: string;
   address: Address;
+  role: string;
 
-  constructor() {
-  }
+  constructor(){}
+
 }
