@@ -19,14 +19,11 @@
         <tbody class="text-center" style="color: white">
           <tr *ngFor="let good of goods">
             <td>{{ good.id }}</td>
-            <td><a class="alert-link" [routerLink]="['edit',good.id]">{{ good.nameOfGood }}</a></td>
+            <td><a class="alert-link" [routerLink]="['/good_details/',good.id]">{{ good.nameOfGood }}</a></td>
             <td>{{ good.typeOfGood }}</td>
             <td style="font-weight: bold">{{ good.price }} €</td>
             <td>{{ good.address.country + ', ' + good.address.city + ', ' + good.address.streetNber + ' ' + good.address.street}}</td>
             <td>{{ good.area }} m²</td>
-<!--            <td>-->
-<!--              <button class="btn btn-link" [routerLink]="['edit',good.id]">DETAILS</button>-->
-<!--            </td>-->
             <td>
 <!--              <img src="resources/delete_good.png">-->
               <button class="btn btn-danger" (click)="onDelete(good.id)">DELETE</button>
