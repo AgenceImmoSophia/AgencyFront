@@ -9,9 +9,6 @@
     <a class="navbar-brand" href="/home">Home<span class="sr-only">(current)</span></a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link">Link</a>
-      </li>
-      <li class="nav-item active">
         <a class="nav-link">Sign in</a>
       </li>
     </ul>
@@ -37,17 +34,15 @@
         <tbody class="text-center" style="color: white">
           <tr *ngFor="let good of goods">
             <td>{{ good.id }}</td>
-            <td><a class="alert-link" [routerLink]="['edit',good.id]">{{ good.nameOfGood }}</a></td>
+            <td><a class="alert-link" [routerLink]="['/good_details/',good.id]">{{ good.nameOfGood }}</a></td>
             <td>{{ good.typeOfGood }}</td>
             <td style="font-weight: bold">{{ good.price }} €</td>
             <td>{{ good.address.country + ', ' + good.address.city + ', ' + good.address.streetNber + ' ' + good.address.street}}</td>
             <td>{{ good.area }} m²</td>
-<!--            <td>-->
-<!--              <button class="btn btn-link" [routerLink]="['edit',good.id]">DETAILS</button>-->
-<!--            </td>-->
-
+            <td>
 <!--              <img src="resources/delete_good.png">-->
-
+              <button class="btn btn-danger" (click)="onDelete(good.id)">DELETE</button>
+            </td>
           </tr>
         </tbody>
       </table>
