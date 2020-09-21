@@ -8,7 +8,7 @@ import {User} from '../models/user';
 )
 
 export class UserService {
-  private userUrl = 'http://localhost:8080/apiUser/';
+  private userUrl = 'http://localhost:8080/users/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -20,18 +20,18 @@ export class UserService {
   }
 
   public findUserById(userId: number): Observable<User> {
-    return this.http.get<User>(this.userUrl + 'user/' + userId);
+    return this.http.get<User>(this.userUrl + userId);
   }
 
   public createUser(user: User): Observable<User> {
-    return this.http.post<User>(this.userUrl + 'createUser', user, this.httpOptions);
+    return this.http.post<User>(this.userUrl + 'create', user, this.httpOptions);
   }
 
   public updateUserById(user: User) {
-    return this.http.put<User>(this.userUrl + 'user/' + user.id + '/editUser', user, this.httpOptions);
+    return this.http.put<User>(this.userUrl + 'editUser/' + user.id, user, this.httpOptions);
   }
 
   public deleteUserById(userId: number) {
-    return this.http.delete<User>(this.userUrl + 'deleteUser/' + userId, this.httpOptions);
+    return this.http.delete<User>(this.userUrl + 'delete/' + userId, this.httpOptions);
   }
 }

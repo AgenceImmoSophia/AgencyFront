@@ -9,6 +9,7 @@ import {HomeComponent} from './home/home.component';
 import {SellFormComponent} from './form/sell-form/sell-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { SignInFormComponent } from './form/sign-in-form/sign-in-form.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {HttpClientModule} from '@angular/common/http';
     GoodComponent,
     GoodListComponent,
     SellFormComponent,
+    SignInFormComponent,
   ],
   imports: [
     BrowserModule,
