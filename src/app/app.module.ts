@@ -2,13 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { HomeComponent } from './home/home.component';
 import { GoodDetailComponent } from './components/good-detail/good-detail.component';
 import { GoodComponent } from './components/good/good.component';
 import { GoodListComponent } from './components/good-list/good-list.component';
-import { HttpClientModule } from '@angular/common/http';
-
+import {HomeComponent} from './home/home.component';
+import {SellFormComponent} from './form/sell-form/sell-form.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,12 +17,14 @@ import { HttpClientModule } from '@angular/common/http';
     GoodDetailComponent,
     GoodComponent,
     GoodListComponent,
-
+    SellFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

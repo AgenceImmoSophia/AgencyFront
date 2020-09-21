@@ -23,7 +23,8 @@
         <li class="nav-item active">
           <a routerLink="/goods" class="nav-link">List of goods</a>
         </li>
-        <li class="nav-item active">
+
+        <li class="nav-item active" >
           <a class="nav-link">Sign in</a>
         </li>
       </ul>
@@ -43,9 +44,7 @@
       <label class="btn btn-danger">
         <input type="radio" name="options" id="option2"> LOUER
       </label>
-      <label class="btn btn-danger">
-       <input type="radio" name="options" id="option3"> VENDRE
-      </label>
+      <a routerLink="/sell"><button class="btn btn-danger">VENDRE</button> </a>  <!-- redirection car je n'ai pas reussi autrement -->
     </div>
   <hr class="my-4">
   <p>Ici les 3 différents formulaires...</p>

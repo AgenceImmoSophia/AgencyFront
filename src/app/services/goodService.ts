@@ -1,28 +1,16 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {Good} from '../models/good';
-import { catchError, map, tap } from 'rxjs/operators';
-
 
 @Injectable(
   {providedIn: 'root'}
 )
 
 export class GoodService {
-
-  public good: Good;
-
-  private goodUrl = 'http://localhost:8080/AgencyBack/';
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+  private goodUrl = 'http://localhost:8080/';
 
   constructor(private http: HttpClient) { }
-
-  private log(message: string) {
-    'GoodService: ' + message;
-  }
 
   public findAllGoods(): Observable<Good[]> {
     return this.http.get<Good[]>(this.goodUrl + 'goods');
@@ -30,20 +18,19 @@ export class GoodService {
 
   public findGoodById(id: number): Observable<Good> {
     const url = `${this.goodUrl}/good/${id}`;
-    return this.http.get<Good>(url)
-    ;
+    return this.http.get<Good>(url);
   }
-
-  public createGood(good: Good): Observable<Good> {
-    return this.http.post<Good>(this.goodUrl + 'good', good, this.httpOptions);
-  }
-
   public updateGoodById(good: Good): Observable<Good> {
-    return this.http.put<Good>(this.goodUrl + 'good/' + good.id + '/editGood', good, this.httpOptions);
+    return this.http.put<Good>(this.goodUrl + 'good/' + good.id + '/editGood', good);
   }
 
   public deleteGoodById(goodId: number): Observable<Good> {
-    return this.http.delete<Good>(this.goodUrl + 'good/' + goodId, this.httpOptions);
+    return this.http.delete<Good>(this.goodUrl + 'deleteGood/' + goodId);
+  }
+
+  public createGood( good: Good){
+    console.log('cc petite peruche');
+    return this.http.post<Good>(this.goodUrl + 'good', good).subscribe(value => console.log(value));
   }
 
   /**
@@ -52,7 +39,7 @@ export class GoodService {
  * @param operation - name of the operation that failed
  * @param result - optional value to return as the observable result
  */
-private handleError<T>(operation = 'operation', result?: T) {
+/* private handleError<T>(operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {
 
     // TODO: send the error to remote logging infrastructure
@@ -64,5 +51,5 @@ private handleError<T>(operation = 'operation', result?: T) {
     // Let the app keep running by returning an empty result.
     return of(result as T);
   };
-  }
+*/
 }
