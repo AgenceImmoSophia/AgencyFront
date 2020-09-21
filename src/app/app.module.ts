@@ -3,8 +3,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GoodDetailComponent } from './components/good-detail/good-detail.component';
-import { GoodComponent } from './components/good/good.component';
 import { GoodListComponent } from './components/good-list/good-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormContractComponent } from './components/form-contract/form-contract.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import {HomeComponent} from './home/home.component';
 import {SellFormComponent} from './form/sell-form/sell-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -16,17 +18,16 @@ import { SignInFormComponent } from './form/sign-in-form/sign-in-form.component'
     AppComponent,
     HomeComponent,
     GoodDetailComponent,
-    GoodComponent,
     GoodListComponent,
+    FormContractComponent,
     SellFormComponent,
     SignInFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     HttpClientModule,
-
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

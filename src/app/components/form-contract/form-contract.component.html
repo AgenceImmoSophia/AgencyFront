@@ -1,0 +1,41 @@
+<form [formGroup]="formContract" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label for="dateOfContract">
+      Date du contrat:
+    </label>
+    <input id="dateOfContract" type="date" formControlName="dateOfContract">
+  </div>
+  <div>
+    <label for="agentId">
+      Id de l'agent :
+    </label>
+    <input id="agentId" type="text" formControlName="agentId">
+  </div>
+  <div>
+    <label for="clientId">
+      Id du client :
+    </label>
+    <input id="clientId" type="number" formControlName="clientId">
+  </div>
+  <div>
+    <label for="clientId">
+      Id du bien :
+    </label>
+    <select formControlName="goodId">
+      <option value="" disabled>Choisissez un bien</option>
+      <option *ngFor="let good of goods" [ngValue]="good"></option>
+      {{good.id}}: {{good.nameOfGood}}
+    </select>
+  </div>
+  <div>
+    <label for="priceOfContract">
+      Prix du contrat :
+    </label>
+    <input id="priceOfContract" type="number" formControlName="priceOfContract">
+  </div>
+
+
+  <button class="button" type="submit">Ajouter</button>
+
+</form>
