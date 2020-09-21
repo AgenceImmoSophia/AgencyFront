@@ -18,6 +18,7 @@ export class ContractService {
 
   createContract(contract: Contract) {
     return this.http.post<Contract>(this.goodUrl + 'createContract', contract, this.httpOptions).subscribe(value => {
-      console.log(value)});
+      console.log(value)}
+      );
   }
 }

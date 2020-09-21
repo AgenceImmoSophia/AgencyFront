@@ -1,41 +1,58 @@
 <form [formGroup]="formContract" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="typeOfContract">
+      Type of Contract :
+    </label>
+    <input id="typeOfContract" type="text" formControlName="typeOfContract">
+  </div>
 
   <div>
     <label for="dateOfContract">
-      Date du contrat:
+      Date of contract:
     </label>
     <input id="dateOfContract" type="date" formControlName="dateOfContract">
   </div>
   <div>
     <label for="agentId">
-      Id de l'agent :
+      Agent id :
     </label>
-    <input id="agentId" type="text" formControlName="agentId">
+    <select formControlName="agentId" (change)="getAgent()">
+      <option value="" disabled>Choisissez un agent</option>
+      <option *ngFor="let agent of users" [ngValue]="agent.id" >
+        {{agent.id}}: {{agent.name}}
+      </option>
+    </select>
   </div>
   <div>
-    <label for="clientId">
-      Id du client :
+    <label for="clientId" >
+      Client Id :
     </label>
-    <input id="clientId" type="number" formControlName="clientId">
+    <select formControlName="clientId" (change)="getClient()">
+      <option value="" disabled>Choisissez un client</option>
+      <option *ngFor="let client of users" [ngValue]="client.id" >
+        {{client.id}}: {{client.name}}
+      </option>
+    </select>
   </div>
   <div>
-    <label for="clientId">
-      Id du bien :
+    <label for="goodId">
+      Good id :
     </label>
-    <select formControlName="goodId">
+    <select formControlName="goodId" (change)="getGood()">
       <option value="" disabled>Choisissez un bien</option>
-      <option *ngFor="let good of goods" [ngValue]="good"></option>
-      {{good.id}}: {{good.nameOfGood}}
+      <option *ngFor="let good of goods" [ngValue]="good.id" >
+        {{good.id}}: {{good.nameOfGood}}
+      </option>
     </select>
   </div>
   <div>
     <label for="priceOfContract">
-      Prix du contrat :
+      Total price :
     </label>
     <input id="priceOfContract" type="number" formControlName="priceOfContract">
   </div>
 
 
-  <button class="button" type="submit">Ajouter</button>
+  <button class="button" type="submit">Create</button>
 
 </form>
