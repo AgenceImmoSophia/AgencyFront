@@ -38,7 +38,6 @@ selectedStatus = Status;
       type: ['', Validators.required],
       status: ['', Validators.required],
       name: ['', Validators.required],
-      owner: ['', Validators.required],
       city: ['', Validators.required],
       zipcode: ['', Validators.required],
       streetnumber: ['', Validators.required],
