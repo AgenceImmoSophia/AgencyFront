@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Contract } from 'src/app/models/contract';
 import { EstateAgent } from 'src/app/models/estateAgent';
@@ -20,7 +20,10 @@ export class FormContractComponent implements OnInit {
   date = new Date();
   client = new User();
   agent = new EstateAgent();
+  @Input()
+  goods: Good[];
   formContract;
+  message;
 
   constructor(private contractService: ContractService, private fb : FormBuilder, private userService:UserService, private goodService : GoodService) {
 
@@ -35,6 +38,9 @@ export class FormContractComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.goodService.findAllGoods().subscribe(goods => this.goods = goods);
+    console.warn(this.goods);
+
   }
 
   onSubmit(){

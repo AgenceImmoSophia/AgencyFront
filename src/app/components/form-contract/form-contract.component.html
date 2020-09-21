@@ -19,10 +19,14 @@
     <input id="clientId" type="number" formControlName="clientId">
   </div>
   <div>
-    <label for="goodId">
+    <label for="clientId">
       Id du bien :
     </label>
-    <input id="goodId" type="number" formControlName="goodId">
+    <select formControlName="goodId">
+      <option value="" disabled>Choisissez un bien</option>
+      <option *ngFor="let good of goods" [ngValue]="good"></option>
+      {{good.id}}: {{good.nameOfGood}}
+    </select>
   </div>
   <div>
     <label for="priceOfContract">
