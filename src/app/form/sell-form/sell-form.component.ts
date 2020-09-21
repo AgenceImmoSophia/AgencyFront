@@ -37,6 +37,7 @@ selectedStatus = Status;
     this.placeForm = this.fb.group({
       type: ['', Validators.required],
       status: ['', Validators.required],
+      owner: ['', Validators.required],
       name: ['', Validators.required],
       city: ['', Validators.required],
       zipcode: ['', Validators.required],
