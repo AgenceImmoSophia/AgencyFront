@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {User} from '../models/user';
 import { EstateAgent } from '../models/estateAgent';
 import { Client } from '../models/client';
+import {Owner} from '../models/owner';
 
 @Injectable(
   {providedIn: 'root'}
@@ -31,11 +32,16 @@ export class UserService {
 
   public createUser(user: User) {
     return this.http.post<User>(this.userUrl + 'createUser', user, this.httpOptions).subscribe(value => {
-      console.log(value)});;
+      console.log(value); });
   }
-  public createAgent (agent: EstateAgent){
+  public createAgent(agent: EstateAgent){
     return this.http.post<EstateAgent>(this.userUrl + 'createUser', agent, this.httpOptions).subscribe(value => {
-      console.log(value)});;
+      console.log(value); });
+  }
+
+  public createOwner(owner: Owner){
+    return this.http.post<Owner>(this.userUrl + 'createUser', owner, this.httpOptions).subscribe(value => {
+      console.log(value); });
   }
 
   public updateUserById(user: User) {

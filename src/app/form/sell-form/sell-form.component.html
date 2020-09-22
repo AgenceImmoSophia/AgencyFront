@@ -71,7 +71,7 @@
         </div>
 
         <label for="streetnumber"> Street number</label>
-        <input type="text" class="form-control" name="streetnumber" id="streetnumber" formControlName="city" [(ngModel)]="address.streetNber">
+        <input type="text" class="form-control" name="streetnumber" id="streetnumber" formControlName="streetnumber" [(ngModel)]="address.streetNber">
         <div class="alert alert-danger"
              *ngIf="placeForm.get('streetnumber').invalid && (placeForm.get('streetnumber').dirty || placeForm.get('streetnumber').touched)">
           Street number is required

@@ -21,7 +21,6 @@ export class SellFormComponent implements OnInit {
 good = new Good ();
 placeForm: FormGroup;
 address = new Address();
-owner = new Owner();
 public typeEnum = [];
 public typeEnumStatus = [];
 selectedType = TypeOfGood;
@@ -52,7 +51,6 @@ selectedStatus = Status;
     const placeForm = new FormData();
     placeForm.append('type', this.good.typeOfGood);
     placeForm.append('status', this.good.status);
-    placeForm.append('owner', this.owner.name);
     placeForm.append('name', this.good.nameOfGood);
     placeForm.append('city', this.address.city);
     placeForm.append('zipcode', this.address.zipcode);
@@ -63,12 +61,9 @@ selectedStatus = Status;
     placeForm.append('area', JSON.stringify(this.good.area));
     this.good.address = this.address;
     this.goodService.createGood(this.good);
-    console.warn(this.placeForm.value);
     console.log(this.good);
     console.log(this.address);
-    console.log(this.good.id);
     this.router.navigate(['goods']);
+    //   this.router.navigate(['/good_details/' + (this.good.id)]);
   }
-
-
 }
