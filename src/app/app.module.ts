@@ -12,6 +12,8 @@ import {FormContractComponent} from './form/form-contract/form-contract.componen
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { FilterUsers } from './pipes/filterUsers';
+import { EditGoodFormComponent } from './form/edit-good-form/edit-good-form.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { FilterUsers } from './pipes/filterUsers';
     SellFormComponent,
     NavbarComponent,
     SignInComponent,
-    FilterUsers
+    FilterUsers,
+    EditGoodFormComponent
   ],
   imports: [
     BrowserModule,
