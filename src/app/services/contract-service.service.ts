@@ -26,4 +26,8 @@ export class ContractService {
   findContractById(id:number): Observable<Contract> {
     return this.http.get<Contract>(this.goodUrl + 'contract/' + id);
   }
+
+  findAllContracts(): Observable<Contract[]>{
+    return this.http.get<Contract[]>(this.goodUrl+'allContracts');
+  }
 }

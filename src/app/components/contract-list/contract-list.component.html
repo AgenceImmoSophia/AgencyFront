@@ -1,0 +1,33 @@
+<body>
+
+  <app-navbar></app-navbar>
+
+  <div class="container-md">
+    <div class="card-body mb-3 mx-auto">
+      <h4 class="text-center" style="font-weight: bold; font-size: 2.2rem">ALL GOODS</h4><br>
+        <table class="table table-hover">
+          <thead class="thead-dark text-center">
+            <tr>
+              <th scope="col">#ID</th>
+              <th scope="col">Type of contract</th>
+              <th scope="col">Agent</th>
+              <th scope="col">Client</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody class="text-center" style="color: white">
+            <tr *ngFor="let contract of contracts">
+              <td>{{ contract.id }}</td>
+              <td>{{ contract.typeOfContract }}</td>
+              <td>{{ contract.estateAgent }}</td>
+              <td>{{ contract.client }}</td>
+              <td style="font-weight: bold">{{ contract.price }} €</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+  <footer>&copy;Agency of SA</footer>
+
+  </body>
