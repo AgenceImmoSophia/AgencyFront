@@ -1,0 +1,139 @@
+<body>
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <img src="https://img.icons8.com/dusk/64/000000/raspberry.png" class="logoHome"/>
+    <a class="navbar-brand" href="/home">Home<span class="sr-only">(current)</span></a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <!-- LIEN VERS UN SEUL BIEN : à mettre sur la page de la liste de biens ! -->
+        <a routerLink="/good_details/1" class="nav-link">Dashboard</a>
+      </li>
+      <li class="nav-item active">
+        <a routerLink="/goods" class="nav-link">List of goods</a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link">Sign in</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<section id="form">
+
+  <div>
+    <div class="container" >
+      <div class="row">
+
+<form class="col text-center" method="post" enctype="multipart/form-data" (ngSubmit)="onSubmit();placeForm.reset()"
+      [formGroup]="placeForm">
+      <div class="col text-center">
+
+
+      <div class="form-group">
+        <label for="type"> Type </label>
+        <br>
+        <select name="type" id="type" formControlName="type" [(ngModel)]="good.typeOfGood" >
+          <option *ngFor="let key of typeEnum" [value]="selectedType[key]"
+                  [label]="selectedType[key]"></option>
+        </select>
+        <div class="alert alert-danger"
+             *ngIf="placeForm.get('type').invalid && (placeForm.get('type').dirty || placeForm.get('type').touched)">
+          Choose a type
+        </div>
+      </div>
+      </div>
+
+  <div class="form-group">
+    <label for="status"> Status</label>
+    <br>
+    <select name="status" id="status" formControlName="status" [(ngModel)]="good.status">
+      <option *ngFor="let key of typeEnumStatus" [value]="selectedStatus[key]"
+              [label]="selectedStatus[key]"></option>
+    </select>
+    <div class="alert alert-danger"
+         *ngIf="placeForm.get('status').invalid && (placeForm.get('status').dirty || placeForm.get('status').touched)">
+      Status is required
+    </div>
+  </div>
+
+  <div class="form-group">
+
+    <label for="name"> Name </label>
+    <input type="text" class="form-control" name="name" id="name" formControlName="name" [(ngModel)]="good.nameOfGood">
+<div class="alert alert-danger"
+     *ngIf="placeForm.get('name').invalid && (placeForm.get('name').dirty || placeForm.get('name').touched)">
+  Name is required
+</div>
+
+        <label for="city"> City</label>
+        <input type="text" class="form-control" name="city" id="city" formControlName="city" [(ngModel)]="good.address.city">
+        <div class="alert alert-danger"
+             *ngIf="placeForm.get('city').invalid && (placeForm.get('city').dirty || placeForm.get('city').touched)">
+          City is required
+        </div>
+
+        <label for="zipcode">Zipcode </label>
+        <input type="text" class="form-control" name="zipcode" id="zipcode" formControlName="zipcode" [(ngModel)]="good.address.zipcode">
+        <div class="alert alert-danger"
+             *ngIf="placeForm.get('zipcode').invalid && (placeForm.get('zipcode').dirty || placeForm.get('zipcode').touched)">
+          Zipcode is required
+        </div>
+
+        <label for="streetnumber"> Street number</label>
+        <input type="text" class="form-control" name="streetnumber" id="streetnumber" formControlName="streetnumber" [(ngModel)]="good.address.streetNber">
+        <div class="alert alert-danger"
+             *ngIf="placeForm.get('streetnumber').invalid && (placeForm.get('streetnumber').dirty || placeForm.get('streetnumber').touched)">
+          Street number is required
+        </div>
+
+          <label for="street"> Street</label>
+        <input type="text" class="form-control" name="street" id="street" formControlName="street" [(ngModel)]="good.address.street">
+        <div class="alert alert-danger"
+             *ngIf="placeForm.get('street').invalid && (placeForm.get('street').dirty || placeForm.get('street').touched)">
+          Street name is required
+        </div>
+
+
+        <label for="country"> Country</label>
+        <input type="text" class="form-control" name="country" id="country" formControlName="country" [(ngModel)]="good.address.country">
+        <div class="alert alert-danger"
+             *ngIf="placeForm.get('country').invalid && (placeForm.get('country').dirty || placeForm.get('country').touched)">
+          Country is required
+        </div>
+
+        <label for="price"> Price (€)</label>
+        <input type="number" class="form-control" name="price" id="price" formControlName="price" step="0.01" [(ngModel)]="good.price">
+        <div class="alert alert-danger"
+             *ngIf="placeForm.get('price').invalid && (placeForm.get('price').dirty || placeForm.get('price').touched)">
+          Price is required
+        </div>
+
+        <label for="area"> Area (m2)</label>
+        <input type="number" class="form-control" name="area" id="area" formControlName="area" step="0.01" [(ngModel)]="good.area">
+        <div class="alert alert-danger"
+             *ngIf="placeForm.get('area').invalid && (placeForm.get('area').dirty || placeForm.get('area').touched)">
+          Area is required
+		</div>
+		
+	<!--	<label for="isFurnished"> Furnished (Yes/No)</label> -->
+    <!--    <input type="text" class="form-control" name="isFurnished" id="isFurnished" formControlName="isFurnished" [(ngModel)]="good.isFurnished"> -->
+	
+  </div>
+    <div id="button" class="col text-center">
+      <button class="btn btn-primary" type="submit" > Edit</button>
+      <button class="btn btn-secondary" type="reset"> Reset</button>
+	  <button class="btn btn-danger" [routerLink]="['/good_details/',good.id]"> Cancel</button>
+    </div>
+</form>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+<footer class="col text-center">&copy;Agency of SA</footer>
+</body>
