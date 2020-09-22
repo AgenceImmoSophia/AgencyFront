@@ -6,6 +6,7 @@ import { GoodListComponent } from './components/good-list/good-list.component';
 import { FormContractComponent } from './components/form-contract/form-contract.component';
 import {SellFormComponent} from './form/sell-form/sell-form.component';
 import {SignInComponent} from './sign-in/sign-in.component';
+import {SignUpComponent} from './form/sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: 'goods', component: GoodListComponent },
   { path: 'contractform', component: FormContractComponent},
   {path: 'sell', component: SellFormComponent},
-  {path: 'sign-up', component: SignInComponent},
+  {path: 'sign-up', component: SignUpComponent},
 
 ];
 

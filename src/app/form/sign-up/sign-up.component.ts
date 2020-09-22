@@ -19,35 +19,37 @@ export class SignUpComponent implements OnInit {
   agent = new EstateAgent();
   address = new Address();
   userForm: FormGroup;
-  ownerForm: FormGroup;
-  agentForm: FormGroup;
+//  ownerForm: FormGroup;
+//  agentForm: FormGroup;
 
   constructor(private http: HttpClient, private fb: FormBuilder, private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userForm =  this.fb.group({
+      role: ['', Validators.required],
+      name: ['', Validators.required],
+      phoneNumberPers: ['', Validators.required],
+      city: ['', Validators.required],
+      zipcode: ['', Validators.required],
+      streetnbr: ['', Validators.required],
+      street: ['', Validators.required],
+      country: ['', Validators.required], });
   }
 onSubmitUser(): void{
   const userForm = new FormData();
-  this.userForm =  this.fb.group({
-    name: ['', Validators.required],
-    phoneNumberPers: ['', Validators.required],
-    city: ['', Validators.required],
-    zipcode: ['', Validators.required],
-    streetnumber: ['', Validators.required],
-    street: ['', Validators.required],
-    country: ['', Validators.required], });
+  userForm.append('role', this.user.role);
   userForm.append('name', this.user.name);
   userForm.append('phoneNumberPers', this.user.phoneNumberPers);
   userForm.append('city', this.address.city);
   userForm.append('zipcode', this.address.zipcode);
-  userForm.append('streetnumber', this.address.streetNber);
+  userForm.append('streetnbr', this.address.streetNber);
   userForm.append('street', this.address.street);
   userForm.append('country', this.address.country);
   this.user.address = this.address;
   this.userService.createUser(this.user);
   console.log(this.user);
 }
-onSubmitOwner(): void{
+/* onSubmitOwner(): void{
     const ownerForm = new FormData();
     this.ownerForm =  this.fb.group({
     name: ['', Validators.required],
@@ -93,5 +95,5 @@ onSubmitAgent(): void{
     agentForm.append('street', this.address.street);
     agentForm.append('country', this.address.country);
 
-}
+}  */
 }

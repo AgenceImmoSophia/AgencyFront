@@ -1,19 +1,50 @@
 <app-navbar></app-navbar>
+<div class="container" >
+  <div class="row">
+    <div class="col text-center">
+<h1> Sign up </h1>
 
-<form [formGroup]="userForm" (ngSubmit)="onSubmitUser()">
-  <div>
+<form method="post" enctype="multipart/form-data" [formGroup]="userForm" (ngSubmit)="onSubmitUser();userForm.reset()" >
+
+
+    <label for="role"> Role</label>
+  <select id="role" name="role" formControlName="role"  class="form-control" [(ngModel)]="user.role">
+    <option value="Client"> Client</option>
+    <option value="Owner"> Owner</option>
+    <option value="EstateAgent"> Agent</option>
+  </select>
+ <!-- <input id="role" name="role" formControlName="role" class="form-control" [(ngModel)]="user.role">
+-->
+
     <label for="name"> Name </label>
-    <input id="name" name="name" class="form-control" [(ngModel)]="user.name">
+    <input id="name" name="name" class="form-control" formControlName="name" [(ngModel)]="user.name">
 
     <label for="phoneNumberPers"> Phone number</label>
-    <input id="phoneNumberPers" name="phoneNumberPers" class="form-control" [(ngModel)]="user.phoneNumberPers">
+    <input id="phoneNumberPers" name="phoneNumberPers" class="form-control" formControlName="phoneNumberPers" [(ngModel)]="user.phoneNumberPers">
+
 
     <label for="city" > City </label>
-    <input id="city" name="city" class="form-control" [(ngModel)]="user.address.city">
+    <input id="city" name="city" class="form-control" formControlName="city" [(ngModel)]="address.city">
 
+    <label for="zipdcode" > Zipcode</label>
+    <input id="zipdcode" name="zipcode" class="form-control" formControlName="zipcode" [(ngModel)]="address.zipcode" >
+
+    <label for="streetnbr" > Street number</label>
+    <input id="streetnbr" name="streetnbr" class="form-control" formControlName="streetnbr" [(ngModel)]="address.streetNber">
+
+    <label for="street"> Street name</label>
+    <input id="street" name="street" class="form-control" formControlName="street" [(ngModel)]="address.street">
+
+    <label for="country"> Country</label>
+    <input id="country" name="country" class="form-control" formControlName="country" [(ngModel)]="address.country">
+
+
+  <div id="button" class="col text-center">
+    <button class="btn btn-primary" type="submit" > Sign-up</button>
+    <button class="btn badge-danger" type="reset"> Reset</button>
 
   </div>
-
-
-
 </form>
+    </div>
+  </div>
+</div>
