@@ -8,10 +8,9 @@ import {HomeComponent} from './home/home.component';
 import {SellFormComponent} from './form/sell-form/sell-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {FormContractComponent} from './components/form-contract/form-contract.component'
+import {FormContractComponent} from './form/form-contract/form-contract.component'
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
-import { ContractDetailsComponent } from './contract-details/contract-details.component';
 import { FilterUsers } from './pipes/filterUsers';
 
 @NgModule({
@@ -24,7 +23,6 @@ import { FilterUsers } from './pipes/filterUsers';
     SellFormComponent,
     NavbarComponent,
     SignInComponent,
-    ContractDetailsComponent,
     FilterUsers
   ],
   imports: [
