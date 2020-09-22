@@ -15,6 +15,7 @@ export class GoodListComponent implements OnInit {
 
   @Input()
   goods: Good[];
+  code;
 
   constructor(private goodService: GoodService, private route: ActivatedRoute) { }
 

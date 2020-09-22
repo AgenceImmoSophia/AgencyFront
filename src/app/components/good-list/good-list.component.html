@@ -5,6 +5,7 @@
 <div class="container-md">
   <div class="card-body mb-3 mx-auto">
     <h4 class="text-center" style="font-weight: bold; font-size: 2.2rem">ALL GOODS</h4><br>
+    <app-code-form></app-code-form>
       <table class="table table-hover">
         <thead class="thead-dark text-center">
           <tr>
@@ -17,7 +18,7 @@
           </tr>
         </thead>
         <tbody class="text-center" style="color: white">
-          <tr *ngFor="let good of goods">
+          <tr *ngFor="let good of goods|filterGoods: code">
             <td>{{ good.id }}</td>
             <td><a class="alert-link" [routerLink]="['/good_details/',good.id]">{{ good.nameOfGood }}</a></td>
             <td>{{ good.typeOfGood }}</td>

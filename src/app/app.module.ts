@@ -13,6 +13,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { FilterUsers } from './pipes/filterUsers';
 import { EditGoodFormComponent } from './form/edit-good-form/edit-good-form.component';
+import { filterGoods } from './pipes/filterGoods';
+import { CodeFormComponent } from './form/code-form/code-form.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { EditGoodFormComponent } from './form/edit-good-form/edit-good-form.comp
     NavbarComponent,
     SignInComponent,
     FilterUsers,
-    EditGoodFormComponent
+    EditGoodFormComponent,
+    filterGoods,
+    CodeFormComponent
   ],
   imports: [
     BrowserModule,
