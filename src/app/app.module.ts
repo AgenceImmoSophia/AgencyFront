@@ -6,16 +6,15 @@ import { GoodDetailComponent } from './components/good-detail/good-detail.compon
 import { GoodListComponent } from './components/good-list/good-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormContractComponent } from './components/form-contract/form-contract.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import {HomeComponent} from './home/home.component';
 import {SellFormComponent} from './form/sell-form/sell-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import {FormContractComponent} from './components/form-contract/form-contract.component'
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignInFormComponent } from './form/sign-in-form/sign-in-form.component';
 import { EditGoodFormComponent } from './form/edit-good-form/edit-good-form.component';
+import { EstateAgentAccountComponent } from './accountUser/estate-agent-account/estate-agent-account.component';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +29,7 @@ import { EditGoodFormComponent } from './form/edit-good-form/edit-good-form.comp
     NavbarComponent,
     SignInComponent,
     EditGoodFormComponent,
+    EstateAgentAccountComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from '../models/user';
 import { EstateAgent } from '../models/estateAgent';
 import { Client } from '../models/client';
+import { EstateAgentAccountComponent } from '../accountUser/estate-agent-account/estate-agent-account.component';
 
 @Injectable(
   {providedIn: 'root'}
@@ -33,10 +34,15 @@ export class UserService {
     return this.http.get<EstateAgent>(this.userUrl + userId);
   }
 
+  public findEstateAgentByUsername(username: string): Observable<EstateAgent> {
+    return this.http.get<EstateAgent>(this.userUrl + 'estateagent/' + username);
+  }
+
   public createUser(user: User) {
     return this.http.post<User>(this.userUrl + 'createUser', user, this.httpOptions).subscribe(value => {
       console.log(value)});;
   }
+  
   public createAgent (agent: EstateAgent){
     return this.http.post<EstateAgent>(this.userUrl + 'createUser', agent, this.httpOptions).subscribe(value => {
       console.log(value)});;

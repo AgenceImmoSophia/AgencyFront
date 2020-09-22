@@ -1,16 +1,103 @@
 <body>
-    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <img src="https://img.icons8.com/dusk/64/000000/raspberry.png" class="logoHome"/>
-            <a class="navbar-brand" href="/home">Home<span class="sr-only">(current)</span></a>
-        </div>
-    </nav>
+    <app-navbar></app-navbar>
 
     <section id="form-sign-in">
 
+        <form class="col text-center" id="chooseTypeUser" [formGroup]="formSignIn1" method="post" 
+        enctype="application/x-www-form-urlencoded"  (ngSubmit)="OnSubmit();formSignIn1.reset()" >
+            <p>Select what type of user you are:</p>
+            <div class="form-group">
+                <div>
+                    <input type="radio" id="typeUser" name="typeUser" value="1" formControlName="typeUser">
+                    <label for="typeUser">Estate Agent</label><br>
+                </div>
+                <div>
+                    <input type="radio" id="typeUser" name="typeUser" value="2" formControlName="typeUser">
+                    <label for="typeUser">Client</label><br>
+                </div>
+                <div>
+                    <input type="radio" id="typeUser" name="typeUser" value="3" formControlName="typeUser">
+                    <label for="typeUser">Owner</label><br>
+                </div>
+            </div>
+            <div id="button" class="col text-center">
+                <button class="btn btn-primary" type="submit" > Continuer</button>
+                <button class="btn btn-secondary" type="reset"> Reset</button>
+              </div>
+        </form> <br>
+
+        <form class="col text-center" id="sign-in-user" [formGroup]="formSignIn2" method="post" 
+        enctype="application/x-www-form-urlencoded" (ngSubmit)="OnSubmit2();formSignIn2.reset()">
+            <div *ngIf="typeofUser == 1">
+                <p>Hello dear estate agent</p>
+                <p>Please enter your informations</p>
+
+                <label for="username"> Username</label>
+                <input type="text" class="form-control" placeholder="Enter your username" name="username" id="username" formControlName="username" required>
+                <div class="alert alert-danger"
+                        *ngIf="formSignIn2.get('username').invalid && (formSignIn2.get('username').dirty || formSignIn2.get('username').touched)">
+                        Your username is required
+                </div>
+
+                <label for="password"> Password</label>
+                <input type="text" class="form-control" placeholder="Enter your password" name="password" id="password" formControlName="password" required>
+                <div class="alert alert-danger"
+                        *ngIf="formSignIn2.get('password').invalid && (formSignIn2.get('password').dirty || formSignIn2.get('password').touched)">
+                        Your password is required
+                </div>
+                <div id="button" class="col text-center">
+                    <button class="btn btn-primary" type="submit"> Connexion</button>
+                    <button class="btn btn-secondary" type="reset"> Reset</button>
+                </div>
+            </div>
+
+            <!-- <div *ngIf="typeofUser == 2">
+                <p>Hello dear client</p>
+                <p>Please enter your informations</p>
+
+                <label for="id"> ID</label>
+                <input type="text" class="form-control" placeholder="Enter your id (number) of user" name="id" id="id" formControlName="id" [(ngModel)]="client.id" required>
+                <div class="alert alert-danger"
+                        *ngIf="formSignIn2.get('id').invalid && (formSignIn2.get('id').dirty || formSignIn2.get('id').touched)">
+                        Your ID is required
+                </div>
+
+                <label for="name"> Name</label>
+                <input type="text" class="form-control" placeholder="Enter your name" name="name" id="name" formControlName="name" [(ngModel)]="client.name" required>
+                <div class="alert alert-danger"
+                        *ngIf="formSignIn2.get('name').invalid && (formSignIn2.get('name').dirty || formSignIn2.get('name').touched)">
+                        Your name is required
+                </div>
+                <div id="button" class="col text-center">
+                    <button class="btn btn-primary" type="submit"> Connexion</button>
+                    <button class="btn btn-secondary" type="reset"> Reset</button>
+                </div>
+            </div>
+
+
+            <div *ngIf="typeofUser == 3">
+                <p>Hello dear owner</p>
+                <p>Please enter your informations</p>
+
+                <label for="id"> ID</label>
+                <input type="text" class="form-control" placeholder="Enter your id (number) of user" name="id" id="id" formControlName="id" [(ngModel)]="client.id" required>
+                <div class="alert alert-danger"
+                        *ngIf="formSignIn2.get('id').invalid && (formSignIn2.get('id').dirty || formSignIn2.get('id').touched)">
+                        Your ID is required
+                </div>
+
+                <label for="name"> Name</label>
+                <input type="text" class="form-control" placeholder="Enter your name" name="name" id="name" formControlName="name" [(ngModel)]="client.name" required>
+                <div class="alert alert-danger"
+                        *ngIf="formSignIn2.get('name').invalid && (formSignIn2.get('name').dirty || formSignIn2.get('name').touched)">
+                        Your name is required
+                </div>
+                <div id="button" class="col text-center">
+                    <button class="btn btn-primary" type="submit"> Connexion</button>
+                    <button class="btn btn-secondary" type="reset"> Reset</button>
+                </div>
+            </div> -->
+        </form> 
     </section>
 
 </body>

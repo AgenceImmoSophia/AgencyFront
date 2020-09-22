@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {GoodDetailComponent} from './components/good-detail/good-detail.component';
+import { GoodDetailComponent} from './components/good-detail/good-detail.component';
 import { HomeComponent } from './home/home.component';
 import { GoodListComponent } from './components/good-list/good-list.component';
 import { FormContractComponent } from './components/form-contract/form-contract.component';
-import {SellFormComponent} from './form/sell-form/sell-form.component';
+import { SellFormComponent} from './form/sell-form/sell-form.component';
 import { SignInFormComponent } from './form/sign-in-form/sign-in-form.component';
 import {EditGoodFormComponent} from './form/edit-good-form/edit-good-form.component';
+import { EstateAgentAccountComponent } from './accountUser/estate-agent-account/estate-agent-account.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'sell', component: SellFormComponent},
   { path: 'sign-in', component: SignInFormComponent},
   { path: 'editGood/:id', component: EditGoodFormComponent},
+  { path: 'estateAgentAccount', component: EstateAgentAccountComponent},
 ];
 
 @NgModule({
