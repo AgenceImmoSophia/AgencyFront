@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmitUser()">
+  <div>
+    <label for="name"> Name </label>
+    <input id="name" name="name" class="form-control" [(ngModel)]="user.name">
+
+    <label for="phoneNumberPers"> Phone number</label>
+    <input id="phoneNumberPers" name="phoneNumberPers" class="form-control" [(ngModel)]="user.phoneNumberPers">
+
+    <label for="city" > City </label>
+    <input id="city" name="city" class="form-control" [(ngModel)]="user.address.city">
+
+
+  </div>
+
+
+
+</form>
