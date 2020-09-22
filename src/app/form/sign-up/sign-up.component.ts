@@ -19,6 +19,7 @@ export class SignUpComponent implements OnInit {
   agent = new EstateAgent();
   address = new Address();
   userForm: FormGroup;
+  roleForm: FormGroup;
 //  ownerForm: FormGroup;
 //  agentForm: FormGroup;
 
@@ -26,20 +27,25 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.userForm =  this.fb.group({
-      role: ['', Validators.required],
+ //     role: ['', Validators.required],
       name: ['', Validators.required],
       phoneNumberPers: ['', Validators.required],
+      phoneNumberPro: ['', Validators.required],
       city: ['', Validators.required],
       zipcode: ['', Validators.required],
       streetnbr: ['', Validators.required],
       street: ['', Validators.required],
       country: ['', Validators.required], });
+    this.roleForm = this.fb.group({
+      role: ['', Validators.required],
+    });
   }
 onSubmitUser(): void{
   const userForm = new FormData();
   userForm.append('role', this.user.role);
   userForm.append('name', this.user.name);
   userForm.append('phoneNumberPers', this.user.phoneNumberPers);
+  userForm.append('phoneNumberPro', this.owner.phoneNumberPro);
   userForm.append('city', this.address.city);
   userForm.append('zipcode', this.address.zipcode);
   userForm.append('streetnbr', this.address.streetNber);
@@ -48,6 +54,12 @@ onSubmitUser(): void{
   this.user.address = this.address;
   this.userService.createUser(this.user);
   console.log(this.user);
+}
+
+submitRole(): void {
+    const roleForm = new FormData();
+    roleForm.append('role', this.user.role);
+    console.log(this.user.role);
 }
 /* onSubmitOwner(): void{
     const ownerForm = new FormData();
