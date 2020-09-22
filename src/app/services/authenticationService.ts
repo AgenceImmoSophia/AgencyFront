@@ -8,7 +8,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private signInUrl = 'http://localhost:8080/apiUser/';
+  private signInUrl = 'http://localhost:8080/users/';
   private currentUserSubject: BehaviorSubject<User>;
   private currentUser: Observable<User>;
   // isSignedIn = false;

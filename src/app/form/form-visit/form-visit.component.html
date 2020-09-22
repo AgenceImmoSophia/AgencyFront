@@ -12,7 +12,7 @@
     <label for="agentId">ID of the agent: </label>
     <select id="agentId" formControlName="agentId" (change)="getAgent()">
       <option value="" disabled>Choose an agent: </option>
-      <option *ngFor="let agent of users" [ngValue]="agent.id" >
+      <option *ngFor="let agent of users" [ngValue]="agent.id">
         {{agent.id}}: {{agent.name}}
       </option>
     </select>
@@ -21,7 +21,7 @@
     <label for="clientId">ID of the client: </label>
     <select id="clientId" formControlName="clientId" (change)="getClient()">
       <option value="" disabled>Choose a client: </option>
-      <option *ngFor="let client of users" [ngValue]="client.id" >
+      <option *ngFor="let client of users" [ngValue]="client.id">
         {{client.id}}: {{client.name}}
       </option>
     </select>
@@ -30,12 +30,14 @@
     <label for="goodId">ID of the good: </label>
     <select id="goodId" formControlName="goodId" (change)="getGood()">
       <option value="" disabled>Choose a good: </option>
-      <option *ngFor="let good of goods" [ngValue]="good.id" >
+      <option *ngFor="let good of goods" [ngValue]="good.id">
         {{good.id}}: {{good.nameOfGood}}
       </option>
     </select>
   </div>
-  <button class="btn btn-info" type="submit">Create</button>
+  <button class="btn btn-info" type="submit" routerLink="/visits">
+<!--  (click)="addVisit(, this.good, this.estateAgent, this.client)"-->
+  Create</button>
 </form>
 </div>
 </div>

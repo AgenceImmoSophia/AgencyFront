@@ -18,12 +18,12 @@ export class VisitService {
   constructor(private http: HttpClient) { }
 
   public findAllVisits(): Observable<Visit[]> {
-    return this.http.get<Visit[]>(this.visitUrl + 'allVisits');
+    return this.http.get<Visit[]>(this.visitUrl + 'allvisits');
   }
 
   public createVisit(visit: Visit) {
-    return this.http.post<Visit>(this.visitUrl + 'createVisit', visit, this.httpOptions).pipe(
-      catchError(this.handleError<Visit>('createVisit'))
+    return this.http.post<Visit>(this.visitUrl + 'addVisit', visit, this.httpOptions).pipe(
+      catchError(this.handleError<Visit>('addVisit'))
     );
   }
 

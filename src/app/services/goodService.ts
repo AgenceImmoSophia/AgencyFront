@@ -11,7 +11,7 @@ export class GoodService {
 
   public good: Good;
 
-  private goodUrl = 'http://localhost:8080/';
+  private goodUrl = 'http://localhost:8080/AgencyBack/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };

@@ -9,6 +9,7 @@ import {GoodService} from '../../services/goodService';
 import {UserService} from '../../services/userService';
 import {VisitService} from '../../services/visit.service';
 import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-form-visit',
@@ -31,11 +32,12 @@ export class FormVisitComponent implements OnInit {
   formVisit;
 
   constructor(
+    private http: HttpClient,
     private visitService: VisitService,
     private goodService: GoodService,
     private userService: UserService,
-    private fb: FormBuilder,
-    private router: Router) {
+    private router: Router,
+    private fb: FormBuilder) {
     this.createForm();
   }
 
@@ -75,15 +77,33 @@ export class FormVisitComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
+    const fg = new FormData();
+    // fg.append('dateOfVisit', this.visit.date);
+    // fg.append('goodId', this.visit.good);
+    // fg.append('agentId', this.visit.estateAgent);
+    // fg.append('clientId', this.visit.client);
     this.visit.client = this.client;
     this.visit.date = this.formVisit.value.dateOfContract;
     this.visit.estateAgent = this.estateAgent;
     this.visit.good = this.good;
-
-    console.warn(this.visit);
-
     this.visitService.createVisit(this.visit);
+    console.warn(this.fg.value);
+    console.log(this.visit);
+    this.router.navigate(['/visits']);
+
+
+
+
   }
+
+  // addVisit(dateOfVisit: Date, good: Good, estateAgent: EstateAgent, client: Client): void {
+  //   this.visitService.createVisit({
+  //     dateOfVisit,
+  //     good,
+  //     estateAgent,
+  //     client
+  //   } as unknown as Visit).subscribe();
+  // }
 
 }
