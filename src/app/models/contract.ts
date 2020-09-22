@@ -9,6 +9,7 @@ export class Contract {
   good: Good;
   estateAgent: EstateAgent;
   client: User;
+  typeOfContract: string;
 
   constructor(){}
 

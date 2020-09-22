@@ -6,11 +6,10 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 )
 
 export class AddressService {
-  private addressUrl = 'http://localhost:8080/apiAddress/';
+  private addressUrl = 'http://localhost:8080/AgencyBack/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
   constructor(private http: HttpClient) { }
 }
-

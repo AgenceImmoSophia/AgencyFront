@@ -6,15 +6,17 @@ import { GoodListComponent } from './components/good-list/good-list.component';
 import { FormContractComponent } from './components/form-contract/form-contract.component';
 import {SellFormComponent} from './form/sell-form/sell-form.component';
 import { SignInFormComponent } from './form/sign-in-form/sign-in-form.component';
+import {EditGoodFormComponent} from './form/edit-good-form/edit-good-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
   { path: 'good_details/:id', component: GoodDetailComponent },
   { path: 'goods', component: GoodListComponent },
-  { path: 'contractform', component: FormContractComponent}
-  {path: 'sell', component: SellFormComponent},
-  {path: 'sign-in', component: SignInFormComponent},
+  { path: 'contractform', component: FormContractComponent},
+  { path: 'sell', component: SellFormComponent},
+  { path: 'sign-in', component: SignInFormComponent},
+  { path: 'editGood/:id', component: EditGoodFormComponent},
 ];
 
 @NgModule({

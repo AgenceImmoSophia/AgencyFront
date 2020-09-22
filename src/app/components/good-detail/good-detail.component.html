@@ -1,24 +1,6 @@
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <img src="https://img.icons8.com/dusk/64/000000/raspberry.png" class="logoHome"/>
-      <a routerLink="/home" class="navbar-brand">Home<span class="sr-only">(current)</span></a>
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a routerLink="/goods" class="nav-link">List of goods</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link">Sign in</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <!----------------------------------------------------------------------->
+<app-navbar></app-navbar>
 
 <div class="container">
     <div class="card mb-3 mx-auto" style="max-width: 540px">
@@ -54,6 +36,7 @@
     <li class="list-group-item">Superficie : {{good.area}} m²</li>
     <li class="list-group-item">Meublé : </li>
   </ul>
+  <a [routerLink]="['/editGood/',good.id]"><button class="btn btn-dark" style="display: block; margin: 0 auto;">Edit</button></a>
 </div>
 
   <footer>&copy;Agency of SA</footer>
