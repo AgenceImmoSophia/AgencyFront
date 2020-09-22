@@ -10,7 +10,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {FormContractComponent} from './components/form-contract/form-contract.component'
 import { NavbarComponent } from './navbar/navbar.component';
-import { SignInComponent } from './sign-in/sign-in.component';
+import { FormVisitComponent } from './form/form-visit/form-visit.component';
+import { VisitListComponent } from './components/visit-list/visit-list.component';
 
 @NgModule({
   declarations: [
@@ -19,17 +20,16 @@ import { SignInComponent } from './sign-in/sign-in.component';
     GoodDetailComponent,
     GoodListComponent,
     FormContractComponent,
-
     SellFormComponent,
     NavbarComponent,
-    SignInComponent,
+    FormVisitComponent,
+    VisitListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

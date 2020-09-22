@@ -1,0 +1,17 @@
+body {
+  background: url("src/resources/home_image.jpg") no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.container-md {
+  margin-top: 90px;
+  margin-bottom: 150px;
+}
+
+footer {
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2em;
+  font-family: "JetBrains Mono";
+}

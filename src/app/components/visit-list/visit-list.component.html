@@ -1,0 +1,40 @@
+<body>
+<app-navbar></app-navbar>
+
+<div class="container-md">
+  <div class="card-body mb-3 mx-auto">
+    <h4 class="text-center" style="font-weight: bold; font-size: 2.2rem">ALL VISITS</h4><br>
+    <table class="table table-hover">
+      <thead class="thead-dark text-center">
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Date</th>
+        <th scope="col">Good</th>
+        <th scope="col">Estate Agent</th>
+        <th scope="col">Client</th>
+      </tr>
+      </thead>
+      <tbody class="text-center" style="color: white">
+      <tr *ngFor="let visit of visits">
+        <td>{{ visit.id }}</td>
+        <td>{{ visit.date }}</td>
+        <td>{{ visit.good }}</td>
+        <td>{{ visit.estateAgent }}</td>
+        <td>{{ visit.client }}</td>
+<!--        <td>-->
+<!--          <button class="btn btn-success" [routerLink]="['edit',visit.id]">EDIT</button>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--          <button class="btn btn-danger" (click)="onDelete(visit.id)">DELETE</button>-->
+<!--        </td>-->
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<footer>&copy;Agency of SA</footer>
+
+</body>
+
+<router-outlet></router-outlet>

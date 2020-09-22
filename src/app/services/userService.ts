@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from '../models/user';
-import { EstateAgent } from '../models/estateAgent';
-import { Client } from '../models/client';
+import {EstateAgent} from '../models/estateAgent';
+import {Client} from '../models/client';
 
 @Injectable(
   {providedIn: 'root'}

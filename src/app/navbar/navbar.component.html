@@ -11,7 +11,13 @@
         <a routerLink="/goods" class="nav-link">List of goods</a>
       </li>
       <li class="nav-item active">
+        <a routerLink="/visits" class="nav-link">List of visits</a>
+      </li>
+      <li class="nav-item active">
         <a routerLink="/contractform" class="nav-link">Create contracts</a>
+      </li>
+      <li class="nav-item active">
+        <a routerLink="/visitForm" class="nav-link">Create a visit</a>
       </li>
       <li class="nav-item active" *ngIf="!isAuthenticated; else elseBlock">
         <a class="nav-link">Sign in</a>

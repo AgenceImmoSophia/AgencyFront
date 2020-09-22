@@ -1,0 +1,46 @@
+<body>
+<app-navbar></app-navbar>
+
+<div class="container-md text-center">
+  <div class="card-body">
+<form [formGroup]="formVisit" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="dateOfVisit">Date of the visit: </label>
+    <input id="dateOfVisit" type="date" formControlName="dateOfVisit">
+  </div>
+  <div class="form-group">
+    <label for="agentId">ID of the agent: </label>
+    <select id="agentId" formControlName="agentId" (change)="getAgent()">
+      <option value="" disabled>Choose an agent: </option>
+      <option *ngFor="let agent of users" [ngValue]="agent.id" >
+        {{agent.id}}: {{agent.name}}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="clientId">ID of the client: </label>
+    <select id="clientId" formControlName="clientId" (change)="getClient()">
+      <option value="" disabled>Choose a client: </option>
+      <option *ngFor="let client of users" [ngValue]="client.id" >
+        {{client.id}}: {{client.name}}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="goodId">ID of the good: </label>
+    <select id="goodId" formControlName="goodId" (change)="getGood()">
+      <option value="" disabled>Choose a good: </option>
+      <option *ngFor="let good of goods" [ngValue]="good.id" >
+        {{good.id}}: {{good.nameOfGood}}
+      </option>
+    </select>
+  </div>
+  <button class="btn btn-info" type="submit">Create</button>
+</form>
+</div>
+</div>
+
+<footer>&copy;Agency of SA</footer>
+</body>
+
+

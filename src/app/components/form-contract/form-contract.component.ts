@@ -17,7 +17,7 @@ import {UserService} from '../../services/userService';
 export class FormContractComponent implements OnInit {
 
   contract = new Contract();
-  good= new Good();
+  good = new Good();
   date = new Date();
   client = new Client();
   agent = new EstateAgent();
@@ -28,7 +28,7 @@ export class FormContractComponent implements OnInit {
   formContract;
 
 
-  constructor(private contractService: ContractService, private fb : FormBuilder, private userService:UserService, private goodService : GoodService) {
+  constructor(private contractService: ContractService, private fb: FormBuilder, private userService: UserService, private goodService: GoodService) {
 
     this.formContract = this.fb.group({
       typeOfContract : '',
@@ -36,19 +36,18 @@ export class FormContractComponent implements OnInit {
       clientId : '',
       goodId: '',
       dateOfContract: '',
-      priceOfContract:0
-    })
-
+      priceOfContract: 0
+    });
    }
 
   ngOnInit(): void {
     this.goodService.findAllGoods().subscribe(goods => this.goods = goods);
-    this.userService.findAllUsers().subscribe(users =>this.users=users);
+    this.userService.findAllUsers().subscribe(users => this.users = users);
 
   }
 
   onSubmit(){
-    this.contract.client =this.client;
+    this.contract.client = this.client;
     this.contract.date = this.formContract.value.dateOfContract;
     this.contract.estateAgent = this.agent;
     this.contract.good = this.good;
@@ -60,7 +59,7 @@ export class FormContractComponent implements OnInit {
     this.contractService.createContract(this.contract);
   }
 
-  getClient():any{
+  getClient(): any{
     return this.userService.findClientById(this.formContract.value.clientId).subscribe(value => {
       this.client = value;
       console.log(value);
