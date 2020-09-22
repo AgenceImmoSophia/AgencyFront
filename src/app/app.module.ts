@@ -12,6 +12,7 @@ import {FormContractComponent} from './components/form-contract/form-contract.co
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ContractDetailsComponent } from './contract-details/contract-details.component';
+import { FilterUsers } from './pipes/filterUsers';
 
 @NgModule({
   declarations: [
@@ -20,18 +21,17 @@ import { ContractDetailsComponent } from './contract-details/contract-details.co
     GoodDetailComponent,
     GoodListComponent,
     FormContractComponent,
-
     SellFormComponent,
     NavbarComponent,
     SignInComponent,
     ContractDetailsComponent,
+    FilterUsers
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
-
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
