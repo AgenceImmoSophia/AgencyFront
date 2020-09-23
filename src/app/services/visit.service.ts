@@ -9,8 +9,8 @@ import {catchError} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class VisitService {
-  private good: Good;
   private visitUrl = 'http://localhost:8080/AgencyBack/';
+
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
@@ -22,9 +22,12 @@ export class VisitService {
   }
 
   public createVisit(visit: Visit) {
-    return this.http.post<Visit>(this.visitUrl + 'addVisit', visit, this.httpOptions).pipe(
-      catchError(this.handleError<Visit>('addVisit'))
-    );
+    return this.http.post<Visit>(this.visitUrl + 'addvisit', visit, this.httpOptions)
+      .subscribe(value => {
+        console.log(value);
+      });
+      // catchError(this.handleError<Visit>('addVisit'))
+    // );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

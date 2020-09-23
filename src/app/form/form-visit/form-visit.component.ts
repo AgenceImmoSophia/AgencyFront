@@ -17,19 +17,23 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./form-visit.component.css']
 })
 export class FormVisitComponent implements OnInit {
+  @Input()
+  visits: Visit[];
+
+  @Input()
+  users: User[];
+
+  @Input()
+  goods: Good[];
+
   visit = new Visit();
   date = new Date();
   good = new Good();
   estateAgent = new EstateAgent();
   client = new Client();
+  formVisit: FormGroup;
+  // formVisit;
 
-  @Input()
-  goods: Good[];
-  @Input()
-  users: User[];
-
-  fg: FormGroup;
-  formVisit;
 
   constructor(
     private http: HttpClient,
@@ -38,24 +42,53 @@ export class FormVisitComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private fb: FormBuilder) {
-    this.createForm();
   }
 
   ngOnInit(): void {
-    this.goodService.findAllGoods().subscribe((goods => this.goods = goods),
-      error => console.error('There are an error', error));
-    this.userService.findAllUsers().subscribe((users => this.users = users),
-      error => console.error('There are an error', error));
+    this.getListOfVisits();
+    this.getListOfGoods();
+    this.getListOfUsers();
+    this.createForm();
+  }
+
+  onSubmit(): void {
+    const fg = new FormData();
+    this.visit.client = this.client;
+    this.visit.date = this.date;
+    this.visit.estateAgent = this.estateAgent;
+    this.visit.good = this.good;
+    this.visitService.createVisit(this.visit);
+    this.redirect();
+    // console.warn(this.fg.value);
+    // console.log(this.visit);
+    // this.router.navigate(['/visits']);
+  }
+
+  getListOfVisits(): void {
+    this.visitService.findAllVisits().subscribe(visits => this.visits = visits);
+  }
+
+  getListOfGoods(): void {
+    this.goodService.findAllGoods().subscribe(goods => this.goods = goods);
+  }
+
+  getListOfUsers(): void {
+    this.userService.findAllUsers().subscribe(users => this.users = users);
   }
 
   createForm() {
-    this.fg = this.fb.group({
+    this.formVisit = this.fb.group({
       dateOfVisit: ['', Validators.required],
       goodId: ['', Validators.required],
       agentId: ['', Validators.required],
       clientId: ['', Validators.required],
     });
   }
+
+  redirect(): void {
+    this.router.navigate(['/visits']);
+  }
+
 
   getClient(): any{
     return this.userService.findClientById(this.formVisit.value.clientId).subscribe(value => {
@@ -76,34 +109,5 @@ export class FormVisitComponent implements OnInit {
       this.good = value;
     });
   }
-
-  onSubmit(): void {
-    const fg = new FormData();
-    // fg.append('dateOfVisit', this.visit.date);
-    // fg.append('goodId', this.visit.good);
-    // fg.append('agentId', this.visit.estateAgent);
-    // fg.append('clientId', this.visit.client);
-    this.visit.client = this.client;
-    this.visit.date = this.formVisit.value.dateOfContract;
-    this.visit.estateAgent = this.estateAgent;
-    this.visit.good = this.good;
-    this.visitService.createVisit(this.visit);
-    console.warn(this.fg.value);
-    console.log(this.visit);
-    this.router.navigate(['/visits']);
-
-
-
-
-  }
-
-  // addVisit(dateOfVisit: Date, good: Good, estateAgent: EstateAgent, client: Client): void {
-  //   this.visitService.createVisit({
-  //     dateOfVisit,
-  //     good,
-  //     estateAgent,
-  //     client
-  //   } as unknown as Visit).subscribe();
-  // }
 
 }

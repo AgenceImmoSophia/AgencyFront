@@ -20,8 +20,6 @@ const routes: Routes = [
   { path: 'visitForm', component: FormVisitComponent },
   { path: 'sell', component: SellFormComponent },
   { path: 'editGood/:id', component: EditGoodFormComponent},
-
-
 ];
 
 @NgModule({
