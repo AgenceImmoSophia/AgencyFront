@@ -38,11 +38,9 @@ export class GoodService {
     return this.http.delete<Good>(this.goodUrl + 'deleteGood/' + goodId);
   }
 
-
-
-public editGood( good: Good, goodId: number){
-    return this.http.post<Good>(this.goodUrl + 'editGood/' + goodId, good, this.httpOptions).subscribe(value => console.log(value));
-  }
+  public editGood( good: Good, goodId: number){
+      return this.http.post<Good>(this.goodUrl + 'editGood/' + goodId, good, this.httpOptions).subscribe(value => console.log(value));
+    }
 
   /**
  * Handle Http operation that failed.
