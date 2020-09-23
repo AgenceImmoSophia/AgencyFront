@@ -37,10 +37,8 @@ export class GoodService {
   }
 
   public deleteGoodById(goodId: number): Observable<Good> {
-    return this.http.delete<Good>(this.goodUrl + 'deleteGood/' + goodId);
+    return this.http.delete<Good>(this.goodUrl + 'good/' + goodId);
   }
-
-
 
 public editGood( good: Good, goodId: number){
     return this.http.post<Good>(this.goodUrl + 'editGood/' + goodId, good, this.httpOptions).subscribe(value => console.log(value));
@@ -86,11 +84,11 @@ public generateCode (typeOfGood: TypeOfGood, price: number, status: Status, area
    }
 
 if(status.valueOf()==0){
-  thirdDigit=1;
+  thirdDigit=0;
 } else if(status.valueOf()==1){
-  thirdDigit=2;
+  thirdDigit=1;
 } else if(status.valueOf()==2){
-  thirdDigit=3;
+  thirdDigit=2;
 }
 
    if (area <= 10){
