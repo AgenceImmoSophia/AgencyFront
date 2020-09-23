@@ -43,7 +43,10 @@ export class FormContractComponent implements OnInit {
 
   ngOnInit(): void {
     this.goodService.findAllGoods().subscribe(goods => this.goods = goods);
-    this.userService.findAllUsers().subscribe(users =>this.users=users);
+    this.userService.findAllUsers().subscribe(users => {
+      this.users=users;
+      console.log(users);
+  });
 
   }
 
@@ -79,5 +82,4 @@ export class FormContractComponent implements OnInit {
       this.good = value;
     });
   }
-
 }
