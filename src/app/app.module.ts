@@ -8,8 +8,11 @@ import {HomeComponent} from './home/home.component';
 import {SellFormComponent} from './form/sell-form/sell-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {FormContractComponent} from './components/form-contract/form-contract.component'
+import {FormContractComponent} from './form/form-contract/form-contract.component'
 import { NavbarComponent } from './navbar/navbar.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { FilterUsers } from './pipes/filterUsers';
+import { EditGoodFormComponent } from './form/edit-good-form/edit-good-form.component';
 import { FormVisitComponent } from './form/form-visit/form-visit.component';
 import { VisitListComponent } from './components/visit-list/visit-list.component';
 
@@ -22,6 +25,9 @@ import { VisitListComponent } from './components/visit-list/visit-list.component
     FormContractComponent,
     SellFormComponent,
     NavbarComponent,
+    SignInComponent,
+    FilterUsers,
+    EditGoodFormComponent,
     FormVisitComponent,
     VisitListComponent,
   ],

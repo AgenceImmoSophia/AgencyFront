@@ -8,12 +8,10 @@ import {Good} from '../models/good';
 )
 
 export class GoodService {
-
-  public good: Good;
-
   private goodUrl = 'http://localhost:8080/AgencyBack/';
+
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
 
   constructor(private http: HttpClient) { }
@@ -41,6 +39,10 @@ export class GoodService {
   }
 
 
+
+public editGood( good: Good, goodId: number){
+    return this.http.post<Good>(this.goodUrl + 'editGood/' + goodId, good, this.httpOptions).subscribe(value => console.log(value));
+  }
 
   /**
  * Handle Http operation that failed.
