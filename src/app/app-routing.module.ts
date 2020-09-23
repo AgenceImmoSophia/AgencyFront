@@ -6,8 +6,10 @@ import { GoodListComponent } from './components/good-list/good-list.component';
 import { FormContractComponent } from './components/form-contract/form-contract.component';
 import { SellFormComponent} from './form/sell-form/sell-form.component';
 import { SignInFormComponent } from './form/sign-in-form/sign-in-form.component';
+import {SellFormComponent} from './form/sell-form/sell-form.component';
 import {EditGoodFormComponent} from './form/edit-good-form/edit-good-form.component';
 import { EstateAgentAccountComponent } from './accountUser/estate-agent-account/estate-agent-account.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},

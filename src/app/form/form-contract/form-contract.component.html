@@ -20,7 +20,7 @@
     </label>
     <select formControlName="agentId" (change)="getAgent()">
       <option value="" disabled>Choisissez un agent</option>
-      <option *ngFor="let agent of users" [ngValue]="agent.id" >
+      <option *ngFor="let agent of users|filterUsers: 'EstateAgent' " [ngValue]="agent.id" >
         {{agent.id}}: {{agent.name}}
       </option>
     </select>
@@ -31,7 +31,7 @@
     </label>
     <select formControlName="clientId" (change)="getClient()">
       <option value="" disabled>Choisissez un client</option>
-      <option *ngFor="let client of users" [ngValue]="client.id" >
+      <option *ngFor="let client of users |filterUsers: 'Client' " [ngValue]="client.id" >
         {{client.id}}: {{client.name}}
       </option>
     </select>
@@ -55,7 +55,7 @@
   </div>
 
 
-  <button class="button" type="submit">Create</button>
+  <button class="button" type="submit" >Create</button>
 
 </form>
 <footer>&copy;Agency of SA</footer>

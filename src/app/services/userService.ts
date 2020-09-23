@@ -11,7 +11,7 @@ import { EstateAgentAccountComponent } from '../accountUser/estate-agent-account
 )
 
 export class UserService {
-  private userUrl = 'http://localhost:8080/users/';
+  private userUrl = 'http://localhost:8080/AgencyBack/users/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
