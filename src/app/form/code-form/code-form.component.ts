@@ -44,7 +44,7 @@ export class CodeFormComponent implements OnInit {
     this.area = this.formCode.value.area;
 
     this.code = this.goodService.generateCode(this.selectedType, this.price, this.selectedStatus, this.area);
-    console.log(this.code);
+    console.log("code component "+this.code);
   }
 
 }

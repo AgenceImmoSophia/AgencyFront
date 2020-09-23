@@ -2,7 +2,8 @@ import {Pipe, PipeTransform} from '@angular/core';
 import { Good } from '../models/good';
 
 @Pipe({
-  name: 'filterGoods'
+  name: 'filterGoods',
+  pure:false
 })
 
 export class filterGoods implements PipeTransform{
@@ -11,9 +12,9 @@ export class filterGoods implements PipeTransform{
     if(!search) return lists;
     if(!lists) return [];
 
+
     return lists.filter(x=>
       x.code==search
     )
   }
-
 }
