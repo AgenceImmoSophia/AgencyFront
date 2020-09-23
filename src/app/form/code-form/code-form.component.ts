@@ -24,10 +24,10 @@ export class CodeFormComponent implements OnInit {
   constructor(private fb: FormBuilder, private goodService: GoodService) {
 
     this.formCode = this.fb.group({
-      typeOfGood:'',
-      price: 0,
-      status:'',
-      area: 0
+      typeOfGood: '',
+      price: '',
+      status: '',
+      area: ''
     });
    }
 
