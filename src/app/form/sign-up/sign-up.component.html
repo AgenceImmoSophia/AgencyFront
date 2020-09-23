@@ -23,20 +23,21 @@
 
   <div *ngIf="user.role === 'EstateAgent'">
     <label for="username"> Username</label>
-    <input id="username" name="username" class="form-control">
+    <input id="username" name="username" class="form-control" formControlName="username" [(ngModel)]="agent.username">
 
     <label for="password"> Password</label>
-    <input id="password" type="password" name="password" class="form-control">
+    <input id="password" type="password" name="password" class="form-control" formControlName="password" [(ngModel)]="agent.password">
   </div>
 
     <label for="phoneNumberPers"> Phone number</label>
     <input id="phoneNumberPers" name="phoneNumberPers" class="form-control" formControlName="phoneNumberPers" [(ngModel)]="user.phoneNumberPers">
 
+
 <div *ngIf="user.role === 'Owner'">
 <label for="phoneNumberPro"> Professional phone number</label>
-  <input id="phoneNumberPro" name="phoneNumberPro" class="form-control" formControlName="phoneNumberPro" [(ngModel)]="owner.phoneNumberPro">
-
+  <input id="phoneNumberPro" name="phoneNumberPro" class="form-control" formControlName="phoneNumberPro" [(ngModel)]="owner.phoneNumberPro" >
 </div>
+
     <label for="city" > City </label>
     <input id="city" name="city" class="form-control" formControlName="city" [(ngModel)]="address.city">
 

@@ -20,8 +20,8 @@ export class SignUpComponent implements OnInit {
   address = new Address();
   userForm: FormGroup;
   roleForm: FormGroup;
-//  ownerForm: FormGroup;
-//  agentForm: FormGroup;
+  ownerForm: FormGroup;
+  agentForm: FormGroup;
 
   constructor(private http: HttpClient, private fb: FormBuilder, private userService: UserService) { }
 
@@ -29,6 +29,8 @@ export class SignUpComponent implements OnInit {
     this.userForm =  this.fb.group({
  //     role: ['', Validators.required],
       name: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
       phoneNumberPers: ['', Validators.required],
       phoneNumberPro: ['', Validators.required],
       city: ['', Validators.required],
@@ -44,6 +46,8 @@ onSubmitUser(): void{
   const userForm = new FormData();
   userForm.append('role', this.user.role);
   userForm.append('name', this.user.name);
+  userForm.append('username', this.agent.username);
+  userForm.append('password', this.agent.password);
   userForm.append('phoneNumberPers', this.user.phoneNumberPers);
   userForm.append('phoneNumberPro', this.owner.phoneNumberPro);
   userForm.append('city', this.address.city);
@@ -52,8 +56,21 @@ onSubmitUser(): void{
   userForm.append('street', this.address.street);
   userForm.append('country', this.address.country);
   this.user.address = this.address;
+  if (this.user.role === 'Owner'){
+    console.log('on y est');
+  } else {
+    console.log('on y est pas');
+    console.log(this.user.role);
+  }
+ // this.user = this.agent;
   this.userService.createUser(this.user);
   console.log(this.user);
+}
+
+submitOwner(): void {
+    const ownerForm = new FormData();
+    ownerForm.append('phoneNumberPro', this.owner.phoneNumberPro);
+    console.log(this.owner.phoneNumberPro);
 }
 
 submitRole(): void {
@@ -61,17 +78,8 @@ submitRole(): void {
     roleForm.append('role', this.user.role);
     console.log(this.user.role);
 }
-/* onSubmitOwner(): void{
+onSubmitOwner(): void{
     const ownerForm = new FormData();
-    this.ownerForm =  this.fb.group({
-    name: ['', Validators.required],
-    phoneNumberPers: ['', Validators.required],
-      phoneNumberPro: ['', Validators.required],
-    city: ['', Validators.required],
-    zipcode: ['', Validators.required],
-    streetnumber: ['', Validators.required],
-    street: ['', Validators.required],
-    country: ['', Validators.required], });
     ownerForm.append('name', this.owner.name);
     ownerForm.append('phoneNumberPers', this.owner.phoneNumberPers);
     ownerForm.append('phoneNumberPro', this.owner.phoneNumberPro);
@@ -82,6 +90,7 @@ submitRole(): void {
     ownerForm.append('country', this.address.country);
     this.owner.address = this.address;
     this.userService.createOwner(this.owner);
+    console.log('macron demission');
     console.log(this.owner);
 }
 onSubmitAgent(): void{
@@ -107,5 +116,5 @@ onSubmitAgent(): void{
     agentForm.append('street', this.address.street);
     agentForm.append('country', this.address.country);
 
-}  */
+}
 }
