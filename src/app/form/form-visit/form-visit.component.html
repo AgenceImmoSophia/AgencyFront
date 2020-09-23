@@ -6,29 +6,23 @@
   <div class="container-md text-center">
     <div class="row">
       <form class="col text-center" method="post" enctype="multipart/form-data"
-      (ngSubmit)="onSubmit();formVisit.reset()"
+      (ngSubmit)="onSubmit()"
       [formGroup]="formVisit">
         <div class="col text-center">
           <div class="form-group">
             <label for="dateOfVisit">Date: </label>
             <input id="dateOfVisit" type="date" formControlName="dateOfVisit">
-            <div class="alert alert-danger"
-            *ngIf="formVisit.get('date').invalid && (formVisit.get('date').dirty || formVisit.get('date').touched)">
-              Choose a date
-            </div>
+
           </div>
 
           <div class="form-group">
             <label for="agentId">ID of the agent: </label>
             <select id="agentId" formControlName="agentId" (change)="getAgent()">
-              <option *ngFor="let agent of users" [ngValue]="agent.id">
+              <option *ngFor="let agent of users|filterUsers: 'EstateAgent'" [ngValue]="agent.id">
                 {{agent.id}}: {{agent.name}}
               </option>
             </select>
-<!--            <div class="alert alert-danger"-->
-<!--                 *ngIf="formVisit.get('agent').invalid && (formVisit.get('agent').dirty || fg.get('agent').touched)">-->
-<!--              Choose an agent-->
-<!--            </div>-->
+
           </div>
 
           <div class="form-group">
@@ -38,23 +32,17 @@
                 {{good.id}}: {{good.nameOfGood}}
               </option>
             </select>
-<!--            <div class="alert alert-danger"-->
-<!--                 *ngIf="fg.get('good').invalid && (fg.get('good').dirty || fg.get('good').touched)">-->
-<!--              Choose a good-->
-<!--            </div>-->
+
           </div>
 
           <div class="form-group">
             <label for="clientId">ID of the client: </label>
             <select id="clientId" formControlName="clientId" (change)="getClient()">
-              <option *ngFor="let client of users" [ngValue]="client.id">
+              <option *ngFor="let client of users|filterUsers:'Client'" [ngValue]="client.id">
                 {{client.id}}: {{client.name}}
               </option>
             </select>
-<!--            <div class="alert alert-danger"-->
-<!--                 *ngIf="fg.get('agent').invalid && (fg.get('agent').dirty || fg.get('agent').touched)">-->
-<!--              Choose an agent-->
-<!--            </div>-->
+
           </div>
         </div>
 
@@ -70,44 +58,7 @@
 
 
 
-<!--<div class="container-md text-center">-->
-<!--  <div class="card-body">-->
-<!--<form [formGroup]="formVisit" (ngSubmit)="onSubmit()">-->
-<!--  <div class="form-group">-->
-<!--    <label for="">Date of the visit: </label>-->
-<!--    <input id="" type="date" formControlName="dateOfVisit">-->
-<!--  </div>-->
-<!--  <div class="form-group">-->
-<!--    <label for="">ID of the agent: </label>-->
-<!--    <select id="" formControlName="agentId" (change)="getAgent()">-->
-<!--      <option value="" disabled>Choose an agent: </option>-->
-<!--      <option *ngFor="let agent of users" [ngValue]="agent.id">-->
-<!--        {{agent.id}}: {{agent.name}}-->
-<!--      </option>-->
-<!--    </select>-->
-<!--  </div>-->
-<!--  <div class="form-group">-->
-<!--    <label for="clientId">ID of the client: </label>-->
-<!--    <select id="clientId" formControlName="clientId" (change)="getClient()">-->
-<!--      <option value="" disabled>Choose a client: </option>-->
-<!--      <option *ngFor="let client of users" [ngValue]="client.id">-->
-<!--        {{client.id}}: {{client.name}}-->
-<!--      </option>-->
-<!--    </select>-->
-<!--  </div>-->
-<!--  <div class="form-group">-->
-<!--    <label for="goodId">ID of the good: </label>-->
-<!--    <select id="goodId" formControlName="goodId" (change)="getGood()">-->
-<!--      <option value="" disabled>Choose a good: </option>-->
-<!--      <option *ngFor="let good of goods" [ngValue]="good.id">-->
-<!--        {{good.id}}: {{good.nameOfGood}}-->
-<!--      </option>-->
-<!--    </select>-->
-<!--  </div>-->
-<!--  <button class="btn btn-info" type="submit" routerLink="/visits">Create</button>-->
-<!--</form>-->
-<!--</div>-->
-<!--</div>-->
+
 
 <footer>&copy;Agency of SA</footer>
 

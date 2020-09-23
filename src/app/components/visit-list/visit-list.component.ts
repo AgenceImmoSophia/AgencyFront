@@ -18,10 +18,13 @@ export class VisitListComponent implements OnInit {
 
   ngOnInit() {
     this.displayListOfVisits();
+
   }
 
   displayListOfVisits() {
-    this.visitService.findAllVisits().subscribe((visits => this.visits = visits));
+    this.visitService.findAllVisits().subscribe(visits => {this.visits = visits;
+      console.log(this.visits);
+    });
       // error => console.error('There are an error', error));
   }
 

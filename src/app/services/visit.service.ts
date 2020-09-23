@@ -9,7 +9,7 @@ import {catchError} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class VisitService {
-  private visitUrl = 'http://localhost:8080/AgencyBack/';
+  private visitUrl = 'http://localhost:8080/';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})

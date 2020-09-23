@@ -10,6 +10,7 @@ import {UserService} from '../../services/userService';
 import {VisitService} from '../../services/visit.service';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import { Contract } from 'src/app/models/contract';
 
 @Component({
   selector: 'app-form-visit',
@@ -17,8 +18,6 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./form-visit.component.css']
 })
 export class FormVisitComponent implements OnInit {
-  @Input()
-  visits: Visit[];
 
   @Input()
   users: User[];
@@ -31,7 +30,8 @@ export class FormVisitComponent implements OnInit {
   good = new Good();
   estateAgent = new EstateAgent();
   client = new Client();
-  formVisit: FormGroup;
+  contract = new Contract();
+  formVisit;
   // formVisit;
 
 
@@ -42,19 +42,23 @@ export class FormVisitComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private fb: FormBuilder) {
+      this.formVisit = this.fb.group({
+        dateOfVisit: ['', Validators.required],
+        goodId: ['', Validators.required],
+        agentId: ['', Validators.required],
+        clientId: ['', Validators.required],
+      });
   }
 
   ngOnInit(): void {
-    this.getListOfVisits();
     this.getListOfGoods();
     this.getListOfUsers();
-    this.createForm();
   }
 
   onSubmit(): void {
-    const fg = new FormData();
+
     this.visit.client = this.client;
-    this.visit.date = this.date;
+    this.visit.date = this.formVisit.value.dateOfVisit;
     this.visit.estateAgent = this.estateAgent;
     this.visit.good = this.good;
     this.visitService.createVisit(this.visit);
@@ -64,26 +68,19 @@ export class FormVisitComponent implements OnInit {
     // this.router.navigate(['/visits']);
   }
 
-  getListOfVisits(): void {
-    this.visitService.findAllVisits().subscribe(visits => this.visits = visits);
-  }
+
 
   getListOfGoods(): void {
-    this.goodService.findAllGoods().subscribe(goods => this.goods = goods);
+    this.goodService.findAllGoods().subscribe(goods => {
+      this.goods = goods;
+    console.log(this.goods)});
   }
 
   getListOfUsers(): void {
     this.userService.findAllUsers().subscribe(users => this.users = users);
   }
 
-  createForm() {
-    this.formVisit = this.fb.group({
-      dateOfVisit: ['', Validators.required],
-      goodId: ['', Validators.required],
-      agentId: ['', Validators.required],
-      clientId: ['', Validators.required],
-    });
-  }
+
 
   redirect(): void {
     this.router.navigate(['/visits']);
