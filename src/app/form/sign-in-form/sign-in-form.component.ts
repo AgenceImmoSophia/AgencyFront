@@ -17,12 +17,10 @@ import { Owner } from 'src/app/models/owner';
 })
 export class SignInFormComponent implements OnInit {
 
-  // @Input() estateAgent: EstateAgent;
-
-  user = new User();
+  // user = new User();
   estateAgent = new EstateAgent();
   client = new Client();
-  // owner = new Owner();
+  owner = new Owner();
   typeofUser: number;
   formSignIn1: FormGroup;
   formSignIn2: FormGroup;
@@ -49,74 +47,70 @@ export class SignInFormComponent implements OnInit {
   }
 
   getAgent():any{
-    return this.userService.findEstateAgentByUsername(this.formSignIn2.value.username).subscribe(value => {
-      this.estateAgent = value;
-      console.log(value)
+    return this.userService.findEstateAgentByUsername(this.formSignIn2.value.username).subscribe(value => 
+      {this.estateAgent = value;
+    });
+  }
+
+  getClient():any{
+    return this.userService.findClientById(this.formSignIn2.value.id).subscribe(value => 
+      {this.client = value;
+    });
+  }
+
+  getOwner():any{
+    return this.userService.findOwnerById(this.formSignIn2.value.id).subscribe(value => 
+      {this.owner = value;
     });
   }
 
   OnSubmit2(): void {
     if (this.typeofUser == 1) {
-      this.getAgent();
-      // console.log(this.estateAgent.username);
+      // console.log("récupère agent : "+this.estateAgent.username);
+      if (this.estateAgent.password == this.formSignIn2.value.password) {
+        // console.log("voici l'id de l'agent recherché, le password est bon " + this.estateAgent.id);
+        this.router.navigate(['/estateAgentAccount/' + (this.estateAgent.id)]);
 
-      console.log(this.estateAgent.username);
-    //   // const formSignIn2 = new FormData();
-    //   // formSignIn2.append('username', this.estateAgent.username);
-    //   // formSignIn2.append('password', this.estateAgent.password);
-    //   this.estateAgent.username = this.formSignIn2.value['username'];
-    //   this.estateAgent.password = this.formSignIn2.value.password;
-    //   this.userService.findEstateAgentByUsername(this.estateAgent.username).subscribe(estateAgent => this.estateAgent = estateAgent);
-    //   console.warn(this.estateAgent);
-    //   console.log("voici l'id de l'agent recherché" + this.estateAgent.id);
-      // if (this.estateAgent.password == this.estateAgent.password) {
-      //   this.router.navigate(['/estateAgentAccount/' + (this.estateAgent.id)]);
-      // }
-      // else {
-      //   this.router.navigate(['/sign-in']);
-      // }
+      }
+      else {
+        // console.log("mauvais mot de passe");
+        this.typeofUser = 0;
+        // TODO: Put a message when password is wrong 
+        this.router.navigate(['/sign-in']);
+      }
+    }
+
+
+    if (this.typeofUser == 2) {
+      // console.log("récupère client : "+this.client.id);
+      if (this.client.name == this.formSignIn2.value.name) {
+        // console.log("voici l'id du client recherché, le name est bon " + this.client.id);
+        this.router.navigate(['/clientAccount/' + (this.client.id)]);
+
+      }
+      else {
+        // console.log("mauvais nom");
+        this.typeofUser = 0;
+        // TODO: Put a message when password is wrong 
+        this.router.navigate(['/sign-in']);
+      }
+    }
+
+
+    if (this.typeofUser == 3) {
+      // console.log("récupère owner : "+this.owner.id);
+      if (this.owner.name == this.formSignIn2.value.name) {
+        // console.log("voici l'id du owner recherché, le name est bon " + this.owner.id);
+        this.router.navigate(['/ownerAccount/' + (this.owner.id)]);
+
+      }
+      else {
+        // console.log("mauvais nom");
+        this.typeofUser = 0;
+        // TODO: Put a message when password is wrong 
+        this.router.navigate(['/sign-in']);
+      }
     }
   }
-
-
-
-
-
-  // ngOnInit(): void {
-  //   this.getGood();
-  //   this.placeForm = this.fb.group({
-  //     type: ['', Validators.required],
-  //     status: ['', Validators.required],
-  //     name: ['', Validators.required],
-  //     city: ['', Validators.required],
-  //     zipcode: ['', Validators.required],
-  //     streetnumber: ['', Validators.required],
-  //     street: ['', Validators.required],
-  //     country: ['', Validators.required],
-  //     price: ['', Validators.required],
-  //     area: ['', Validators.required],
-  //   });
-  // }
-
-  // onSubmit(): void{
-  //   const placeForm = new FormData();
-  //   placeForm.append('type', this.good.typeOfGood);
-  //   placeForm.append('status', this.good.status);
-  //   placeForm.append('name', this.good.nameOfGood);
-  //   placeForm.append('city', this.good.address.city);
-  //   placeForm.append('zipcode', this.good.address.zipcode);
-  //   placeForm.append('streetnumber', this.good.address.streetNber);
-  //   placeForm.append('street', this.good.address.street);
-  //   placeForm.append('country', this.good.address.country);
-  //   placeForm.append('price', JSON.stringify( this.good.price));
-  //   placeForm.append('area', JSON.stringify(this.good.area));
-  //   this.goodService.editGood(this.good, this.good.id);
-  //   this.router.navigate(['/good_details/' + (this.good.id)]);
-  // }
-
-  //   getGood(): void{
-  //   const id = +this.route.snapshot.paramMap.get('id');
-  //   this.goodService.findGoodById(id).subscribe(good => this.good = good);
-  // }
 
 }

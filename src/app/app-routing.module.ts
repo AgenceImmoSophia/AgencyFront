@@ -3,12 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { GoodDetailComponent} from './components/good-detail/good-detail.component';
 import { HomeComponent } from './home/home.component';
 import { GoodListComponent } from './components/good-list/good-list.component';
-import { FormContractComponent } from './components/form-contract/form-contract.component';
+import { FormContractComponent } from './form/form-contract/form-contract.component';
 import { SellFormComponent} from './form/sell-form/sell-form.component';
 import { SignInFormComponent } from './form/sign-in-form/sign-in-form.component';
-import {SellFormComponent} from './form/sell-form/sell-form.component';
 import {EditGoodFormComponent} from './form/edit-good-form/edit-good-form.component';
 import { EstateAgentAccountComponent } from './accountUser/estate-agent-account/estate-agent-account.component';
+import { ClientAccountComponent } from './accountUser/client-account/client-account.component';
+import { OwnerAccountComponent } from './accountUser/owner-account/owner-account.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,9 @@ const routes: Routes = [
   { path: 'sell', component: SellFormComponent},
   { path: 'sign-in', component: SignInFormComponent},
   { path: 'editGood/:id', component: EditGoodFormComponent},
-  { path: 'estateAgentAccount', component: EstateAgentAccountComponent},
+  { path: 'estateAgentAccount/:id', component: EstateAgentAccountComponent},
+  { path: 'clientAccount/:id', component: ClientAccountComponent},
+  { path: 'ownerAccount/:id', component: OwnerAccountComponent},
 ];
 
 @NgModule({

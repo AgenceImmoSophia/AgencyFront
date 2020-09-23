@@ -33,7 +33,7 @@
                 <p>Please enter your informations</p>
 
                 <label for="username"> Username</label>
-                <input type="text" class="form-control" placeholder="Enter your username" name="username" id="username" formControlName="username" required>
+                <input type="text" class="form-control" placeholder="Enter your username" name="username" id="username" formControlName="username" (change)="getAgent()" required>
                 <div class="alert alert-danger"
                         *ngIf="formSignIn2.get('username').invalid && (formSignIn2.get('username').dirty || formSignIn2.get('username').touched)">
                         Your username is required
@@ -46,24 +46,24 @@
                         Your password is required
                 </div>
                 <div id="button" class="col text-center">
-                    <button class="btn btn-primary" type="submit"> Connexion</button>
+                    <button class="btn btn-primary" type="submit" > Connexion</button>
                     <button class="btn btn-secondary" type="reset"> Reset</button>
                 </div>
             </div>
 
-            <!-- <div *ngIf="typeofUser == 2">
+            <div *ngIf="typeofUser == 2">
                 <p>Hello dear client</p>
                 <p>Please enter your informations</p>
 
                 <label for="id"> ID</label>
-                <input type="text" class="form-control" placeholder="Enter your id (number) of user" name="id" id="id" formControlName="id" [(ngModel)]="client.id" required>
+                <input type="text" class="form-control" placeholder="Enter your id (number) of user" name="id" id="id" formControlName="id" (change)="getClient()" required>
                 <div class="alert alert-danger"
                         *ngIf="formSignIn2.get('id').invalid && (formSignIn2.get('id').dirty || formSignIn2.get('id').touched)">
                         Your ID is required
                 </div>
 
                 <label for="name"> Name</label>
-                <input type="text" class="form-control" placeholder="Enter your name" name="name" id="name" formControlName="name" [(ngModel)]="client.name" required>
+                <input type="text" class="form-control" placeholder="Enter your name" name="name" id="name" formControlName="name" required>
                 <div class="alert alert-danger"
                         *ngIf="formSignIn2.get('name').invalid && (formSignIn2.get('name').dirty || formSignIn2.get('name').touched)">
                         Your name is required
@@ -80,14 +80,14 @@
                 <p>Please enter your informations</p>
 
                 <label for="id"> ID</label>
-                <input type="text" class="form-control" placeholder="Enter your id (number) of user" name="id" id="id" formControlName="id" [(ngModel)]="client.id" required>
+                <input type="text" class="form-control" placeholder="Enter your id (number) of user" name="id" id="id" formControlName="id" (change)="getOwner()" required>
                 <div class="alert alert-danger"
                         *ngIf="formSignIn2.get('id').invalid && (formSignIn2.get('id').dirty || formSignIn2.get('id').touched)">
                         Your ID is required
                 </div>
 
                 <label for="name"> Name</label>
-                <input type="text" class="form-control" placeholder="Enter your name" name="name" id="name" formControlName="name" [(ngModel)]="client.name" required>
+                <input type="text" class="form-control" placeholder="Enter your name" name="name" id="name" formControlName="name" required>
                 <div class="alert alert-danger"
                         *ngIf="formSignIn2.get('name').invalid && (formSignIn2.get('name').dirty || formSignIn2.get('name').touched)">
                         Your name is required
@@ -96,7 +96,7 @@
                     <button class="btn btn-primary" type="submit"> Connexion</button>
                     <button class="btn btn-secondary" type="reset"> Reset</button>
                 </div>
-            </div> -->
+            </div>
         </form> 
     </section>
 
