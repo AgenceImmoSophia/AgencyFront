@@ -48,26 +48,30 @@ export class SignUpComponent implements OnInit {
   onSubmit(): void{
     const userForm = new FormData();
     userForm.append('role', this.user.role);
+    userForm.append('username', this.agent.username);
+    userForm.append('password', this.agent.password);
     userForm.append('name', this.user.name);
     userForm.append('phoneNumberPers', this.user.phoneNumberPers);
+    userForm.append('phoneNumberPro', this.owner.phoneNumberPro);
     userForm.append('city', this.address.city);
     userForm.append('zipcode', this.address.zipcode);
     userForm.append('streetnbr', this.address.streetNber);
     userForm.append('street', this.address.street);
     userForm.append('country', this.address.country);
     this.user.address = this.address;
+    console.log('1' + this.user.role );
     if (this.user.role === 'Owner'){
-      userForm.append('phoneNumberPro', this.owner.phoneNumberPro);
-      this.user = this.owner;
-      this.userService.createUser(this.owner);
+      this.user.phoneNumberPro = this.owner.phoneNumberPro;
+      console.log('2' + this.user.phoneNumberPro + this.owner.phoneNumberPro );
+      this.userService.createUser(this.user);
       console.log('test owner');
       console.log(this.owner);
     }
     else if (this.user.role === 'EstateAgent') {
-      userForm.append('username', this.agent.username);
-      userForm.append('password', this.agent.password);
-      this.user = this.agent;
-      this.userService.createUser(this.agent);
+      this.user.username = this.agent.username;
+      this.user.password = this.agent.password;
+      this.userService.createUser(this.user);
+      console.log('agent' + this.user.name);
     }
     else if (this.user.role === 'Client') {
       this.user = this.client;

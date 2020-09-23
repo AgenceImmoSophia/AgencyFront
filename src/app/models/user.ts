@@ -6,6 +6,9 @@ export class User {
   phoneNumberPers: string;
   address: Address;
   role: string;
+  phoneNumberPro: string;
+  username: string;
+  password: string;
 
   constructor(){}
 
