@@ -62,16 +62,18 @@ export class SignUpComponent implements OnInit {
     console.log('1' + this.user.role );
     if (this.user.role === 'Owner'){
       this.user.phoneNumberPro = this.owner.phoneNumberPro;
-      console.log('2' + this.user.phoneNumberPro + this.owner.phoneNumberPro );
-      this.userService.createUser(this.user);
+      this.owner = this.user;
+    //  console.log('2' + this.user.phoneNumberPro + this.owner.phoneNumberPro );
+      this.userService.createUser(this.owner);
       console.log('test owner');
       console.log(this.owner);
     }
     else if (this.user.role === 'EstateAgent') {
       this.user.username = this.agent.username;
       this.user.password = this.agent.password;
-      this.userService.createUser(this.user);
-      console.log('agent' + this.user.name);
+      this.agent = this.user;
+      this.userService.createUser(this.agent);
+      console.log('agent' + this.agent);
     }
     else if (this.user.role === 'Client') {
       this.user = this.client;
