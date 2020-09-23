@@ -47,7 +47,6 @@ export class SignUpComponent implements OnInit {
 
   onSubmit(): void{
     const userForm = new FormData();
-    userForm.append('role', this.user.role);
     userForm.append('username', this.agent.username);
     userForm.append('password', this.agent.password);
     userForm.append('name', this.user.name);
@@ -76,8 +75,8 @@ export class SignUpComponent implements OnInit {
       console.log('agent' + this.agent);
     }
     else if (this.user.role === 'Client') {
-      this.user = this.client;
-      this.userService.createUser(this.client);
+    this.client = this.user;
+    this.userService.createUser(this.client);
     }
   }
 
