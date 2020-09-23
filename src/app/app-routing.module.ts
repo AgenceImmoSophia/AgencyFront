@@ -6,6 +6,8 @@ import { GoodListComponent } from './components/good-list/good-list.component';
 import {FormContractComponent} from './form/form-contract/form-contract.component'
 import {SellFormComponent} from './form/sell-form/sell-form.component';
 import {EditGoodFormComponent} from './form/edit-good-form/edit-good-form.component';
+import { CodeFormComponent } from './form/code-form/code-form.component';
+
 
 
 const routes: Routes = [
@@ -16,6 +18,7 @@ const routes: Routes = [
   { path: 'contractform', component: FormContractComponent},
   { path: 'sell', component: SellFormComponent},
   { path: 'editGood/:id', component: EditGoodFormComponent},
+  { path: 'codeform', component: CodeFormComponent}
 
 ];
 

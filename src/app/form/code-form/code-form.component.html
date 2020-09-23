@@ -1,19 +1,34 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
-      Type of good
-    </div>
-    <div class="col-sm">
-      price
-    </div>
-    <div class="col-sm">
-      status
-    </div>
-    <div class="col-sm">
-      Area
-    </div>
-    <div class="col-sm">
-      Button
+<form [formGroup]="formCode" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <select formControlName="typeOfGood">
+          <option value="" disabled> Choose a type of good</option>
+          <option *ngFor="let key of type" [value]="key"
+          [label]="typeEnum[key]"></option>
+        </select>
+      </div>
+      <div class="col-sm">
+        <input type="number" formControlName="price">
+
+      </div>
+      <div class="col-sm">
+        <select formControlName="status">
+          <option value="" disabled> Choose a status</option>
+          <option *ngFor="let key of status" [value]="key"
+          [label]="typeEnumStatus[key]"></option>
+        </select>
+      </div>
+      <div class="col-sm">
+        <input type="number" formControlName="area">
+
+      </div>
+      <div class="col-sm">
+        <button class="button" type="submit" >Create</button>
+
+      </div>
     </div>
   </div>
-</div>
+
+</form>
+

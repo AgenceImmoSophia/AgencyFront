@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Good} from '../../models/good';
 import {GoodService} from '../../services/goodService';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import { CodeFormComponent } from 'src/app/form/code-form/code-form.component';
 
 @Component({
   selector: 'app-good-list',
@@ -15,12 +16,22 @@ export class GoodListComponent implements OnInit {
 
   @Input()
   goods: Good[];
+
   code;
 
-  constructor(private goodService: GoodService, private route: ActivatedRoute) { }
+  @ViewChild(CodeFormComponent) codeform: CodeFormComponent;
+
+
+  constructor(private goodService: GoodService, private route: Router) { }
 
   ngOnInit(): void {
     this.displayListOfGoods();
+  }
+
+  ngAfterViewInit(){
+    this.code = this.codeform.code;
+    console.log(this.code);
+    this.route.navigate(["/goods"]);
   }
 
   public displayListOfGoods(): void {

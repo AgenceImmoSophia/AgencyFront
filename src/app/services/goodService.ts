@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Good} from '../models/good';
 import { TypeOfGood } from '../models/typeOfGood';
+import { Status } from '../models/status';
 
 @Injectable(
   {providedIn: 'root'}
@@ -45,14 +46,14 @@ public editGood( good: Good, goodId: number){
     return this.http.post<Good>(this.goodUrl + 'editGood/' + goodId, good, this.httpOptions).subscribe(value => console.log(value));
   }
 
-public generateCode (typeOfGood: TypeOfGood, price: number, status: string, area: number){
-  var code;
+public generateCode (typeOfGood: TypeOfGood, price: number, status: Status, area: number){
+   var code;
    var firstDigit = typeOfGood.valueOf();
    var secondDigit;
    var thirdDigit;
    var fourthDigit;
 
-   if(status == "TOSELL"){
+   if(status.valueOf() == 0){
      if (price <=200000){
       secondDigit=1;
     } else if (price >200000 && price <= 300000){
@@ -62,7 +63,7 @@ public generateCode (typeOfGood: TypeOfGood, price: number, status: string, area
     } else {
       secondDigit=4;
     }
-  } else if(status == "TORENT"){
+  } else if(status.valueOf() == 1){
     if (price<=200) {
       secondDigit=1;
     } else if (price>200 && price<=300){
@@ -84,11 +85,11 @@ public generateCode (typeOfGood: TypeOfGood, price: number, status: string, area
     }
    }
 
-if(status=="TOSELL"){
+if(status.valueOf()==0){
   thirdDigit=1;
-} else if(status=="TOBUY"){
+} else if(status.valueOf()==1){
   thirdDigit=2;
-} else if(status=="NOTAVAILABLE"){
+} else if(status.valueOf()==2){
   thirdDigit=3;
 }
 

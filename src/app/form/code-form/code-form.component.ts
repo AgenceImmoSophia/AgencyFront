@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Status } from 'src/app/models/status';
 import { TypeOfGood } from 'src/app/models/typeOfGood';
@@ -11,27 +11,30 @@ import { GoodService } from 'src/app/services/goodService';
 })
 export class CodeFormComponent implements OnInit {
   formCode;
-  public typeEnum = [];
-  public typeEnumStatus = [];
+  private typeEnum = TypeOfGood;
+  public type = [];
+  private typeEnumStatus = Status;
+  public status = [];
   selectedType;
   selectedStatus;
   price: number;
   area:number;
+  code;
 
   constructor(private fb: FormBuilder, private goodService: GoodService) {
-    this.typeEnum = Object.keys(this.selectedType).filter(k => typeof TypeOfGood[k as any] === 'string');
-    this.typeEnumStatus = Object.keys(this.selectedStatus).filter(k => typeof Status [k as any] === 'string');
-
 
     this.formCode = this.fb.group({
       typeOfGood:'',
       price: 0,
       status:'',
       area: 0
-    })
+    });
    }
 
   ngOnInit(): void {
+    this.type = Object.keys(this.typeEnum).filter(k => typeof TypeOfGood[k as any] === 'string');
+    this.status = Object.keys(this.typeEnumStatus).filter(k => typeof Status [k as any] === 'string');
+
   }
 
   onSubmit (){
@@ -40,8 +43,8 @@ export class CodeFormComponent implements OnInit {
     this.price = this.formCode.value.price;
     this.area = this.formCode.value.area;
 
-    this.goodService.generateCode(this.selectedType, this.price, this.selectedStatus, this.area);
-
+    this.code = this.goodService.generateCode(this.selectedType, this.price, this.selectedStatus, this.area);
+    console.log(this.code);
   }
 
 }
