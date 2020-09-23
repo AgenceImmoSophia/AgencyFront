@@ -1,5 +1,5 @@
 export enum Status {
-  TOSELL,
-  TORENT,
-  NOTAVAILABLE,
+  TOSELL = 1,
+  TORENT = 2,
+  NOTAVAILABLE = 3,
 }

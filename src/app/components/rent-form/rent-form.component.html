@@ -1,13 +1,12 @@
 <div class="card my-5">
   <div class="card-body">
-    <form [formGroup] ="rentForm" novalidate (ngSubmit)="onSubmit()">
+    <form [formGroup] ="rentForm" novalidate (ngSubmit)="onSubmit()" method="post">
 
       <div class="form-group">
-        <label class="col-md-4">City :</label>
+        <label class="col-md-4" for="city">City :</label>
         <input type="text"
-               formControlName="city"
-               #city
-               placeholder="Enter City here"
+               [formControl]="city"
+               placeholder="Enter City here..."
                required id="city"
                class="form-control"/>
       </div>
@@ -17,31 +16,18 @@
 
       <div class="form-group">
         <h5>Select your desired type of goods</h5>
-        <select name="typeOfGood" formGroupName="typeOfGood">
-          <option><input formControlName="house" id="house" class="form-control-sm"/>House</option>
-          <option><input formControlName="apartment" id="apartment" class="form-control-sm"/>Apartment</option>
-          <option><input formControlName="studio" id="studio" class="form-control-sm"/>Studio</option>
-          <option><input formControlName="storage" id="storage" class="form-control-sm"/>Storage</option>
-          <option><input formControlName="office" id="office" class="form-control-sm"/>Office</option>
-          <option><input formControlName="shop" id="shop" class="form-control-sm"/>Shop</option>
+        <label for="typeOfGood">Type Of Good</label>
+        <select name="typeOfGood" [formControl]="type" id="typeOfGood">
+          <option [ngValue]="null">Select one...</option>
+          <option *ngFor="let type of enumTypeOfGood | keyvalue" [ngValue]="type.value" >{{type.key}} : {{type.value}}</option>
         </select>
       </div>
 
       <div class="form-group">
-        <h5>Select your desired status of goods</h5>
-        <select name="statusOfGood" formGroupName="statusOfGood">
-          <option><input formControlName="toSell" id="toSell" class="form-control-sm"/>To Sell</option>
-          <option><input formControlName="toRent" id="toRent" class="form-control-sm"/>To Rent</option>
-          <option><input formControlName="notAvailable" id="notAvailable" class="form-control-sm"/>NotAvailable</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="price">Price :</label><br/>
+        <label for="price" class="col-md-4">Price :</label><br/>
         <input type="number" min="1" step="1"
-               formControlName="price"
-               #price
-               placeholder="Enter a desired price"
+               [formControl]="price"
+               placeholder="Enter a desired price..."
                required id="price"
                class="form-control">
       </div>
@@ -50,11 +36,10 @@
       </div>
 
       <div class="form-group">
-        <label for="area">Desired Area:</label><br/>
+        <label for="area" class="col-md-4">Desired Area:</label><br/>
         <input type="number" min="1" step="0.5"
-               formControlName="area"
-               #area
-               placeholder="Enter a desired area"
+               [formControl]="area"
+               placeholder="Enter a desired area..."
                required id="area"
                class="form-control">
       </div>
@@ -62,7 +47,33 @@
       <div *ngIf="rentForm.controls['area'].invalid && (rentForm.controls['area'].dirty || rentForm.controls['area'].touched)" class="alert alert-danger">Area is required
         <div *ngIf="rentForm.controls['area'].errors.required"></div>
       </div>
-      <button type="submit" class="btn btn-info" id="searchForRent">Submit</button>
+      <input type="submit" class="btn btn-info" id="searchForRent"/>
     </form>
   </div>
+</div>
+
+<!--div class="result">
+  <ul>
+    <li *ngFor = 'let good of goods | rentFilter: codeToFind' >
+      <div class="flight-card">
+
+        <div class="city">
+          <h5> City: {{good.address.city}} </h5>
+        </div>
+
+        <div class="typeOfGood">
+          <h5> Type Of Good: {{ good.typeOfGood.valueOf() }} </h5>
+        </div>
+
+        <div class="price">
+          <h5> Price: {{good.price}} </h5>
+        </div>
+
+        <div class="area">
+          <h5> Area: {{good.area}} </h5>
+        </div>
+
+      </div>
+    </li>
+  </ul>
 </div>

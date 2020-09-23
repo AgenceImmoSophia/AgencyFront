@@ -8,4 +8,10 @@ export class Address {
 
   constructor() {
   }
+  public setCityAddress(city: string): void {
+    this.city = city;
+  }
+  public getCityAddress(): string {
+    return this.city;
+  }
 }

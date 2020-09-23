@@ -10,6 +10,7 @@ import { GoodListComponent } from './components/good-list/good-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RentFormComponent } from './components/rent-form/rent-form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RentFilter} from './models/rentFilter';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     GoodComponent,
     GoodListComponent,
     RentFormComponent,
-
+    RentFilter,
   ],
   imports: [
     BrowserModule,

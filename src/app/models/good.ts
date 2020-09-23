@@ -10,8 +10,14 @@ export class Good {
   price: number;
   address: Address;
   area: number;
-  code: string;
+  private code: string;
 
   constructor() {
+  }
+  public setCode(code): void {
+    this.code = code;
+  }
+  public getCode(): string {
+    return this.code;
   }
 }
