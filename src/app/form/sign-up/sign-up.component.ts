@@ -48,7 +48,6 @@ export class SignUpComponent implements OnInit {
 
   onSubmit(): void{
     const userForm = new FormData();
-
     userForm.append('role', this.user.role);
     userForm.append('name', this.user.name);
     userForm.append('phoneNumberPers', this.user.phoneNumberPers);
