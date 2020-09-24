@@ -1,4 +1,5 @@
 import {Address} from './address';
+import {Good} from './good';
 
 export class User {
   id: number;
@@ -6,6 +7,12 @@ export class User {
   phoneNumberPers: string;
   address: Address;
   role: string;
+  phoneNumberPro: string;
+  username: string;
+  password: string;
+  listCode: string[];
+  listDesiredGoods: Good[];
+
 
   constructor(){}
 
