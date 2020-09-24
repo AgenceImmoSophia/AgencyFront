@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+<body>
+<div class="container" >
+  <div class="row">
+    <div class="col text-center">
+<h2> Sign up </h2>
+
+<form id="form" method="post" enctype="multipart/form-data" [formGroup]="userForm" (ngSubmit)="onSubmit();userForm.reset()" >
+
+  <form method="post" enctype="multipart/form-data" [formGroup]="roleForm" (ngSubmit)="submitRole()">
+    <label for="role" > Role</label>
+    <br>
+  <select id="role" name="role" formControlName="role"  [(ngModel)]="user.role" >
+    <option value="Client"> Client</option>
+    <option value="Owner"> Owner</option>
+    <option value="EstateAgent"> Agent</option>
+  </select>
+ <!--  <button type="submit" > Submit </button> -->
+</form>
+<br>
+    <label for="name"> Name </label>
+    <input id="name" name="name" class="form-control" formControlName="name" [(ngModel)]="user.name">
+
+  <div *ngIf="user.role === 'EstateAgent'">
+    <label for="username"> Username</label>
+    <input id="username" name="username" class="form-control" formControlName="username" [(ngModel)]="agent.username">
+
+    <label for="password"> Password</label>
+    <input id="password" type="password" name="password" class="form-control" formControlName="password" [(ngModel)]="agent.password">
+  </div>
+
+    <label for="phoneNumberPers"> Phone number</label>
+    <input id="phoneNumberPers" name="phoneNumberPers" class="form-control" formControlName="phoneNumberPers" [(ngModel)]="user.phoneNumberPers">
+
+
+<div *ngIf="user.role === 'Owner'">
+<label for="phoneNumberPro"> Professional phone number</label>
+  <input id="phoneNumberPro" name="phoneNumberPro" class="form-control" formControlName="phoneNumberPro" [(ngModel)]="owner.phoneNumberPro" >
+</div>
+
+    <label for="city" > City </label>
+    <input id="city" name="city" class="form-control" formControlName="city" [(ngModel)]="address.city">
+
+    <label for="zipdcode" > Zipcode</label>
+    <input id="zipdcode" name="zipcode" class="form-control" formControlName="zipcode" [(ngModel)]="address.zipcode" >
+
+    <label for="streetnbr" > Street number</label>
+    <input id="streetnbr" name="streetnbr" class="form-control" formControlName="streetnbr" [(ngModel)]="address.streetNber">
+
+    <label for="street"> Street name</label>
+    <input id="street" name="street" class="form-control" formControlName="street" [(ngModel)]="address.street">
+
+    <label for="country"> Country</label>
+    <input id="country" name="country" class="form-control" formControlName="country" [(ngModel)]="address.country">
+
+
+  <div id="button" class="col text-center">
+    <button class="btn btn-primary" type="submit" > Sign up</button>
+    <button class="btn badge-danger" type="reset"> Reset</button>
+
+  </div>
+</form>
+    </div>
+  </div>
+</div>
+</body>

@@ -29,7 +29,7 @@ export class GoodService {
 
   public createGood(good: Good){
     return this.http.post<Good>(this.goodUrl + 'good', good, this.httpOptions).subscribe(value => {
-      console.log(value)});
+      console.log(value); });
   }
 
   public updateGoodById(good: Good): Observable<Good> {
