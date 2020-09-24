@@ -15,7 +15,6 @@ import { OwnerAccountComponent } from './accountUser/owner-account/owner-account
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
-  { path: 'sign-in', component: SignInComponent },
   { path: 'good_details/:id', component: GoodDetailComponent },
   { path: 'goods', component: GoodListComponent },
   { path: 'contractform', component: FormContractComponent},
