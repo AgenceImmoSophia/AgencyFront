@@ -25,11 +25,11 @@ export class SignUpComponent implements OnInit {
   ownerForm: FormGroup;
   agentForm: FormGroup;
 
-  constructor(private http: HttpClient, private fb: FormBuilder, private userService: UserService) { }
-
-  ngOnInit(): void {
+  constructor(private http: HttpClient, private fb: FormBuilder, private userService: UserService) {
+    this.roleForm = this.fb.group({
+      role: ['', Validators.required],
+    });
     this.userForm =  this.fb.group({
-//     role: ['', Validators.required],
       name: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -39,14 +39,16 @@ export class SignUpComponent implements OnInit {
       zipcode: ['', Validators.required],
       streetnbr: ['', Validators.required],
       street: ['', Validators.required],
-      country: ['', Validators.required], });
-    this.roleForm = this.fb.group({
-      role: ['', Validators.required],
+      country: ['', Validators.required],
     });
+   }
+
+  ngOnInit(): void {
   }
 
   onSubmit(): void{
     const userForm = new FormData();
+    userForm.append('role', this.user.role);
     userForm.append('role', this.user.role);
     userForm.append('name', this.user.name);
     userForm.append('phoneNumberPers', this.user.phoneNumberPers);
@@ -57,20 +59,27 @@ export class SignUpComponent implements OnInit {
     userForm.append('country', this.address.country);
     this.user.address = this.address;
     if (this.user.role === 'Owner'){
+      this.owner.role = this.user.role;
+      this.owner.name = this.user.name;
+      this.owner.phoneNumberPers = this.user.phoneNumberPers;
+      this.owner.address = this.user.address;
       userForm.append('phoneNumberPro', this.owner.phoneNumberPro);
-      this.user = this.owner;
       this.userService.createUser(this.owner);
-      console.log('test owner');
-      console.log(this.owner);
     }
     else if (this.user.role === 'EstateAgent') {
+      this.agent.role = this.user.role;
+      this.agent.name = this.user.name;
+      this.agent.phoneNumberPers = this.user.phoneNumberPers;
+      this.agent.address = this.user.address;
       userForm.append('username', this.agent.username);
       userForm.append('password', this.agent.password);
-      this.user = this.agent;
       this.userService.createUser(this.agent);
     }
     else if (this.user.role === 'Client') {
-      this.user = this.client;
+      this.client.role = this.user.role;
+      this.client.name = this.user.name;
+      this.client.phoneNumberPers = this.user.phoneNumberPers;
+      this.client.address = this.user.address;
       this.userService.createUser(this.client);
     }
   }
