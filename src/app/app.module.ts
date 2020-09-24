@@ -6,9 +6,10 @@ import { GoodDetailComponent } from './components/good-detail/good-detail.compon
 import { GoodListComponent } from './components/good-list/good-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormContractComponent } from './form/form-contract/form-contract.component';
-import {HomeComponent} from './home/home.component';
-import {SellFormComponent} from './form/sell-form/sell-form.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import { HomeComponent} from './home/home.component';
+import { SellFormComponent} from './form/sell-form/sell-form.component';
+import { ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignInFormComponent } from './form/sign-in-form/sign-in-form.component';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -19,6 +20,7 @@ import { ClientAccountComponent } from './accountUser/client-account/client-acco
 import { OwnerAccountComponent } from './accountUser/owner-account/owner-account.component';
 import { filterGoods } from './pipes/filterGoods';
 import { CodeFormComponent } from './form/code-form/code-form.component';
+import { SignUpComponent } from './form/sign-up/sign-up.component';
 
 
 @NgModule({
@@ -46,6 +48,16 @@ import { CodeFormComponent } from './form/code-form/code-form.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule
+  ],
+  SignUpComponent,
+],
+  imports: [
+      BrowserModule,
+      AppRoutingModule,
+      ReactiveFormsModule,
+      HttpClientModule,
+      FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

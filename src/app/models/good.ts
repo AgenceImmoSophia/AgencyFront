@@ -1,4 +1,7 @@
 import {Address} from './address';
+import {Owner} from './owner';
+
+
 
 
 export class Good {
@@ -11,5 +14,9 @@ export class Good {
   area: number;
   code: string;
 
+  owner: Owner;
+
+
   constructor(){}
+
 }
