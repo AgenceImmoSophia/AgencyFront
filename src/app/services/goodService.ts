@@ -84,11 +84,11 @@ public generateCode (typeOfGood: TypeOfGood, price: number, status: Status, area
    }
 
 if(status.valueOf()==0){
-  thirdDigit=0;
-} else if(status.valueOf()==1){
   thirdDigit=1;
-} else if(status.valueOf()==2){
+} else if(status.valueOf()==1){
   thirdDigit=2;
+} else if(status.valueOf()==2){
+  thirdDigit=3;
 }
 
    if (area <= 10){

@@ -12,6 +12,7 @@ export class Good {
   price: number;
   address: Address;
   area: number;
+  deposit: number;
   code: string;
 
   owner: Owner;
