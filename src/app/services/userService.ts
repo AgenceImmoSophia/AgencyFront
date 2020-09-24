@@ -12,7 +12,7 @@ import { Owner } from '../models/owner';
 )
 
 export class UserService {
-  private userUrl = 'http://localhost:8080/users/';
+  private userUrl = 'http://localhost:8080/AgencyBack/users/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -44,13 +44,18 @@ export class UserService {
   }
 
   public createUser(user: User) {
-    return this.http.post<User>(this.userUrl + 'createUser', user, this.httpOptions).subscribe(value => {
-      console.log(value)});;
+    return this.http.post<User>(this.userUrl + 'create', user, this.httpOptions).subscribe(value => {
+      console.log(value); });
   }
-  
+
   public createAgent (agent: EstateAgent){
     return this.http.post<EstateAgent>(this.userUrl + 'createUser', agent, this.httpOptions).subscribe(value => {
-      console.log(value)});;
+      console.log(value); });
+  }
+
+  public createOwner(owner: Owner){
+    return this.http.post<Owner>(this.userUrl + 'createUser', owner, this.httpOptions).subscribe(value => {
+      console.log(value); });
   }
 
   public updateUserById(user: User) {

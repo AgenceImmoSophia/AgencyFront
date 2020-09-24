@@ -8,7 +8,7 @@ import {Address} from '../../models/address';
 import {Observable} from 'rxjs';
 import {TypeOfGood} from '../../models/typeOfGood';
 import {Status} from '../../models/status';
-
+import {Owner} from '../../models/owner';
 
 @Component({
   selector: 'app-sell-form',
@@ -28,7 +28,8 @@ export class SellFormComponent implements OnInit {
   selectedType = TypeOfGood;
   selectedStatus = Status;
 
-  constructor( private http: HttpClient, private fb: FormBuilder, private goodService: GoodService, private router: Router ) {
+
+  constructor( private http: HttpClient, private fb: FormBuilder, private goodService: GoodService, private router: Router) {
     this.typeEnum = Object.keys(this.selectedType).filter(k => typeof TypeOfGood[k as any] === 'string');
     this.typeEnumStatus = Object.keys(this.selectedStatus).filter(k => typeof Status [k as any] === 'string');
   }
