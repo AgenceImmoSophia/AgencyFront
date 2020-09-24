@@ -1,0 +1,17 @@
+body, html{
+  height: 100%;
+}
+
+footer{
+  bottom: 0;
+  position: absolute;
+
+}
+h2{
+  font-style: italic;
+  color: red;
+
+  top: 50%;
+  bottom: 50%;
+
+}

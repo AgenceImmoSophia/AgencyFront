@@ -12,6 +12,8 @@ import { SignUpComponent } from './form/sign-up/sign-up.component';
 import { EstateAgentAccountComponent } from './accountUser/estate-agent-account/estate-agent-account.component';
 import { ClientAccountComponent } from './accountUser/client-account/client-account.component';
 import { OwnerAccountComponent } from './accountUser/owner-account/owner-account.component';
+import {ErrormessageComponent} from './errormessage/errormessage.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -27,6 +29,7 @@ const routes: Routes = [
   { path: 'estateAgentAccount/:id', component: EstateAgentAccountComponent},
   { path: 'clientAccount/:id', component: ClientAccountComponent},
   { path: 'ownerAccount/:id', component: OwnerAccountComponent},
+  {path: 'error', component: ErrormessageComponent}
 ];
 
 @NgModule({

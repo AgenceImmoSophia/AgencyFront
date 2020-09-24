@@ -1,6 +1,7 @@
 <body>
     <app-navbar></app-navbar>
 <br>
+
     <section id="form-sign-in">
 
         <form class="col text-center" id="chooseTypeUser" [formGroup]="formSignIn1" method="post"
@@ -68,7 +69,9 @@
                 <div class="alert alert-danger"
                         *ngIf="formSignIn2.get('name').invalid && (formSignIn2.get('name').dirty || formSignIn2.get('name').touched)">
                         Your name is required
-                </div><br>
+                </div>
+
+              <br>
                 <div id="button" class="col text-center">
                     <button class="btn btn-primary" type="submit"> Connexion</button>
                     <button class="btn btn-danger" type="reset"> Reset</button>
@@ -101,7 +104,7 @@
         </form>
     </section>
 
-</body><br>
-<footer class="col text-center">&copy;Agency of SA</footer>
 
+<footer class="col text-center">&copy;Agency of SA</footer>
+</body>
 
