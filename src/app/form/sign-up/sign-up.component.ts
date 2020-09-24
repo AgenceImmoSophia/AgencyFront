@@ -7,6 +7,7 @@ import {HttpClient} from '@angular/common/http';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../services/userService';
 import { Client } from 'src/app/models/client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -25,7 +26,7 @@ export class SignUpComponent implements OnInit {
   ownerForm: FormGroup;
   agentForm: FormGroup;
 
-  constructor(private http: HttpClient, private fb: FormBuilder, private userService: UserService) {
+  constructor(private http: HttpClient, private fb: FormBuilder, private userService: UserService, private router: Router) {
     this.roleForm = this.fb.group({
       role: ['', Validators.required],
     });
@@ -82,6 +83,7 @@ export class SignUpComponent implements OnInit {
       this.client.phoneNumberPers = this.user.phoneNumberPers;
       this.client.address = this.user.address;
       this.userService.createUser(this.client);
+      this.router.navigate(['/clientAccount/:' + this.client.id]);
     }
   }
 

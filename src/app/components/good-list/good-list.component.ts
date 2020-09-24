@@ -47,10 +47,4 @@ export class GoodListComponent implements OnInit, AfterViewInit, AfterViewChecke
     this.goodService.findAllGoods().subscribe((goods => this.goods = goods),
       error => console.error('There is an error', error));
   }
-
-  public onDelete(goodId: number): void {
-    this.goodService.deleteGoodById(goodId).subscribe((result => this.displayListOfGoods()),
-      error => console.error('There are an error', error));
-    alert('good with id = ' + goodId + ' has been successfully deleted');
-  }
 }

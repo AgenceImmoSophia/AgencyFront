@@ -6,13 +6,14 @@ import { EstateAgent } from '../models/estateAgent';
 import { Client } from '../models/client';
 import { EstateAgentAccountComponent } from '../accountUser/estate-agent-account/estate-agent-account.component';
 import { Owner } from '../models/owner';
+import {Good} from '../models/good';
 
 @Injectable(
   {providedIn: 'root'}
 )
 
 export class UserService {
-  private userUrl = 'http://localhost:8080/AgencyBack/users/';
+  private userUrl = 'http://localhost:8080/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -64,5 +65,21 @@ export class UserService {
 
   public deleteUserById(userId: number) {
     return this.http.delete<User>(this.userUrl + 'delete/' + userId, this.httpOptions);
+  }
+
+  public addGoodToDesiredList(clientId: number): Observable<Client> {
+    return this.http.post<Client>(this.userUrl + clientId + '/addGoodToList', this.httpOptions);
+  }
+
+  public deleteGoodFromDesiredList(clientId: number, goodId: number): Observable<Client> {
+    return this.http.post<Client>(this.userUrl + clientId + '/deleteGoodToList/' + goodId, this.httpOptions);
+  }
+
+  public addCodeToList(clientId: number): Observable<Client> {
+    return this.http.post<Client>(this.userUrl + clientId + '/addCodeToList' , this.httpOptions);
+  }
+
+  public deleteCodeToList(clientId: number): Observable<Client> {
+    return this.http.post<Client>(this.userUrl + clientId + '/addCode' , this.httpOptions);
   }
 }
