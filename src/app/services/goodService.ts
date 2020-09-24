@@ -8,7 +8,7 @@ import {Good} from '../models/good';
 )
 
 export class GoodService {
-  private goodUrl = 'http://localhost:8080/AgencyBack/';
+  private goodUrl = 'http://localhost:8080/';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
