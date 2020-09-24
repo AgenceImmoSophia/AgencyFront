@@ -1,0 +1,17 @@
+form{
+ float: right;
+
+}
+title{
+  text-align: center;
+}
+input{
+
+
+}
+
+body{
+  background: url("src/resources/home_image.jpg") no-repeat;
+  color: white;
+}
+

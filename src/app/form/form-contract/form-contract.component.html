@@ -1,0 +1,64 @@
+<body>
+  <app-navbar></app-navbar>
+<form [formGroup]="formContract" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="typeOfContract">
+      Type of Contract :
+    </label>
+    <input id="typeOfContract" type="text" formControlName="typeOfContract">
+  </div>
+
+  <div>
+    <label for="dateOfContract">
+      Date of contract:
+    </label>
+    <input id="dateOfContract" type="date" formControlName="dateOfContract">
+  </div>
+  <div>
+    <label for="agentId">
+      Agent id :
+    </label>
+    <select formControlName="agentId" (change)="getAgent()">
+      <option value="" disabled>Choisissez un agent</option>
+      <option *ngFor="let agent of users|filterUsers: 'EstateAgent' " [ngValue]="agent.id" >
+        {{agent.id}}: {{agent.name}}
+      </option>
+    </select>
+  </div>
+  <div>
+    <label for="clientId" >
+      Client Id :
+    </label>
+    <select formControlName="clientId" (change)="getClient()">
+      <option value="" disabled>Choisissez un client</option>
+      <option *ngFor="let client of users |filterUsers: 'Client' " [ngValue]="client.id" >
+        {{client.id}}: {{client.name}}
+      </option>
+    </select>
+  </div>
+  <div>
+    <label for="goodId">
+      Good id :
+    </label>
+    <select formControlName="goodId" (change)="getGood()">
+      <option value="" disabled>Choisissez un bien</option>
+      <option *ngFor="let good of goods" [ngValue]="good.id" >
+        {{good.id}}: {{good.nameOfGood}}
+      </option>
+    </select>
+  </div>
+  <div>
+    <label for="priceOfContract">
+      Total price :
+    </label>
+    <input id="priceOfContract" type="number" formControlName="priceOfContract">
+  </div>
+
+
+  <button class="button" type="submit" >Create</button>
+
+</form>
+<footer>&copy;Agency of SA</footer>
+</body>
+
+

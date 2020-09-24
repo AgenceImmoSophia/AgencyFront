@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GoodComponent } from './good.component';
+import { OwnerAccountComponent } from './owner-account.component';
 
-describe('GoodComponent', () => {
-  let component: GoodComponent;
-  let fixture: ComponentFixture<GoodComponent>;
+describe('OwnerAccountComponent', () => {
+  let component: OwnerAccountComponent;
+  let fixture: ComponentFixture<OwnerAccountComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GoodComponent ]
+      declarations: [ OwnerAccountComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GoodComponent);
+    fixture = TestBed.createComponent(OwnerAccountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
