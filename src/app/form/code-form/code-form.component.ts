@@ -18,7 +18,7 @@ export class CodeFormComponent implements OnInit {
   selectedType;
   selectedStatus;
   price: number;
-  area:number;
+  area: number;
   code;
 
   constructor(private fb: FormBuilder, private goodService: GoodService) {
@@ -34,7 +34,6 @@ export class CodeFormComponent implements OnInit {
   ngOnInit(): void {
     this.type = Object.keys(this.typeEnum).filter(k => typeof TypeOfGood[k as any] === 'string');
     this.status = Object.keys(this.typeEnumStatus).filter(k => typeof Status [k as any] === 'string');
-
   }
 
   onSubmit (){
@@ -44,7 +43,6 @@ export class CodeFormComponent implements OnInit {
     this.area = this.formCode.value.area;
 
     this.code = this.goodService.generateCode(this.selectedType, this.price, this.selectedStatus, this.area);
-    console.log("code component "+this.code);
+    console.log('code component ' + this.code);
   }
-
 }
