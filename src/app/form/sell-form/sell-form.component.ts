@@ -47,6 +47,10 @@ export class SellFormComponent implements OnInit {
       country: ['', Validators.required],
       price: ['', Validators.required],
       area: ['', Validators.required],
+      deposit: ['', Validators.required],
+      state: '',
+      description: '',
+      furnished: ''
     });
   }
 
@@ -55,6 +59,7 @@ export class SellFormComponent implements OnInit {
     placeForm.append('type', this.good.typeOfGood);
     placeForm.append('status', this.good.status);
     placeForm.append('name', this.good.nameOfGood);
+    placeForm.append('deposit', JSON.stringify(this.good.deposit));
     placeForm.append('city', this.address.city);
     placeForm.append('zipcode', this.address.zipcode);
     placeForm.append('streetnumber', this.address.streetNber);
@@ -62,6 +67,10 @@ export class SellFormComponent implements OnInit {
     placeForm.append('country', this.address.country);
     placeForm.append('price', JSON.stringify( this.good.price));
     placeForm.append('area', JSON.stringify(this.good.area));
+    placeForm.append('description', this.good.description);
+    placeForm.append('state', this.good.state);
+    placeForm.append('furnished', this.good.furnished);
+    console.log(this.good);
     this.good.address = this.address;
     this.goodService.createGood(this.good);
     this.redirect();
