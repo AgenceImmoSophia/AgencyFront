@@ -20,6 +20,7 @@ import { EstateAgentAccountComponent } from './accountUser/estate-agent-account/
 import { ClientAccountComponent } from './accountUser/client-account/client-account.component';
 import { OwnerAccountComponent } from './accountUser/owner-account/owner-account.component';
 import { SignUpComponent } from './form/sign-up/sign-up.component';
+import { ClientGoodListComponent } from './accountUser/client-good-list/client-good-list.component';
 
 
 
@@ -43,7 +44,8 @@ import { SignUpComponent } from './form/sign-up/sign-up.component';
     CodeFormComponent,
     ClientAccountComponent,
     OwnerAccountComponent,
-    SignUpComponent
+    SignUpComponent,
+    ClientGoodListComponent
   ],
   imports: [
     BrowserModule,

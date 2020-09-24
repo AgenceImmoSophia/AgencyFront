@@ -74,12 +74,4 @@ export class UserService {
   public deleteGoodFromDesiredList(clientId: number, goodId: number): Observable<Client> {
     return this.http.post<Client>(this.userUrl + clientId + '/deleteGoodToList/' + goodId, this.httpOptions);
   }
-
-  public addCodeToList(clientId: number): Observable<Client> {
-    return this.http.post<Client>(this.userUrl + clientId + '/addCodeToList' , this.httpOptions);
-  }
-
-  public deleteCodeToList(clientId: number): Observable<Client> {
-    return this.http.post<Client>(this.userUrl + clientId + '/addCode' , this.httpOptions);
-  }
 }

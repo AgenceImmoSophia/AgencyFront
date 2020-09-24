@@ -12,6 +12,7 @@ import { SignUpComponent } from './form/sign-up/sign-up.component';
 import { EstateAgentAccountComponent } from './accountUser/estate-agent-account/estate-agent-account.component';
 import { ClientAccountComponent } from './accountUser/client-account/client-account.component';
 import { OwnerAccountComponent } from './accountUser/owner-account/owner-account.component';
+import {ClientGoodListComponent} from './accountUser/client-good-list/client-good-list.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'estateAgentAccount/:id', component: EstateAgentAccountComponent},
   { path: 'clientAccount/:id', component: ClientAccountComponent},
   { path: 'ownerAccount/:id', component: OwnerAccountComponent},
+  { path: 'clientList', component: ClientGoodListComponent}
 ];
 
 @NgModule({

@@ -83,7 +83,8 @@ export class SignUpComponent implements OnInit {
       this.client.phoneNumberPers = this.user.phoneNumberPers;
       this.client.address = this.user.address;
       this.userService.createUser(this.client);
-      this.router.navigate(['/clientAccount/:' + this.client.id]);
+      console.log('client id= ' + this.client.id);
+      this.router.navigate(['/clientAccount/' + this.user.id]);
     }
   }
 

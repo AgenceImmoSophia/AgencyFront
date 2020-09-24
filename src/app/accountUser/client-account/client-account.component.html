@@ -19,7 +19,7 @@
         <th scope="col">Country</th>
       </tr>
       </thead>
-      <tbody class="text-center" style="color: white">
+      <tbody class="text-center" style="color: black">
       <tr>
         <td>{{ client.name }}</td>
         <td>{{ client.phoneNumberPers }}</td>
@@ -36,43 +36,11 @@
   </div>
 </div>
 
-<div id="clientListOfGoodsTitle">
-  <h4 class="text-center" style="font-weight: bold; font-size: 2.2rem">List of desired goods</h4><br>
-</div>
-
-<div class="container-md" id="clientListOfGoods">
-  <div class="card-body mb-3 mx-auto">
-    <table class="table table-hover">
-      <thead class="thead-dark text-center">
-      <tr>
-        <th scope="col">#ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Type</th>
-        <th scope="col">Price</th>
-        <th scope="col">Address</th>
-        <th scope="col">Area</th>
-      </tr>
-      </thead>
-      <tbody class="text-center" style="color: white">
-      <tr *ngFor="let good of listDesiredGoods">
-        <td>{{ good.id }}</td>
-        <td>{{ good.nameOfGood }}</td>
-        <td>{{ good.typeOfGood }}</td>
-        <td style="font-weight: bold">{{ good.price }} €</td>
-        <td>{{ good.address.country + ', ' + good.address.city + ', ' + good.address.streetNber + ' ' + good.address.street}}</td>
-        <td>{{ good.area }} m²</td>
-        <td>
-          <button (click)="removeGoodFromDesiredList(client.id, good.id)" class="btn btn-danger">Delete</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-    <div id="addDesiredGoodToList">
-      <button routerLink="">Add new good to your list</button>
-    </div>
-  </div>
+<div id="listOfDesiredGood">
+  <button (click)="goDesiredList()">My List of Goods</button>
 </div>
 
 <footer>&copy;Agency of SA</footer>
 
 </body>
+
