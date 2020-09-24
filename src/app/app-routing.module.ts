@@ -6,14 +6,9 @@ import { GoodListComponent } from './components/good-list/good-list.component';
 import { FormContractComponent } from './form/form-contract/form-contract.component';
 import { SellFormComponent } from './form/sell-form/sell-form.component';
 import { SignInFormComponent } from './form/sign-in-form/sign-in-form.component';
-<<<<<<< HEAD
 import {EditGoodFormComponent} from './form/edit-good-form/edit-good-form.component';
 import { CodeFormComponent } from './form/code-form/code-form.component';
-
-=======
 import { SignUpComponent } from './form/sign-up/sign-up.component';
-import { EditGoodFormComponent } from './form/edit-good-form/edit-good-form.component';
->>>>>>> 47d5dec79b3cca595641657d44c6b59b7c7cb780
 import { EstateAgentAccountComponent } from './accountUser/estate-agent-account/estate-agent-account.component';
 import { ClientAccountComponent } from './accountUser/client-account/client-account.component';
 import { OwnerAccountComponent } from './accountUser/owner-account/owner-account.component';
