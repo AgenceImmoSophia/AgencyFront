@@ -17,7 +17,8 @@ import { EditGoodFormComponent } from './form/edit-good-form/edit-good-form.comp
 import { EstateAgentAccountComponent } from './accountUser/estate-agent-account/estate-agent-account.component';
 import { ClientAccountComponent } from './accountUser/client-account/client-account.component';
 import { OwnerAccountComponent } from './accountUser/owner-account/owner-account.component';
-
+import { filterGoods } from './pipes/filterGoods';
+import { CodeFormComponent } from './form/code-form/code-form.component';
 
 
 @NgModule({
@@ -35,7 +36,10 @@ import { OwnerAccountComponent } from './accountUser/owner-account/owner-account
     EstateAgentAccountComponent,
     FilterUsers,
     ClientAccountComponent,
-    OwnerAccountComponent
+    OwnerAccountComponent,
+    EditGoodFormComponent,
+    filterGoods,
+    CodeFormComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ export class Good {
   price: number;
   address: Address;
   area: number;
+  code: string;
 
   constructor(){}
 }

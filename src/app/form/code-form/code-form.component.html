@@ -1,0 +1,52 @@
+<form [formGroup]="formCode" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <select formControlName="typeOfGood">
+          <option value="" disabled> Choose a type of good</option>
+          <option *ngFor="let key of type" [value]="key"
+          [label]="typeEnum[key]"></option>
+        </select>
+      </div>
+      <div class="alert alert-danger"
+           *ngIf="formCode.get('typeOfGood').invalid && (formCode.get('typeOfGood').dirty || formCode.get('typeOfGood').touched)">
+        Type of good is required !
+      </div>
+
+      <div class="col-sm">
+        <input type="number" formControlName="price" placeholder="Desired price">
+      </div>
+      <div class="alert alert-danger"
+           *ngIf="formCode.get('price').invalid && (formCode.get('price').dirty || formCode.get('price').touched)">
+        Price is required !
+      </div>
+
+      <div class="col-sm">
+        <select formControlName="status">
+          <option value="" disabled> Choose a status</option>
+          <option *ngFor="let key of status" [value]="key"
+          [label]="typeEnumStatus[key]"></option>
+        </select>
+      </div>
+      <div class="alert alert-danger"
+           *ngIf="formCode.get('status').invalid && (formCode.get('status').dirty || formCode.get('status').touched)">
+        Status of good is required !
+      </div>
+
+      <div class="col-sm">
+        <input type="number" formControlName="area" placeholder="Desired good area">
+      </div>
+      <div class="alert alert-danger"
+           *ngIf="formCode.get('area').invalid && (formCode.get('area').dirty || formCode.get('area').touched)">
+        Area is required !
+      </div>
+
+      <div class="col-sm">
+        <button class="button" type="submit" >Search</button>
+      </div>
+
+    </div>
+  </div>
+
+</form>
+

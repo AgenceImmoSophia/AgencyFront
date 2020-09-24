@@ -10,6 +10,7 @@ import {EditGoodFormComponent} from './form/edit-good-form/edit-good-form.compon
 import { EstateAgentAccountComponent } from './accountUser/estate-agent-account/estate-agent-account.component';
 import { ClientAccountComponent } from './accountUser/client-account/client-account.component';
 import { OwnerAccountComponent } from './accountUser/owner-account/owner-account.component';
+import { CodeFormComponent } from './form/code-form/code-form.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'estateAgentAccount/:id', component: EstateAgentAccountComponent},
   { path: 'clientAccount/:id', component: ClientAccountComponent},
   { path: 'ownerAccount/:id', component: OwnerAccountComponent},
+  { path: 'codeform', component: CodeFormComponent}
 ];
 
 @NgModule({
