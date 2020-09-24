@@ -7,14 +7,11 @@ import { FormContractComponent } from './form/form-contract/form-contract.compon
 import { SellFormComponent} from './form/sell-form/sell-form.component';
 import { SignInFormComponent } from './form/sign-in-form/sign-in-form.component';
 import {EditGoodFormComponent} from './form/edit-good-form/edit-good-form.component';
-<<<<<<< HEAD
 import { CodeFormComponent } from './form/code-form/code-form.component';
 
-=======
 import { EstateAgentAccountComponent } from './accountUser/estate-agent-account/estate-agent-account.component';
 import { ClientAccountComponent } from './accountUser/client-account/client-account.component';
 import { OwnerAccountComponent } from './accountUser/owner-account/owner-account.component';
->>>>>>> c871649af8d6a3109a6e3f1dee155ef967d48e20
 
 
 const routes: Routes = [
@@ -26,14 +23,10 @@ const routes: Routes = [
   { path: 'sell', component: SellFormComponent},
   { path: 'sign-in', component: SignInFormComponent},
   { path: 'editGood/:id', component: EditGoodFormComponent},
-<<<<<<< HEAD
-  { path: 'codeform', component: CodeFormComponent}
-
-=======
+  { path: 'codeform', component: CodeFormComponent},
   { path: 'estateAgentAccount/:id', component: EstateAgentAccountComponent},
   { path: 'clientAccount/:id', component: ClientAccountComponent},
   { path: 'ownerAccount/:id', component: OwnerAccountComponent},
->>>>>>> c871649af8d6a3109a6e3f1dee155ef967d48e20
 ];
 
 @NgModule({

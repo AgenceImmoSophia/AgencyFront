@@ -14,15 +14,12 @@ import { SignInFormComponent } from './form/sign-in-form/sign-in-form.component'
 import { SignInComponent } from './sign-in/sign-in.component';
 import { FilterUsers } from './pipes/filterUsers';
 import { EditGoodFormComponent } from './form/edit-good-form/edit-good-form.component';
-<<<<<<< HEAD
 import { filterGoods } from './pipes/filterGoods';
 import { CodeFormComponent } from './form/code-form/code-form.component';
-=======
 import { EstateAgentAccountComponent } from './accountUser/estate-agent-account/estate-agent-account.component';
 import { ClientAccountComponent } from './accountUser/client-account/client-account.component';
 import { OwnerAccountComponent } from './accountUser/owner-account/owner-account.component';
 
->>>>>>> c871649af8d6a3109a6e3f1dee155ef967d48e20
 
 
 @NgModule({
@@ -39,14 +36,11 @@ import { OwnerAccountComponent } from './accountUser/owner-account/owner-account
     EditGoodFormComponent,
     EstateAgentAccountComponent,
     FilterUsers,
-<<<<<<< HEAD
     EditGoodFormComponent,
     filterGoods,
-    CodeFormComponent
-=======
+    CodeFormComponent,
     ClientAccountComponent,
     OwnerAccountComponent
->>>>>>> c871649af8d6a3109a6e3f1dee155ef967d48e20
   ],
   imports: [
     BrowserModule,

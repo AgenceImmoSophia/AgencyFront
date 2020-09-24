@@ -40,15 +40,9 @@ export class GoodService {
     return this.http.delete<Good>(this.goodUrl + 'good/' + goodId);
   }
 
-<<<<<<< HEAD
-public editGood( good: Good, goodId: number){
-    return this.http.post<Good>(this.goodUrl + 'editGood/' + goodId, good, this.httpOptions).subscribe(value => console.log(value));
-  }
-=======
   public editGood( good: Good, goodId: number){
       return this.http.post<Good>(this.goodUrl + 'editGood/' + goodId, good, this.httpOptions).subscribe(value => console.log(value));
     }
->>>>>>> c871649af8d6a3109a6e3f1dee155ef967d48e20
 
 public generateCode (typeOfGood: TypeOfGood, price: number, status: Status, area: number){
    var code;
@@ -90,11 +84,11 @@ public generateCode (typeOfGood: TypeOfGood, price: number, status: Status, area
    }
 
 if(status.valueOf()==0){
-  thirdDigit=0;
-} else if(status.valueOf()==1){
   thirdDigit=1;
-} else if(status.valueOf()==2){
+} else if(status.valueOf()==1){
   thirdDigit=2;
+} else if(status.valueOf()==2){
+  thirdDigit=3;
 }
 
    if (area <= 10){
