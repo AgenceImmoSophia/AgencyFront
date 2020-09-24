@@ -17,13 +17,16 @@ import {Status} from '../../models/status';
 })
 export class SellFormComponent implements OnInit {
 
-good = new Good ();
-placeForm: FormGroup;
-address = new Address();
-public typeEnum = [];
-public typeEnumStatus = [];
-selectedType = TypeOfGood;
-selectedStatus = Status;
+  @Input()
+  goods: Good[];
+
+  good = new Good ();
+  placeForm: FormGroup;
+  address = new Address();
+  public typeEnum = [];
+  public typeEnumStatus = [];
+  selectedType = TypeOfGood;
+  selectedStatus = Status;
 
   constructor( private http: HttpClient, private fb: FormBuilder, private goodService: GoodService, private router: Router ) {
     this.typeEnum = Object.keys(this.selectedType).filter(k => typeof TypeOfGood[k as any] === 'string');
@@ -31,6 +34,7 @@ selectedStatus = Status;
   }
 
   ngOnInit(): void {
+    this.getListOfGoods();
     this.placeForm = this.fb.group({
       type: ['', Validators.required],
       status: ['', Validators.required],
@@ -59,9 +63,14 @@ selectedStatus = Status;
     placeForm.append('area', JSON.stringify(this.good.area));
     this.good.address = this.address;
     this.goodService.createGood(this.good);
-    console.warn(this.placeForm.value);
-    console.log(this.good);
-    console.log(this.address);
-    this.router.navigate(['/goods']);
+    this.redirect();
+  }
+
+  getListOfGoods(): void{
+    this.goodService.findAllGoods().subscribe(goods => this.goods = goods);
+  }
+
+  redirect(): void {
+    this.router.navigate(['/good_details/' + (this.goods.length + 1)]);
   }
 }
