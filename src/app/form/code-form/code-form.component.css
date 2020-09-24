@@ -1,0 +1,11 @@
+select{
+  border-radius: 3px;
+  border: white solid;
+}
+input{
+  border-radius: 3px;
+  border: white solid;
+}
+button{
+  border-radius: 3px;
+}

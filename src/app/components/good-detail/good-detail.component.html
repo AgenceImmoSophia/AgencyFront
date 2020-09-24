@@ -18,8 +18,8 @@
                 <p style="font-weight: bold; font-size: larger">{{good.price}} €</p>
               </div>
             </div>
-            <p class="card-text">Ici on pourra lire la description du bien.</p>
-            <p class="card-text"><small class="text-muted">En ligne depuis :</small></p>
+            <p class="card-text">Description</p>
+            <p class="card-text"><small class="text-muted">Online since :</small></p>
           </div>
         </div>
       </div>
@@ -31,14 +31,13 @@
     <h5 class="card-title ">Details</h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Type du bien : {{good.typeOfGood}}</li>
-    <li class="list-group-item">Ville : {{good.address.city}}</li>
-    <li class="list-group-item">Superficie : {{good.area}} m²</li>
-    <li class="list-group-item">Meublé : </li>
+    <li class="list-group-item">Type of good : {{good.typeOfGood}}</li>
+    <li class="list-group-item">City : {{good.address.city}}</li>
+    <li class="list-group-item">Area : {{good.area}} m²</li>
+    <li class="list-group-item">Furnished : </li>
   </ul>
   <a [routerLink]="['/editGood/',good.id]"><button class="btn btn-dark" style="display: block; margin: 0 auto;">Edit</button></a>
 </div>
-
-  <footer>&copy;Agency of SA</footer>
-
+<footer>&copy;Agency of SA</footer>
 </body>
+

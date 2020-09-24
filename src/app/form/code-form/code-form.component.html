@@ -23,7 +23,7 @@
 
       <div class="col-sm">
         <select formControlName="status">
-          <option value="" disabled> Choose a status</option>
+          <option value="" disabled> Choose a state</option>
           <option *ngFor="let key of status" [value]="key"
           [label]="typeEnumStatus[key]"></option>
         </select>
@@ -41,8 +41,8 @@
         Area is required !
       </div>
 
-      <div class="col-sm">
-        <button class="button" type="submit" >Search</button>
+      <div>
+        <button class="button btn-primary" type="submit" >Search</button>
       </div>
 
     </div>

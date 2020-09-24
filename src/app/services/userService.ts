@@ -12,7 +12,7 @@ import { Owner } from '../models/owner';
 )
 
 export class UserService {
-  private userUrl = 'http://localhost:8080/AgencyBack/users/';
+  private userUrl = 'http://localhost:8080/users/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
