@@ -13,7 +13,7 @@ import {Good} from '../models/good';
 )
 
 export class UserService {
-  private userUrl = 'http://localhost:8080/';
+  private userUrl = 'http://localhost:8080/users/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };

@@ -1,9 +1,9 @@
 <body>
 
-<app-navbar></app-navbar>
+<app-navbar></app-navbar><br>
 
 <section id="form">
-
+<h2 class="col text-center"> Sell a good</h2>
   <div>
     <div class="container" >
       <div class="row">
@@ -11,36 +11,38 @@
       <form class="col text-center" method="post" enctype="multipart/form-data" (ngSubmit)="onSubmit();placeForm.reset()"
       [formGroup]="placeForm">
       <div class="col text-center">
-
-
-      <div class="form-group">
-        <label for="type"> Type </label>
-        <br>
-        <select name="type" id="type" formControlName="type" [(ngModel)]="good.typeOfGood" >
-          <option *ngFor="let key of typeEnum" [value]="selectedType[key]"
-                  [label]="selectedType[key]"></option>
-        </select>
-        <div class="alert alert-danger"
-             *ngIf="placeForm.get('type').invalid && (placeForm.get('type').dirty || placeForm.get('type').touched)">
-          Choose a type
+        <div class="form-row">
+          <div class="col">
+            <div class="form-group">
+              <label for="type"> Type </label>
+              <br>
+              <select name="type" id="type" formControlName="type" [(ngModel)]="good.typeOfGood" >
+                <option *ngFor="let key of typeEnum" [value]="selectedType[key]"
+                        [label]="selectedType[key]"></option>
+              </select>
+              <div class="alert alert-danger"
+                   *ngIf="placeForm.get('type').invalid && (placeForm.get('type').dirty || placeForm.get('type').touched)">
+                Choose a type
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="status"> Status</label>
+              <br>
+              <select name="status" id="status" formControlName="status" [(ngModel)]="good.status">
+                <option *ngFor="let key of typeEnumStatus" [value]="selectedStatus[key]"
+                        [label]="selectedStatus[key]"></option>
+              </select>
+              <div class="alert alert-danger"
+                   *ngIf="placeForm.get('status').invalid && (placeForm.get('status').dirty || placeForm.get('status').touched)">
+                Status is required
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      </div>
 
-  <div class="form-group">
-    <label for="status"> Status</label>
-    <br>
-    <select name="status" id="status" formControlName="status" [(ngModel)]="good.status">
-      <option *ngFor="let key of typeEnumStatus" [value]="selectedStatus[key]"
-              [label]="selectedStatus[key]"></option>
-    </select>
-    <div class="alert alert-danger"
-         *ngIf="placeForm.get('status').invalid && (placeForm.get('status').dirty || placeForm.get('status').touched)">
-      Statu is required
-    </div>
-  </div>
-
-  <div class="form-group">
 
     <label for="name"> Place's name </label>
     <input type="text" class="form-control" name="name" id="name" formControlName="name" [(ngModel)]="good.nameOfGood">
@@ -48,6 +50,53 @@
      *ngIf="placeForm.get('name').invalid && (placeForm.get('name').dirty || placeForm.get('name').touched)">
   Name is required
 </div>
+    <div class="form-row">
+      <div class="col">
+        <label for="streetnumber"> Street number</label>
+        <input type="text" class="form-control" name="streetnumber" id="streetnumber" formControlName="streetnumber" [(ngModel)]="address.streetNber">
+        <div class="alert alert-danger"
+             *ngIf="placeForm.get('streetnumber').invalid && (placeForm.get('streetnumber').dirty || placeForm.get('streetnumber').touched)">
+          Street number is required
+        </div>
+      </div>
+      <div class="col">
+        <label for="street"> Street</label>
+        <input type="text" class="form-control" name="street" id="street" formControlName="street" [(ngModel)]="address.street">
+        <div class="alert alert-danger"
+             *ngIf="placeForm.get('street').invalid && (placeForm.get('street').dirty || placeForm.get('street').touched)">
+          Street name is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col">
+        <label for="zipcode">Zipcode </label>
+        <input type="text" class="form-control" name="zipcode" id="zipcode" formControlName="zipcode" [(ngModel)]="address.zipcode">
+        <div class="alert alert-danger"
+             *ngIf="placeForm.get('zipcode').invalid && (placeForm.get('zipcode').dirty || placeForm.get('zipcode').touched)">
+          Zipcode is required
+        </div>
+      </div>
+      <div class="col">
+        <label for="city"> City</label>
+        <input type="text" class="form-control" name="city" id="city" formControlName="city" [(ngModel)]="address.city">
+        <div class="alert alert-danger"
+             *ngIf="placeForm.get('city').invalid && (placeForm.get('city').dirty || placeForm.get('city').touched)">
+          City is required
+        </div>
+      </div>
+      <div class="col">
+        <label for="country"> Country</label>
+        <input type="text" class="form-control" name="country" id="country" formControlName="country" [(ngModel)]="address.country">
+        <div class="alert alert-danger"
+             *ngIf="placeForm.get('country').invalid && (placeForm.get('country').dirty || placeForm.get('country').touched)">
+          Country is required
+        </div>
+      </div>
+    </div>
+
+
 
   <!--  <label for="owner"> Your name</label>
     <input type="text" class="form-control" name="owner" id="owner" formControlName="owner" [(ngModel)]="owner.name">
@@ -56,61 +105,45 @@
       Your name is required
     </div> -->
 
-        <label for="city"> City</label>
-        <input type="text" class="form-control" name="city" id="city" formControlName="city" [(ngModel)]="address.city">
-        <div class="alert alert-danger"
-             *ngIf="placeForm.get('city').invalid && (placeForm.get('city').dirty || placeForm.get('city').touched)">
-          City is required
-        </div>
-
-        <label for="zipcode">Zipcode </label>
-        <input type="text" class="form-control" name="zipcode" id="zipcode" formControlName="zipcode" [(ngModel)]="address.zipcode">
-        <div class="alert alert-danger"
-             *ngIf="placeForm.get('zipcode').invalid && (placeForm.get('zipcode').dirty || placeForm.get('zipcode').touched)">
-          Zipcode is required
-        </div>
-
-        <label for="streetnumber"> Street number</label>
-        <input type="text" class="form-control" name="streetnumber" id="streetnumber" formControlName="streetnumber" [(ngModel)]="address.streetNber">
-        <div class="alert alert-danger"
-             *ngIf="placeForm.get('streetnumber').invalid && (placeForm.get('streetnumber').dirty || placeForm.get('streetnumber').touched)">
-          Street number is required
-        </div>
-
-          <label for="street"> Street</label>
-        <input type="text" class="form-control" name="street" id="street" formControlName="street" [(ngModel)]="address.street">
-        <div class="alert alert-danger"
-             *ngIf="placeForm.get('street').invalid && (placeForm.get('street').dirty || placeForm.get('street').touched)">
-          Street name is required
-        </div>
-
-
-        <label for="country"> Country</label>
-        <input type="text" class="form-control" name="country" id="country" formControlName="country" [(ngModel)]="address.country">
-        <div class="alert alert-danger"
-             *ngIf="placeForm.get('country').invalid && (placeForm.get('country').dirty || placeForm.get('country').touched)">
-          Country is required
-        </div>
-
+    <label for="area"> Area (m2)</label>
+    <input type="number" class="form-control" name="area" id="area" formControlName="area" step="0.01" [(ngModel)]="good.area">
+    <div class="alert alert-danger"
+         *ngIf="placeForm.get('area').invalid && (placeForm.get('area').dirty || placeForm.get('area').touched)">
+      Area is required
+    </div>
+    <div class="form-row">
+      <div class="col">
         <label for="price"> Price (€)</label>
         <input type="number" class="form-control" name="price" id="price" formControlName="price" step="0.01" [(ngModel)]="good.price">
         <div class="alert alert-danger"
              *ngIf="placeForm.get('price').invalid && (placeForm.get('price').dirty || placeForm.get('price').touched)">
           Price is required
         </div>
-
-        <label for="area"> Area (m2)</label>
-        <input type="number" class="form-control" name="area" id="area" formControlName="area" step="0.01" [(ngModel)]="good.area">
+      </div>
+      <div class="col">
+        <label for="deposit">Deposit (€)</label>
+        <input type="number" class="form-control" name="deposit" id="deposit" formControlName="deposit" [(ngModel)]="good.deposit">
         <div class="alert alert-danger"
-             *ngIf="placeForm.get('area').invalid && (placeForm.get('area').dirty || placeForm.get('area').touched)">
-          Area is required
+             *ngIf="placeForm.get('deposit').invalid && (placeForm.get('deposit').dirty || placeForm.get('deposit').touched)">
+          Deposit is required
         </div>
+      </div>
+    </div>
+    <label for="state">State of good</label>
+    <input type="text" class="form-control" name="state" id="state" formControlName="state"
+    placeholder="Perfect? Good? Needs refurbishment?..." [(ngModel)]="good.state">
+    <label for="description">Good description</label>
+    <textarea class="form-control" name="decription" id="description"
+    cols="30" rows="5" formControlName="description" placeholder="Please describe your good" [(ngModel)]="good.description"></textarea>
+    <label for="furnished">Furnishied?</label><br>
+    <select name="furnished" id="furnished" formControlName="furnished" [(ngModel)]="good.furnished" >
+      <option [value]="true">Furnished</option>
+      <option [value]="false">Unfurnished</option>
+    </select>
 
-  </div>
-    <div id="button" class="col text-center">
+    <div id="button" class="col text-center"><br>
       <button class="btn btn-primary" type="submit" > Sell</button>
-      <button class="btn badge-danger" type="reset"> Reset</button>
-
+      <button class="btn btn-danger" type="reset"> Reset</button>
     </div>
 </form>
 
