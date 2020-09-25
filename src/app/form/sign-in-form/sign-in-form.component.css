@@ -15,3 +15,6 @@ body {
   width: 100%;
   position: fixed;
 }
+p, label, h5{
+  color: white;
+}

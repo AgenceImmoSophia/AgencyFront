@@ -1,12 +1,15 @@
-<app-navbar></app-navbar><br>
-<html>
 <body>
 
-<div class="col text-center">
-<h2> You have put a wrong information, go back to Sign in and be careful to put your correct identifiers</h2>
+<app-navbar></app-navbar><br>
 
 
+
+<div class="centre">
+<h2> You have put a wrong information, go back to Sign in and be careful to put your correct identifiers</h2><br>
+  <div class="col text-center">
+  <button class="btn btn-primary" [routerLink]="'/sign-in'" > Go back</button>
+    <button class="btn btn-danger" [routerLink]="'/home'" > Home page</button>
 </div>
-</body>
-</html>
+</div>
 <footer class="col text-center">&copy;Agency of SA </footer>
+</body>
