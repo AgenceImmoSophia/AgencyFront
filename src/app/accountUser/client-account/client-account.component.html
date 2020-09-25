@@ -10,7 +10,7 @@
   <div class="card mb-3 mx-auto" style="max-width: 540px">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <!-- <img src="../../../resources/icons-avatar-user-profile.png" class="images"> -->
+        <img src="../../../resources/icons-avatar-user-profile.png" class="images">
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -35,8 +35,8 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Zipcode: {{client.address.zipcode}}</li>
-    <li class="list-group-item">Street: {{client.address.streetNber + ', ' + user.address.street}}</li>
-    <li class="list-group-item">Country : {{client.address.country}} m²</li>
+    <li class="list-group-item">Street: {{client.address.streetNber + ', ' + client.address.street}}</li>
+    <li class="list-group-item">Country : {{client.address.country}}</li>
   </ul>
   <a [routerLink]="['/editUser/',client.id]"><button class="btn btn-dark" style="display: block; margin: 0 auto;">Edit my Profile</button></a>
 </div>

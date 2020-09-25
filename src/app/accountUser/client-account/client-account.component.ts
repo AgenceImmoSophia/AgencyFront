@@ -7,7 +7,6 @@ import {PartialObserver} from 'rxjs';
 import {User} from '../../models/user';
 
 
-
 @Component({
   selector: 'app-client-account',
   templateUrl: './client-account.component.html',
@@ -24,8 +23,8 @@ export class ClientAccountComponent implements OnInit {
 
   ngOnInit(): void {
     this.idInUrl();
+    this.getClient();
   }
-
 
   public idInUrl(): number {
     var url = window.location.href;
