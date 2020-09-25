@@ -1,14 +1,15 @@
 <body>
 
 <app-navbar></app-navbar>
+<br>
 <div id="searchForm">
-  <h4 class="text-center" style="font-weight: bold; font-size: 2.2rem">SEARCH FILTER</h4><br>
+  <h3 class="text-center" style="font-weight: bold; font-size: 2.2rem">Your Research</h3>
+  <br>
 <app-code-form></app-code-form>
 </div>
-
 <div class="container-md">
   <div class="card-body mb-3 mx-auto">
-    <h4 class="text-center" style="font-weight: bold; font-size: 2.2rem">LIST OF GOODS</h4><br>
+    <h3 class="text-center" style="font-weight: bold; font-size: 2.2rem">List of Goods</h3><br>
       <table class="table table-hover">
         <thead class="thead-dark text-center">
           <tr>
@@ -16,6 +17,7 @@
             <th scope="col">Name</th>
             <th scope="col">Type</th>
             <th scope="col">Price</th>
+            <th scope="col">State</th>
             <th scope="col">Address</th>
             <th scope="col">Area</th>
           </tr>
@@ -26,6 +28,7 @@
             <td><a class="alert-link" [routerLink]="['/good_details/',good.id]">{{ good.nameOfGood }}</a></td>
             <td>{{ good.typeOfGood }}</td>
             <td style="font-weight: bold">{{ good.price }} €</td>
+            <td>{{good.status}}</td>
             <td>{{ good.address.country + ', ' + good.address.city + ', ' + good.address.streetNber + ' ' + good.address.street}}</td>
             <td>{{ good.area }} m²</td>
             <td>

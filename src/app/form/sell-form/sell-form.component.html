@@ -1,9 +1,9 @@
 <body>
 
-<app-navbar></app-navbar>
+<app-navbar></app-navbar><br>
 
 <section id="form">
-
+<h2 class="col text-center"> Sell a good</h2>
   <div>
     <div class="container" >
       <div class="row">
@@ -132,18 +132,18 @@
     <label for="state">State of good</label>
     <input type="text" class="form-control" name="state" id="state" formControlName="state"
     placeholder="Perfect? Good? Needs refurbishment?..." [(ngModel)]="good.state">
-    <label for="decription">Good description</label>
+    <label for="description">Good description</label>
     <textarea class="form-control" name="decription" id="description"
     cols="30" rows="5" formControlName="description" placeholder="Please describe your good" [(ngModel)]="good.description"></textarea>
-    <label for="furnished">Furnishied?</label>
+    <label for="furnished">Furnishied?</label><br>
     <select name="furnished" id="furnished" formControlName="furnished" [(ngModel)]="good.furnished" >
       <option [value]="true">Furnished</option>
       <option [value]="false">Unfurnished</option>
     </select>
 
-    <div id="button" class="col text-center">
+    <div id="button" class="col text-center"><br>
       <button class="btn btn-primary" type="submit" > Sell</button>
-      <button class="btn btn-dark" type="reset"> Reset</button>
+      <button class="btn btn-danger" type="reset"> Reset</button>
     </div>
 </form>
 
