@@ -1,0 +1,26 @@
+<body>
+
+<app-navbar></app-navbar>
+
+<div class="container-md">
+  <div class="card-body mb-3 mx-auto">
+      <table class="table">
+        <thead class="thead-dark text-center">
+          <tr>
+            <th scope="col-6">Good Name</th>
+            <th scope="col-6">Interested Clients</th>
+          </tr>
+        </thead>
+        <tbody class="tableBody">
+          <tr class="parent" *ngFor="let good of goods, let i = index">
+            <td>{{ good.nameOfGood }}</td>
+            <td><p class="inner" *ngFor="let client of listOfInterestedClients[i], let j = index">{{ listOfInterestedClients[i][j].name }}</p></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
+
+<footer>&copy;Agency of SA</footer>
+
+</body>

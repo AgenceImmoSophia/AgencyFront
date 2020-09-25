@@ -6,6 +6,7 @@ import { EstateAgent } from '../models/estateAgent';
 import { Client } from '../models/client';
 import { EstateAgentAccountComponent } from '../accountUser/estate-agent-account/estate-agent-account.component';
 import { Owner } from '../models/owner';
+import { Good } from '../models/good';
 
 @Injectable(
   {providedIn: 'root'}
@@ -64,5 +65,9 @@ export class UserService {
 
   public deleteUserById(userId: number) {
     return this.http.delete<User>(this.userUrl + 'delete/' + userId, this.httpOptions);
+  }
+
+  public findClientsInterestedInGood(good: Good): Observable<Client[]>{
+    return this.http.get<Client[]>(this.userUrl + 'findClientsInterestedInGood/' + good.id, this.httpOptions);
   }
 }

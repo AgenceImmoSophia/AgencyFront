@@ -11,6 +11,7 @@ import { EditGoodFormComponent } from './form/edit-good-form/edit-good-form.comp
 import { EstateAgentAccountComponent } from './accountUser/estate-agent-account/estate-agent-account.component';
 import { ClientAccountComponent } from './accountUser/client-account/client-account.component';
 import { OwnerAccountComponent } from './accountUser/owner-account/owner-account.component';
+import { FindClientsInterestedInGoodComponent } from './accountUser/estate-agent-account/find-clients-interested-in-good/find-clients-interested-in-good.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'estateAgentAccount/:id', component: EstateAgentAccountComponent},
   { path: 'clientAccount/:id', component: ClientAccountComponent},
   { path: 'ownerAccount/:id', component: OwnerAccountComponent},
+  { path: 'estateAgent/findClients', component: FindClientsInterestedInGoodComponent},
 ];
 
 @NgModule({

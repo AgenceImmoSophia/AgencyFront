@@ -45,14 +45,14 @@ export class SignInFormComponent implements OnInit {
     this.typeofUser = this.formSignIn1.value.typeUser;
   }
 
-  getAgent():any{
-    return this.userService.findEstateAgentByUsername(this.formSignIn2.value.username).subscribe(value => 
+  getAgent(): any{
+    return this.userService.findEstateAgentByUsername(this.formSignIn2.value.username).subscribe(value =>
       {this.estateAgent = value;
     });
   }
 
-  getClient():any{
-    return this.userService.findClientById(this.formSignIn2.value.id).subscribe(value => 
+  getClient(): any{
+    return this.userService.findClientById(this.formSignIn2.value.id).subscribe(value =>
       {this.client = value;
     });
   }

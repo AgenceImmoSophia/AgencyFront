@@ -1,1 +1,24 @@
-<p>estate-agent-account works!</p>
+<!doctype html>
+<html>
+<body>
+
+<app-navbar></app-navbar>
+
+<div class="jumbotron">
+  <h1 class="display-6 headJumbotron typewriter">Welcome, {{ estateAgent.name }} !</h1>
+  <h2 class="display-4 headJumbotron typewriter2">What would you like to do ? </h2>
+  <hr class="my-4">
+  <div class = "parent">
+  	<ul>
+	    <li><p><span class="left">Access your contracts &nbsp; </span><span class="right"><a routerLink="/sell"><button class="btn btn-danger">Go</button> </a></span></p></li>
+		<li><p><span class="left">Access your visits &nbsp; </span><span class="right"><a routerLink="/sell"><button class="btn btn-danger">Go</button> </a></span></p></li>
+		<li><p><span class="left">Find new clients &nbsp; </span><span class="right"><a routerLink="/estateAgent/findClients"><button class="btn btn-danger">Go</button> </a></span></p></li>
+	</ul>
+  </div>
+</div>
+
+<footer>&copy;Agency of SA</footer>
+
+</body>
+
+</html>
