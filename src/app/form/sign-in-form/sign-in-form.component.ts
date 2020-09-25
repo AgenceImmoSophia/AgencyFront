@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import{ FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormControl} from '@angular/forms';
 import { UserService } from '../../services/userService';
 import { User } from '../../models/user';
@@ -23,19 +23,19 @@ export class SignInFormComponent implements OnInit {
   typeofUser: number;
   formSignIn1: FormGroup;
   formSignIn2: FormGroup;
-  
 
-  constructor(private http: HttpClient, private fb: FormBuilder, private userService: UserService, private router: Router) { 
+
+  constructor(private http: HttpClient, private fb: FormBuilder, private userService: UserService, private router: Router) {
     this.formSignIn1 = this.fb.group ({
       typeUser: ['', Validators.required]
     }),
     this.formSignIn2 = this.fb.group ({
       username: '',
-      password: '', 
+      password: '',
       id: '',
       name: ''
     }),
-    this.typeofUser = 0
+    this.typeofUser = 0;
   }
 
   ngOnInit(): void {
@@ -45,20 +45,20 @@ export class SignInFormComponent implements OnInit {
     this.typeofUser = this.formSignIn1.value.typeUser;
   }
 
-  getAgent():any{
-    return this.userService.findEstateAgentByUsername(this.formSignIn2.value.username).subscribe(value => 
+  getAgent(): any{
+    return this.userService.findEstateAgentByUsername(this.formSignIn2.value.username).subscribe(value =>
       {this.estateAgent = value;
     });
   }
 
-  getClient():any{
-    return this.userService.findClientById(this.formSignIn2.value.id).subscribe(value => 
+  getClient(): any{
+    return this.userService.findClientById(this.formSignIn2.value.id).subscribe(value =>
       {this.client = value;
     });
   }
 
-  getOwner():any{
-    return this.userService.findOwnerById(this.formSignIn2.value.id).subscribe(value => 
+  getOwner(): any{
+    return this.userService.findOwnerById(this.formSignIn2.value.id).subscribe(value =>
       {this.owner = value;
     });
   }
@@ -71,7 +71,7 @@ export class SignInFormComponent implements OnInit {
       }
       else {
         this.typeofUser = 0;
-        // TODO: Put a message when password is wrong 
+        // TODO: Put a message when password is wrong
         this.router.navigate(['/sign-in']);
       }
     }
@@ -96,7 +96,7 @@ export class SignInFormComponent implements OnInit {
       }
       else {
         this.typeofUser = 0;
-        // TODO: Put a message when password is wrong 
+        // TODO: Put a message when password is wrong
         this.router.navigate(['/sign-in']);
       }
     }

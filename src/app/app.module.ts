@@ -17,9 +17,7 @@ import { EstateAgentAccountComponent } from './accountUser/estate-agent-account/
 import { ClientAccountComponent } from './accountUser/client-account/client-account.component';
 import { OwnerAccountComponent } from './accountUser/owner-account/owner-account.component';
 import { SignUpComponent } from './form/sign-up/sign-up.component';
-
-
-
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +34,8 @@ import { SignUpComponent } from './form/sign-up/sign-up.component';
     FilterUsers,
     ClientAccountComponent,
     OwnerAccountComponent,
-    SignUpComponent
+    SignUpComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
