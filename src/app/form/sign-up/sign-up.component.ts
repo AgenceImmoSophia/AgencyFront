@@ -95,7 +95,6 @@ export class SignUpComponent implements OnInit {
       this.roleUrl= "/clientAccount/";
       this.redirect();
     }
-    this.router.navigateByUrl('/home');
   }
 
   submitRole(): void {
