@@ -1,14 +1,15 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild, AfterViewInit, AfterViewChecked, DoCheck} from '@angular/core';
 import {Good} from '../../models/good';
 import {GoodService} from '../../services/goodService';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import { CodeFormComponent } from 'src/app/form/code-form/code-form.component';
 
 @Component({
   selector: 'app-good-list',
   templateUrl: './good-list.component.html',
   styleUrls: ['./good-list.component.css']
 })
-export class GoodListComponent implements OnInit {
+export class GoodListComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
   @Input()
   good: Good;
@@ -16,10 +17,30 @@ export class GoodListComponent implements OnInit {
   @Input()
   goods: Good[];
 
-  constructor(private goodService: GoodService, private route: ActivatedRoute) { }
+  code;
+  changeDetected;
+
+  @ViewChild(CodeFormComponent) codeform: CodeFormComponent;
+
+
+  constructor(private goodService: GoodService, private route: Router) { }
+
 
   ngOnInit(): void {
     this.displayListOfGoods();
+  }
+
+  ngAfterViewInit(): void {
+    this.code = this.codeform.code;
+    console.log('ViewChecked ' + this.code);
+  }
+
+  ngAfterViewChecked(): void{
+    if(this.code !== this.codeform.code){
+      this.changeDetected = true;
+      this.code = this.codeform.code;
+    }
+    this.changeDetected = false;
   }
 
   public displayListOfGoods(): void {
@@ -30,5 +51,6 @@ export class GoodListComponent implements OnInit {
   public onDelete(goodId: number): void {
     this.goodService.deleteGoodById(goodId).subscribe((result => this.displayListOfGoods()),
       error => console.error('There are an error', error));
+    alert('good with id = ' + goodId + ' has been successfully deleted');
   }
 }

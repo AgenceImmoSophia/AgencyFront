@@ -1,0 +1,26 @@
+body{
+  background: url("src/resources/home_image.jpg") no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+footer{
+  bottom: 0;
+  position: absolute;
+
+}
+h2{
+  font-style: italic;
+  color: red;
+}
+.centre {
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  width: 1500px;
+  height: 200px;
+  margin-left: -100px; /* Cette valeur doit être la moitié négative de la valeur du width */
+  margin-top: -100px;
+}

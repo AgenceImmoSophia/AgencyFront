@@ -2,6 +2,8 @@ body {
   background: url("src/resources/home_image.jpg") no-repeat;
   background-size: cover;
   height: 100%;
+  width: 100%;
+  position: fixed;
 }
 
 .jumbotron {
@@ -63,4 +65,9 @@ footer {
   font-weight: bold;
   font-size: 1.2em;
   font-family: "JetBrains Mono";
+  position: absolute;
+  bottom: 0;
+}
+h1{
+  font-style: italic;
 }

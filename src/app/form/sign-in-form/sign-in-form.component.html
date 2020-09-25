@@ -1,11 +1,13 @@
 <body>
     <app-navbar></app-navbar>
+<br>
 
     <section id="form-sign-in">
 
-        <form class="col text-center" id="chooseTypeUser" [formGroup]="formSignIn1" method="post" 
+        <form class="col text-center" id="chooseTypeUser" [formGroup]="formSignIn1" method="post"
         enctype="application/x-www-form-urlencoded"  (ngSubmit)="OnSubmit();formSignIn1.reset()" >
-            <p>Select what type of user you are:</p>
+
+          <h4>Select what type of user you are:</h4><br>
             <div class="form-group">
                 <div>
                     <input type="radio" id="typeUser" name="typeUser" value="1" formControlName="typeUser">
@@ -21,16 +23,18 @@
                 </div>
             </div>
             <div id="button" class="col text-center">
-                <button class="btn btn-primary" type="submit" > Continuer</button>
-                <button class="btn btn-secondary" type="reset"> Reset</button>
+                <button class="btn btn-primary" type="submit" > Continue</button>
+                <button class="btn btn-danger" type="reset"> Reset</button>
               </div>
         </form> <br>
+<div class="container">
+  <div class="row">
 
-        <form class="col text-center" id="sign-in-user" [formGroup]="formSignIn2" method="post" 
+        <form class="col text-center" id="sign-in-user" [formGroup]="formSignIn2" method="post"
         enctype="application/x-www-form-urlencoded" (ngSubmit)="OnSubmit2();formSignIn2.reset()">
             <div *ngIf="typeofUser == 1">
                 <p>Hello dear estate agent</p>
-                <p>Please enter your informations</p>
+                <h5>Please enter your informations</h5>
 
                 <label for="username"> Username</label>
                 <input type="text" class="form-control" placeholder="Enter your username" name="username" id="username" formControlName="username" (change)="getAgent()" required>
@@ -44,16 +48,16 @@
                 <div class="alert alert-danger"
                         *ngIf="formSignIn2.get('password').invalid && (formSignIn2.get('password').dirty || formSignIn2.get('password').touched)">
                         Your password is required
-                </div>
+                </div><br>
                 <div id="button" class="col text-center">
                     <button class="btn btn-primary" type="submit" > Connexion</button>
-                    <button class="btn btn-secondary" type="reset"> Reset</button>
+                    <button class="btn btn-danger" type="reset"> Reset</button>
                 </div>
             </div>
 
             <div *ngIf="typeofUser == 2">
                 <p>Hello dear client</p>
-                <p>Please enter your informations</p>
+                <h5>Please enter your informations</h5>
 
                 <label for="id"> ID</label>
                 <input type="text" class="form-control" placeholder="Enter your id (number) of user" name="id" id="id" formControlName="id" (change)="getClient()" required>
@@ -68,39 +72,47 @@
                         *ngIf="formSignIn2.get('name').invalid && (formSignIn2.get('name').dirty || formSignIn2.get('name').touched)">
                         Your name is required
                 </div>
+
+              <br>
                 <div id="button" class="col text-center">
                     <button class="btn btn-primary" type="submit"> Connexion</button>
-                    <button class="btn btn-secondary" type="reset"> Reset</button>
+                    <button class="btn btn-danger" type="reset"> Reset</button>
                 </div>
             </div>
 
 
             <div *ngIf="typeofUser == 3">
                 <p>Hello dear owner</p>
-                <p>Please enter your informations</p>
+                <h5>Please enter your informations</h5>
 
                 <label for="id"> ID</label>
                 <input type="text" class="form-control" placeholder="Enter your id (number) of user" name="id" id="id" formControlName="id" (change)="getOwner()" required>
+
                 <div class="alert alert-danger"
                         *ngIf="formSignIn2.get('id').invalid && (formSignIn2.get('id').dirty || formSignIn2.get('id').touched)">
                         Your ID is required
                 </div>
 
                 <label for="name"> Name</label>
-                <input type="text" class="form-control" placeholder="Enter your name" name="name" id="name" formControlName="name" required>
+                <input type="text" class="form-control" placeholder="Enter your name" name="name" id="name" formControlName="name" required >
+                <p *ngIf="formSignIn2.value('name') !== owner.name"> Your name is wrong</p>
                 <div class="alert alert-danger"
                         *ngIf="formSignIn2.get('name').invalid && (formSignIn2.get('name').dirty || formSignIn2.get('name').touched)">
                         Your name is required
                 </div>
+              <br>
                 <div id="button" class="col text-center">
                     <button class="btn btn-primary" type="submit"> Connexion</button>
-                    <button class="btn btn-secondary" type="reset"> Reset</button>
+                    <button class="btn btn-danger" type="reset"> Reset</button>
                 </div>
             </div>
-        </form> 
+        </form>
+</div>
+</div>
     </section>
 
-</body>
-<footer class="col text-center">&copy;Agency of SA</footer>
 
+
+<footer class="col text-center">&copy;Agency of SA</footer>
+</body>
 

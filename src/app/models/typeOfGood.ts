@@ -1,5 +1,5 @@
 export enum TypeOfGood {
-  HOUSE,
+  HOUSE = 1,
   APARTMENT,
   STUDIO,
   STORAGE,

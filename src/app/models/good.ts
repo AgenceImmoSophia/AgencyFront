@@ -12,8 +12,12 @@ export class Good {
   price: number;
   address: Address;
   area: number;
-
+  deposit: number;
+  code: string;
+  state: string;
+  description: string;
   owner: Owner;
+  furnished: string;
 
 
   constructor(){}

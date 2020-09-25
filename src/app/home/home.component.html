@@ -1,29 +1,23 @@
-<!doctype html>
-<html>
+
 <body>
 
 <app-navbar></app-navbar>
+<br>
+<br>
+<h1 class="col text-center"> Welcome to the Sophia Antipolis agency </h1>
+
 
 <div class="jumbotron">
   <h3 class="display-6 headJumbotron typewriter">What are you looking for ?</h3>
   <div>
     <div class="btn-group btn-group-toggle btnGroup" data-toggle="buttons">
-      <label class="btn btn-danger active">
-       <input type="radio" name="options" id="option1" checked> ACHETER
-      </label>
-      <label class="btn btn-danger">
-        <input type="radio" name="options" id="option2"> LOUER
-      </label>
-      <a routerLink="/sell"><button class="btn btn-danger">VENDRE</button> </a>  <!-- redirection car je n'ai pas reussi autrement -->
+        <a routerLink="/goods"><button class="btn btn-danger">BUY / RENT</button> </a>
+      <a routerLink="/sell"><button class="btn btn-danger">SELL</button> </a>  <!-- redirection car je n'ai pas reussi autrement -->
     </div>
-  <hr class="my-4">
-  <p>Ici les 3 différents formulaires...</p>
-  <a class="btn btn-secondary btn-sm" role="button">Search</a>
   </div>
 </div>
-
-<footer>&copy;Agency of SA</footer>
+<br>
+<footer class="col text-center">&copy;Agency of SA</footer>
 
 </body>
 
-</html>

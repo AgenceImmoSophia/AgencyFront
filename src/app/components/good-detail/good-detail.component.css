@@ -45,3 +45,14 @@ footer {
   font-size: 1.2em;
   font-family: "JetBrains Mono";
 }
+
+#coeur {
+  color: palevioletred;
+  font-size: 35px;
+
+}
+
+button#coeur{
+  border: none;
+  background: none;
+}
