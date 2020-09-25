@@ -27,8 +27,7 @@ export class GoodListComponent implements OnInit, AfterViewInit, AfterViewChecke
 
   owner = new Owner();
 
-  @Input() 
-  client: Client;
+  client = new Client();
 
   roleUser: string;
 
@@ -60,20 +59,10 @@ export class GoodListComponent implements OnInit, AfterViewInit, AfterViewChecke
     this.roleUser = this.roleInUrl();
     if (this.idUser != null || this.idUser == "") {
       if ( this.roleUser == "owner") {
-        this.owner = this.getOwner(this.idUser);
-        if ( this.owner != null) {
-          this.goodService.findGoodsByOwnerId(this.idUser).subscribe((goods => this.goods = goods), 
-          error => console.error('There is an error', error))
-        } 
+        this.getOwner(this.idUser);
       } 
       else if (this.roleUser == "client") {
-        this.client = this.getClient(this.idUser);
-        console.log(this.client);
-        if ( this.client != null) {
-          
-          this.goods = this.client.listDesiredGoods;
-          console.log(this.client.listDesiredGoods);
-        } 
+        this.getClient(this.idUser);
       }     
     }
     else {
@@ -114,13 +103,20 @@ export class GoodListComponent implements OnInit, AfterViewInit, AfterViewChecke
   getOwner(idUser):any{
     return this.userService.findOwnerById(idUser).subscribe(value => 
       {this.owner = value;
+        if ( this.owner != null) {
+          this.goodService.findGoodsByOwnerId(this.idUser).subscribe((goods => this.goods = goods), 
+          error => console.error('There is an error', error))
+        } 
     });
   }
 
   getClient(idUser):any{
     return this.userService.findClientById(idUser).subscribe(value => 
       {this.client = value;
-    }), console.log(this.client);
+        if ( this.client != null) {
+          this.goods = this.client.listDesiredGood;
+        }; 
+    });
   }
 
 }
