@@ -14,6 +14,7 @@ import { ClientAccountComponent } from './accountUser/client-account/client-acco
 import { OwnerAccountComponent } from './accountUser/owner-account/owner-account.component';
 import {EditClientAccountComponent} from './accountUser/edit-client-account/edit-client-account.component';
 import {ErrormessageComponent} from './errormessage/errormessage.component';
+import { FindClientsInterestedInGoodComponent } from './accountUser/estate-agent-account/find-clients-interested-in-good/find-clients-interested-in-good.component';
 
 
 const routes: Routes = [
@@ -33,7 +34,8 @@ const routes: Routes = [
   { path: 'clientAccount/:id', component: ClientAccountComponent},
   { path: 'ownerAccount/:id', component: OwnerAccountComponent},
   { path: 'editUser/:id', component: EditClientAccountComponent},
-  { path: 'error', component: ErrormessageComponent}
+  { path: 'error', component: ErrormessageComponent},
+  { path: 'estateAgent/findClients', component: FindClientsInterestedInGoodComponent}
 ];
 
 @NgModule({

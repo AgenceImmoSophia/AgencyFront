@@ -1,0 +1,67 @@
+body {
+  background: url("src/resources/home_image.jpg") no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+table {
+	overflow-x:scroll;
+}
+
+table td { 
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	border-bottom: 1px solid white;
+	border-top: 1px solid white;
+}
+
+.logoHome {
+  margin: 2px 20px;
+  height: 40px;
+  width: 40px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.nav-item {
+  margin: 1px 8px;
+  font-size: 1.1em;
+}
+
+.container-md {
+  margin-top: 90px;
+  margin-bottom: 150px;
+}
+
+.thead-dark {
+  font-size: 1.1rem;
+  padding: 8px 15px;
+}
+
+.tableBody{
+	font-style: italic;
+	font-size: 1.2em;
+	text-align: center;
+	color: white;
+	background-color: grey;
+}
+
+.parent{
+	text-align: left;
+}
+
+.inner{
+	display:list-item;
+    list-style:disc inside;;
+}
+
+footer {
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2em;
+  font-family: "JetBrains Mono";
+}
