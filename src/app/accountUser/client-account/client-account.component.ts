@@ -5,6 +5,8 @@ import {Address} from '../../models/address';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {PartialObserver} from 'rxjs';
 import {User} from '../../models/user';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,21 +16,29 @@ import {User} from '../../models/user';
 })
 export class ClientAccountComponent implements OnInit {
 
+  idUser: number;
+
   @Input()
   client: Client;
-  users: User[];
-  user: User;
-  address: Address;
 
-  constructor(private userService: UserService, private route: ActivatedRoute) {}
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    // this.users.forEach((c: User) => {
-    //   if (this.user.role === 'Client' && c.id === this.route.snapshot.params.id) {
-    //     this.user = c;
-    //   }
-    // });
-    // this.getClient();
+    this.idInUrl();
+  }
+
+
+  public idInUrl(): number {
+    var url = window.location.href;
+    var match = url.match(/\d+$/);
+    if (match != null) {
+      var iduser = Number(match[0]);
+    }
+    return this.idUser = iduser;
+  }
+
+  public changePageList() {
+    this.router.navigate(['goods/client/' + (this.idUser)]);
   }
 
   getClient(): void {
