@@ -26,11 +26,11 @@ public typeEnumStatus = [];
 selectedType = TypeOfGood;
 selectedStatus = Status;
 
-  constructor( private http: HttpClient, 
-    private fb: FormBuilder, 
-    private goodService: GoodService, 
+  constructor( private http: HttpClient,
+    private fb: FormBuilder,
+    private goodService: GoodService,
     private router: Router,
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     private location: Location ) {
     this.typeEnum = Object.keys(this.selectedType).filter(k => typeof TypeOfGood[k as any] === 'string');
     this.typeEnumStatus = Object.keys(this.selectedStatus).filter(k => typeof Status [k as any] === 'string');
@@ -49,6 +49,10 @@ selectedStatus = Status;
       country: ['', Validators.required],
       price: ['', Validators.required],
       area: ['', Validators.required],
+      deposit: ['', Validators.required],
+      state: '',
+      description: '',
+      furnished: ''
     });
   }
 
@@ -64,6 +68,11 @@ selectedStatus = Status;
     placeForm.append('country', this.good.address.country);
     placeForm.append('price', JSON.stringify( this.good.price));
     placeForm.append('area', JSON.stringify(this.good.area));
+    placeForm.append('deposit', JSON.stringify(this.good.deposit));
+    placeForm.append('description', this.good.description);
+    placeForm.append('state', this.good.state);
+    placeForm.append('furnished', this.good.furnished);
+
     this.goodService.editGood(this.good, this.good.id);
     this.router.navigate(['/good_details/' + (this.good.id)]);
   }

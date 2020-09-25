@@ -14,8 +14,10 @@ export class Good {
   area: number;
   deposit: number;
   code: string;
-
+  state: string;
+  description: string;
   owner: Owner;
+  furnished: string;
 
 
   constructor(){}

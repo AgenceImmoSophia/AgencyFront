@@ -19,3 +19,22 @@ body {
   margin: 1px 8px;
   font-size: 1.1em;
 }
+
+.typeOfContract{
+  color: red;
+}
+input{
+  border-radius: 3px;
+  border: solid white;
+}
+select{
+  border-radius: 3px;
+  border: solid white;
+}
+.formContract{
+  color: white;
+}
+h2{
+  font-style: italic;
+}
+
