@@ -2,4 +2,44 @@
     <app-navbar></app-navbar>
     
     <h5><a (click)="changePageList()">Access my owned goods</a></h5>
+
+    <div id="ownerInfosTitle">
+        <h4 class="text-center" style="font-weight: bold; font-size: 2.2rem">Account informations</h4><br>
+      </div>
+      
+      <div class="container">
+        <div class="card mb-3 mx-auto" style="max-width: 540px">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <!-- <h5 class="card-title">{{owner.name}}</h5> -->
+                  </div>
+                  <div class="col text-right">
+                    <!-- <p style="font-weight: bold; font-size: larger">{{owner.phoneNumberPers}}</p> -->
+                  </div>
+                </div>
+                <!-- <p class="card-text">{{owner.address.city}}</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-3 mx-auto oneGood">
+        <div class="card-header">
+          <h5 class="card-title ">Owner Details</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <!-- <li class="list-group-item">Zipcode: {{owner.address.zipcode}}</li> -->
+          <!-- <li class="list-group-item">Street: {{owner.address.streetNber + ', ' + user.address.street}}</li> -->
+          <!-- <li class="list-group-item">Country : {{owner.address.country}} m²</li> -->
+        </ul>
+        <!-- <a [routerLink]="['/editUser/',owner.id]"><button class="btn btn-dark" style="display: block; margin: 0 auto;">Edit my Profile</button></a> -->
+      </div>
+      
+      <footer>&copy;Agency of SA</footer>
 </body>
