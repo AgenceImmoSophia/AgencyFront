@@ -1,6 +1,7 @@
 <body>
-
+  
 <app-navbar></app-navbar>
+
 <div id="searchForm">
   <h4 class="text-center" style="font-weight: bold; font-size: 2.2rem">SEARCH FILTER</h4><br>
 <app-code-form></app-code-form>
@@ -21,7 +22,7 @@
           </tr>
         </thead>
         <tbody class="text-center" style="color: white">
-          <tr *ngFor="let good of goods|filterGoods: code">
+          <tr id="idUser" *ngFor="let good of goods|filterGoods: code">
             <td>{{ good.id }}</td>
             <td><a class="alert-link" [routerLink]="['/good_details/',good.id]">{{ good.nameOfGood }}</a></td>
             <td>{{ good.typeOfGood }}</td>

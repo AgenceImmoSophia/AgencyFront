@@ -27,6 +27,11 @@ export class GoodService {
     return this.http.get<Good>(url);
   }
 
+  public findGoodsByOwnerId(ownerID: number): Observable<Good[]> {
+    const urlOwner = `${this.goodUrl}goods/${ownerID}`
+    return this.http.get<Good[]>(urlOwner)
+  } 
+
   public createGood(good: Good){
     return this.http.post<Good>(this.goodUrl + 'good', good, this.httpOptions).subscribe(value => {
       console.log(value); });
