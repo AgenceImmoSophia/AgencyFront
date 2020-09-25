@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {User} from '../../models/user';
 import {Owner} from '../../models/owner';
 import {EstateAgent} from '../../models/estateAgent';
@@ -16,6 +16,9 @@ import {Router} from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
 
+  @Input()
+  users: User[];
+
   user = new User();
   owner = new Owner();
   agent = new EstateAgent();
@@ -25,6 +28,8 @@ export class SignUpComponent implements OnInit {
   roleForm: FormGroup;
   ownerForm: FormGroup;
   agentForm: FormGroup;
+
+  roleUrl: string;
 
   constructor(private http: HttpClient, private fb: FormBuilder, private userService: UserService, private router: Router) {
     this.roleForm = this.fb.group({
@@ -45,6 +50,7 @@ export class SignUpComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.userService.findAllUsers().subscribe(users => {this.users = users, console.log(this.users)});
   }
 
   onSubmit(): void{
@@ -66,6 +72,8 @@ export class SignUpComponent implements OnInit {
       this.owner.address = this.user.address;
       userForm.append('phoneNumberPro', this.owner.phoneNumberPro);
       this.userService.createUser(this.owner);
+      this.roleUrl= "/ownerAccount/";
+      this.redirect();
     }
     else if (this.user.role === 'EstateAgent') {
       this.agent.role = this.user.role;
@@ -75,7 +83,8 @@ export class SignUpComponent implements OnInit {
       userForm.append('username', this.agent.username);
       userForm.append('password', this.agent.password);
       this.userService.createUser(this.agent);
-      console.log('agent' + this.agent);
+      this.roleUrl= "/estateAgentAccount/";
+      this.redirect();
     }
     else if (this.user.role === 'Client') {
       this.client.role = this.user.role;
@@ -83,8 +92,8 @@ export class SignUpComponent implements OnInit {
       this.client.phoneNumberPers = this.user.phoneNumberPers;
       this.client.address = this.user.address;
       this.userService.createUser(this.client);
-      console.log('client id= ' + this.user.id);
-      this.router.navigate(['/clientAccount/' + this.user.id]);
+      this.roleUrl= "/clientAccount/";
+      this.redirect();
     }
     this.router.navigateByUrl('/home');
   }
@@ -92,5 +101,9 @@ export class SignUpComponent implements OnInit {
   submitRole(): void {
     const roleForm = new FormData();
     roleForm.append('role', this.user.role);
+  }
+
+  redirect(): any{
+      this.router.navigate([this.roleUrl + (this.users.length+1)]);
   }
 }

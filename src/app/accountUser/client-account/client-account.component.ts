@@ -23,12 +23,12 @@ export class ClientAccountComponent implements OnInit {
   constructor(private userService: UserService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.users.forEach((c: User) => {
-      if (this.user.role === 'Client' && c.id === this.route.snapshot.params.id) {
-        this.user = c;
-      }
-    });
-    this.getClient();
+    // this.users.forEach((c: User) => {
+    //   if (this.user.role === 'Client' && c.id === this.route.snapshot.params.id) {
+    //     this.user = c;
+    //   }
+    // });
+    // this.getClient();
   }
 
   getClient(): void {

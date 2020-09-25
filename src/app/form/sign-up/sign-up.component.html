@@ -15,7 +15,7 @@
     <option value="EstateAgent"> Agent</option>
   </select>
  <!--  <button type="submit" > Submit </button> -->
-</form>
+</form >
 
     <label for="name"> Name </label><br>
     <input  id="name" name="name"  formControlName="name" [(ngModel)]="user.name"><br>
@@ -55,7 +55,7 @@
 <br>
 
   <div id="button" class="col text-center">
-    <button class="btn btn-primary" type="submit" [routerLink]="['/user" ]> Sign up</button>
+    <button class="btn btn-primary" type="submit" (click)="onSubmit()"> Sign up</button>
     <button class="btn badge-danger" type="reset"> Reset</button>
 
   </div>
