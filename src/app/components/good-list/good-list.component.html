@@ -2,6 +2,7 @@
 
 <app-navbar></app-navbar>
 <br>
+
 <div id="searchForm">
   <h3 class="text-center" style="font-weight: bold; font-size: 2.2rem">Your Research</h3>
   <br>
@@ -23,7 +24,7 @@
           </tr>
         </thead>
         <tbody class="text-center" style="color: white">
-          <tr *ngFor="let good of goods|filterGoods: code">
+          <tr id="idUser" *ngFor="let good of goods|filterGoods: code">
             <td>{{ good.id }}</td>
             <td><a class="alert-link" [routerLink]="['/good_details/',good.id]">{{ good.nameOfGood }}</a></td>
             <td>{{ good.typeOfGood }}</td>

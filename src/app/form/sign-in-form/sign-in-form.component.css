@@ -4,3 +4,17 @@ h5{
 h4{
   font-style: italic;
 }
+footer{
+  position: fixed;
+  bottom: 0;
+}
+body {
+  background: url("src/resources/home_image.jpg") no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+p, label, h5{
+  color: white;
+}

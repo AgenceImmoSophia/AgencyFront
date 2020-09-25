@@ -86,6 +86,7 @@ export class SignUpComponent implements OnInit {
       console.log('client id= ' + this.user.id);
       this.router.navigate(['/clientAccount/' + this.user.id]);
     }
+    this.router.navigateByUrl('/home');
   }
 
   submitRole(): void {
