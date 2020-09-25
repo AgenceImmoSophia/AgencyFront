@@ -19,6 +19,9 @@ import { EstateAgentAccountComponent } from './accountUser/estate-agent-account/
 import { ClientAccountComponent } from './accountUser/client-account/client-account.component';
 import { OwnerAccountComponent } from './accountUser/owner-account/owner-account.component';
 import { SignUpComponent } from './form/sign-up/sign-up.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ErrormessageComponent } from './errormessage/errormessage.component';
+
 
 
 @NgModule({
@@ -39,14 +42,17 @@ import { SignUpComponent } from './form/sign-up/sign-up.component';
     CodeFormComponent,
     ClientAccountComponent,
     OwnerAccountComponent,
-    SignUpComponent
+    SignUpComponent,
+    ErrormessageComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
