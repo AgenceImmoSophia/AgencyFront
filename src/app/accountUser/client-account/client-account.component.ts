@@ -4,6 +4,7 @@ import {UserService} from '../../services/userService';
 import {Address} from '../../models/address';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {PartialObserver} from 'rxjs';
+import {User} from '../../models/user';
 
 
 @Component({
@@ -15,22 +16,24 @@ export class ClientAccountComponent implements OnInit {
 
   @Input()
   client: Client;
-  clientId: number;
+  users: User[];
+  user: User;
   address: Address;
 
-  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private userService: UserService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.users.forEach((c: User) => {
+      if (this.user.role === 'Client' && c.id === this.route.snapshot.params.id) {
+        this.user = c;
+      }
+    });
     this.getClient();
   }
 
   getClient(): void {
-    this.client.id = +this.route.params.subscribe((this.param: Params) => {
-      this.client.id = +param['clientId'];
-      console.log(id)
-    }
-    this.userService.findClientById(this.client.id).subscribe(client => {this.client = client;
-    console.log(this.client);
-    });
+    this.userService.findClientById(this.user.id).subscribe(user => {this.user = user;
+    console.log('Id found is : ' + this.user.id); });
   }
-}
+  }
+
