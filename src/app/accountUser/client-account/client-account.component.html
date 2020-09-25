@@ -10,19 +10,19 @@
   <div class="card mb-3 mx-auto" style="max-width: 540px">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <!-- <img src="../../../resources/icons-avatar-user-profile.png" class="images"> -->
+        <img src="../../../resources/icons-avatar-user-profile.png" class="images">
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <div class="row">
             <div class="col">
-              <!-- <h5 class="card-title">{{user.name}}</h5> -->
+              <h5 class="card-title">{{client.name}}</h5>
             </div>
             <div class="col text-right">
-              <!-- <p style="font-weight: bold; font-size: larger">{{user.phoneNumberPers}}</p> -->
+              <p style="font-weight: bold; font-size: larger">{{client.phoneNumberPers}}</p>
             </div>
           </div>
-          <!-- <p class="card-text">{{user.address.city}}</p> -->
+          <p class="card-text">{{client.address.city}}</p>
         </div>
       </div>
     </div>
@@ -34,11 +34,11 @@
     <h5 class="card-title ">Client Details</h5>
   </div>
   <ul class="list-group list-group-flush">
-    <!-- <li class="list-group-item">Zipcode: {{user.address.zipcode}}</li> -->
-    <!-- <li class="list-group-item">Street: {{user.address.streetNber + ', ' + user.address.street}}</li> -->
-    <!-- <li class="list-group-item">Country : {{user.address.country}} m²</li> -->
+    <li class="list-group-item">Zipcode: {{client.address.zipcode}}</li>
+    <li class="list-group-item">Street: {{client.address.streetNber + ', ' + user.address.street}}</li>
+    <li class="list-group-item">Country : {{client.address.country}} m²</li>
   </ul>
-  <a [routerLink]="['/editUser/',user.id]"><button class="btn btn-dark" style="display: block; margin: 0 auto;">Edit my Profile</button></a>
+  <a [routerLink]="['/editUser/',client.id]"><button class="btn btn-dark" style="display: block; margin: 0 auto;">Edit my Profile</button></a>
 </div>
 
 <footer>&copy;Agency of SA</footer>
