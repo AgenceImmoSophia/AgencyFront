@@ -21,16 +21,16 @@ export class NavbarComponent implements OnInit {
       .subscribe(users => {
         this.users = users;
       });
-    this.isSignedIn();
+    // this.isSignedIn();
   }
 
   signOut() {
     this.authService.signOut();
   }
 
-  isSignedIn() {
-    this.isAuthenticated = this.authService.isSignIn();
-    return this.isAuthenticated;
-  }
+  // isSignedIn() {
+  //   this.isAuthenticated = this.authService.isSignIn();
+  //   return this.isAuthenticated;
+  // }
 
 }

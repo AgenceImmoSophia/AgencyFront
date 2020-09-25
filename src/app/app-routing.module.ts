@@ -15,6 +15,9 @@ import { OwnerAccountComponent } from './accountUser/owner-account/owner-account
 import {EditClientAccountComponent} from './accountUser/edit-client-account/edit-client-account.component';
 import {ErrormessageComponent} from './errormessage/errormessage.component';
 import { FindClientsInterestedInGoodComponent } from './accountUser/estate-agent-account/find-clients-interested-in-good/find-clients-interested-in-good.component';
+import {VisitListComponent} from './components/visit-list/visit-list.component';
+import {FormVisitComponent} from './form/form-visit/form-visit.component';
+import {EditGoodFormComponent} from './form/edit-good-form/edit-good-form.component';
 
 
 const routes: Routes = [
@@ -35,7 +38,11 @@ const routes: Routes = [
   { path: 'ownerAccount/:id', component: OwnerAccountComponent},
   { path: 'editUser/:id', component: EditClientAccountComponent},
   { path: 'error', component: ErrormessageComponent},
-  { path: 'estateAgent/findClients', component: FindClientsInterestedInGoodComponent}
+  { path: 'estateAgent/findClients', component: FindClientsInterestedInGoodComponent},
+  { path: 'visits', component: VisitListComponent},
+  { path: 'visitForm', component: FormVisitComponent },
+  { path: 'sell', component: SellFormComponent },
+  { path: 'editGood/:id', component: EditGoodFormComponent},
 ];
 
 @NgModule({

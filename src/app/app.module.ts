@@ -23,6 +23,10 @@ import { EditClientAccountComponent } from './accountUser/edit-client-account/ed
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrormessageComponent } from './errormessage/errormessage.component';
 import { FindClientsInterestedInGoodComponent } from './accountUser/estate-agent-account/find-clients-interested-in-good/find-clients-interested-in-good.component';
+import { FilterUsers } from './pipes/filterUsers';
+import { EditGoodFormComponent } from './form/edit-good-form/edit-good-form.component';
+import { FormVisitComponent } from './form/form-visit/form-visit.component';
+import { VisitListComponent } from './components/visit-list/visit-list.component';
 
 
 
@@ -48,7 +52,11 @@ import { FindClientsInterestedInGoodComponent } from './accountUser/estate-agent
     SignUpComponent,
     EditClientAccountComponent,
     ErrormessageComponent,
-    FindClientsInterestedInGoodComponent
+    FindClientsInterestedInGoodComponent,
+    FilterUsers,
+    EditGoodFormComponent,
+    FormVisitComponent,
+    VisitListComponent
   ],
   imports: [
     BrowserModule,

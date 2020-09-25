@@ -1,0 +1,67 @@
+<body>
+
+<app-navbar></app-navbar>
+
+<section>
+  <div class="container-md text-center">
+    <div class="row">
+      <form class="col text-center" method="post" enctype="multipart/form-data"
+      (ngSubmit)="onSubmit()"
+      [formGroup]="formVisit">
+        <div class="col text-center">
+          <div class="form-group">
+            <label for="dateOfVisit">Date: </label>
+            <input id="dateOfVisit" type="date" formControlName="dateOfVisit">
+
+          </div>
+
+          <div class="form-group">
+            <label for="agentId">ID of the agent: </label>
+            <select id="agentId" formControlName="agentId" (change)="getAgent()">
+              <option *ngFor="let agent of users|filterUsers: 'EstateAgent'" [ngValue]="agent.id">
+                {{agent.id}}: {{agent.name}}
+              </option>
+            </select>
+
+          </div>
+
+          <div class="form-group">
+            <label for="goodId">ID of the good: </label>
+            <select id="goodId" formControlName="goodId" (change)="getGood()">
+              <option *ngFor="let good of goods" [ngValue]="good.id">
+                {{good.id}}: {{good.nameOfGood}}
+              </option>
+            </select>
+
+          </div>
+
+          <div class="form-group">
+            <label for="clientId">ID of the client: </label>
+            <select id="clientId" formControlName="clientId" (change)="getClient()">
+              <option *ngFor="let client of users|filterUsers:'Client'" [ngValue]="client.id">
+                {{client.id}}: {{client.name}}
+              </option>
+            </select>
+
+          </div>
+        </div>
+
+        <div>
+          <button class="btn btn-primary" type="submit">Create</button>
+          <button class="btn btn-secondary" type="reset">Reset</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<footer>&copy;Agency of SA</footer>
+
+</body>
+
+
