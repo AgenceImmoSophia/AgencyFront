@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-account',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientAccountComponent implements OnInit {
 
-  constructor() { }
+  idUser: number; 
+
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
+    this.idInUrl();
+  }
+
+
+  public idInUrl(): number {
+    var url = window.location.href;
+    var match = url.match(/\d+$/);
+    if (match != null) {
+      var iduser = Number(match[0]);
+    }
+    return this.idUser = iduser;
+  }
+
+  public changePageList() {
+    this.router.navigate(['goods/client/' + (this.idUser)]);
   }
 
 }
