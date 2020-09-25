@@ -5,8 +5,7 @@ import {Address} from '../../models/address';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {PartialObserver} from 'rxjs';
 import {User} from '../../models/user';
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -21,7 +20,7 @@ export class ClientAccountComponent implements OnInit {
   @Input()
   client: Client;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.idInUrl();
