@@ -33,8 +33,7 @@ export class ClientAccountComponent implements OnInit {
 
   getClient(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.userService.findClientById(id).subscribe(user => {this.user = user;
-    console.log('Id found is : ' + this.user.id); });
+    this.userService.findClientById(id).subscribe(client => {this.client = client;
+    console.log('Id found is : ' + this.client.id); });
   }
   }
-
