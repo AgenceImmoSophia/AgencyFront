@@ -6,6 +6,18 @@
 <br>
 <h1 class="col text-center"> Welcome to the Sophia Antipolis agency </h1>
 
+<div class="card mt-4">
+  <h4 class="card-header">You're logged in !</h4>
+  <div class="card-body">
+    <h6>Users from secure api end point</h6>
+    <div *ngIf="loading"></div>
+    <ul *ngIf="users">
+      <li *ngFor="let user of users">{{user.name}}</li>
+    </ul>
+  </div>
+</div>
+
+
 
 <div class="jumbotron">
   <h3 class="display-6 headJumbotron typewriter">What are you looking for ?</h3>

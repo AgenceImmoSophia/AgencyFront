@@ -10,7 +10,7 @@ import { Status } from '../models/status';
 )
 
 export class GoodService {
-  private goodUrl = 'http://localhost:8080/';
+  private goodUrl = 'http://localhost:8080/AgencyBack/';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})

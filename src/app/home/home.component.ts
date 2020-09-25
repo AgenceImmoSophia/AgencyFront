@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from '../models/user';
+import {UserService} from '../services/userService';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  loading = false;
+  users: User[];
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.loading = true;
+    this.userService.findAllUsers().pipe(first()).subscribe(users => {
+      this.loading = false;
+      this.users = users;
+    });
   }
 
 }

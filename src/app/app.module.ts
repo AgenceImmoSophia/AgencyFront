@@ -4,14 +4,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GoodDetailComponent } from './components/good-detail/good-detail.component';
 import { GoodListComponent } from './components/good-list/good-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormContractComponent } from './form/form-contract/form-contract.component';
 import { HomeComponent} from './home/home.component';
 import { SellFormComponent} from './form/sell-form/sell-form.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignInFormComponent } from './form/sign-in-form/sign-in-form.component';
-import { SignInComponent } from './sign-in/sign-in.component';
 import { FilterUsers } from './pipes/filterUsers';
 import { EditGoodFormComponent } from './form/edit-good-form/edit-good-form.component';
 import { filterGoods } from './pipes/filterGoods';
@@ -22,9 +21,8 @@ import { OwnerAccountComponent } from './accountUser/owner-account/owner-account
 import { SignUpComponent } from './form/sign-up/sign-up.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrormessageComponent } from './errormessage/errormessage.component';
-
-
-
+import {JwtInterceptor} from './helpers/jwt.interceptor';
+import {ErrorInterceptor} from './helpers/error.interceptor';
 
 
 @NgModule({
@@ -37,8 +35,6 @@ import { ErrormessageComponent } from './errormessage/errormessage.component';
     SellFormComponent,
     SignInFormComponent,
     NavbarComponent,
-    SignInComponent,
-    EditGoodFormComponent,
     EstateAgentAccountComponent,
     FilterUsers,
     EditGoodFormComponent,
@@ -58,7 +54,10 @@ import { ErrormessageComponent } from './errormessage/errormessage.component';
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

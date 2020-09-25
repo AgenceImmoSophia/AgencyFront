@@ -8,6 +8,8 @@ export class User {
   address: Address;
   role: string;
 
+  password: string;
+
   constructor(){}
 
 }
