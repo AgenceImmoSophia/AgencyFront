@@ -71,7 +71,6 @@ export class SignInFormComponent implements OnInit {
       }
       else {
         this.typeofUser = 0;
-        // TODO: Put a message when password is wrong
         this.router.navigate(['/error']);
       }
     }
@@ -96,7 +95,6 @@ export class SignInFormComponent implements OnInit {
       }
       else {
         this.typeofUser = 0;
-        // TODO: Put a message when password is wrong
         this.router.navigate(['/error']);
       }
     }
