@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ClientGoodListComponent } from './client-good-list.component';
+import { EditClientAccountComponent } from './edit-client-account.component';
 
-describe('ClientGoodListComponent', () => {
-  let component: ClientGoodListComponent;
-  let fixture: ComponentFixture<ClientGoodListComponent>;
+describe('EditClientAccountComponent', () => {
+  let component: EditClientAccountComponent;
+  let fixture: ComponentFixture<EditClientAccountComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ClientGoodListComponent ]
+      declarations: [ EditClientAccountComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ClientGoodListComponent);
+    fixture = TestBed.createComponent(EditClientAccountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

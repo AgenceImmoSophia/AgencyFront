@@ -2,8 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Client} from '../../models/client';
 import {UserService} from '../../services/userService';
 import {Address} from '../../models/address';
-import {Good} from '../../models/good';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {PartialObserver} from 'rxjs';
+
 
 @Component({
   selector: 'app-client-account',
@@ -14,9 +15,8 @@ export class ClientAccountComponent implements OnInit {
 
   @Input()
   client: Client;
-
+  clientId: number;
   address: Address;
-  listDesiredGoods: Good[];
 
   constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) { }
 
@@ -24,14 +24,13 @@ export class ClientAccountComponent implements OnInit {
     this.getClient();
   }
 
-  getClient(): void{
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.userService.findClientById(id).subscribe(client => {this.client = client;
+  getClient(): void {
+    this.client.id = +this.route.params.subscribe((this.param: Params) => {
+      this.client.id = +param['clientId'];
+      console.log(id)
+    }
+    this.userService.findClientById(this.client.id).subscribe(client => {this.client = client;
     console.log(this.client);
     });
-  }
-
-  goDesiredList(): void {
-    this.router.navigate(['clientList']);
   }
 }

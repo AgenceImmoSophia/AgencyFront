@@ -6,38 +6,40 @@
   <h4 class="text-center" style="font-weight: bold; font-size: 2.2rem">Account informations</h4><br>
 </div>
 
-<div class="container-md" id="clientInfos">
-  <div class="card-body mb-3 mx-auto">
-    <table class="table table-hover">
-      <thead class="thead-dark text-center">
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Phone number</th>
-        <th scope="col">City</th>
-        <th scope="col">Zipcode</th>
-        <th scope="col">Street</th>
-        <th scope="col">Country</th>
-      </tr>
-      </thead>
-      <tbody class="text-center" style="color: black">
-      <tr>
-        <td>{{ client.name }}</td>
-        <td>{{ client.phoneNumberPers }}</td>
-        <td>{{ client.address.city }}</td>
-        <td>{{ client.address.zipcode }}</td>
-        <td>{{ client.address.streetNber + ', ' + client.address.street}}</td>
-        <td>{{ client.address.country }}</td>
-        <td>
-          <!--              <img src="resources/delete_good.png">-->
-        </td>
-      </tr>
-      </tbody>
-    </table>
+<div class="container">
+  <div class="card mb-3 mx-auto" style="max-width: 540px">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="../../../resources/téléchargement.jpg" class="images">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title">{{client.name}}</h5>
+            </div>
+            <div class="col text-right">
+              <p style="font-weight: bold; font-size: larger">{{client.phoneNumberPers}}</p>
+            </div>
+          </div>
+          <p class="card-text">{{client.address.city}}</p>
+          <p class="card-text"><small class="text-muted">Available since : </small></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<div id="listOfDesiredGood">
-  <button (click)="goDesiredList()">My List of Goods</button>
+<div class="card mb-3 mx-auto oneGood">
+  <div class="card-header">
+    <h5 class="card-title ">Client Details</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Zipcode: {{client.address.zipcode}}</li>
+    <li class="list-group-item">Street: {{client.address.streetNber + ', ' + client.address.street}}</li>
+    <li class="list-group-item">Country : {{client.address.country}} m²</li>
+  </ul>
+  <a [routerLink]="['/editUser/',client.id]"><button class="btn btn-dark" style="display: block; margin: 0 auto;">Edit my Profile</button></a>
 </div>
 
 <footer>&copy;Agency of SA</footer>

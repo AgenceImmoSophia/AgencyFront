@@ -7,6 +7,7 @@ import { Client } from '../models/client';
 import { EstateAgentAccountComponent } from '../accountUser/estate-agent-account/estate-agent-account.component';
 import { Owner } from '../models/owner';
 import {Good} from '../models/good';
+import {catchError, tap} from 'rxjs/operators';
 
 @Injectable(
   {providedIn: 'root'}
@@ -29,7 +30,8 @@ export class UserService {
   }
 
   public findClientById(userId: number): Observable<Client> {
-    return this.http.get<Client>(this.userUrl + userId);
+    const url = `${this.userUrl}${userId}`;
+    return this.http.get<Client>(url).pipe(tap(_ => console.log(`fetched client id=${userId}`)));
   }
 
   public findOwnerById(userId: number): Observable<Owner> {
